@@ -1,0 +1,33 @@
+@import "tailwindcss";
+
+body {
+  @apply bg-gradient-to-r from-[#F7F4EA] to-[#EBCB90] min-h-[100svh];
+  overflow: hidden;
+}
+
+.main-scrollable {
+  height: 100vh;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color:  #6D4300 transparent;
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spin-slow {
+  animation: spin-slow 6s linear infinite;
+}
+
+/* For Chrome autofill */
+input:-webkit-autofill,
+textarea:-webkit-autofill,
+select:-webkit-autofill { /* your input bg color */
+  transition: background-color 5000s ease-in-out; /* prevents flash */
+}
