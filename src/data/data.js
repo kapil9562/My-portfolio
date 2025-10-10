@@ -10,7 +10,7 @@ const projects = [
     technologies: ["React", "Tailwind CSS", "Framer Motion"],
     image:img,
     logo: logo,
-    live: "https://username-portfolio.vercel.app/",
+    live: "https://drive.google.com/file/d/1SWCQyHJOCwLOu88HCWVGF_y4JKtGMKKH/view?usp=sharing",
   },
   {
     id: 2,
@@ -20,7 +20,7 @@ const projects = [
     technologies: ["React", "Node.js", "Express", "MongoDB"],
     image:"https://cdn.prod.website-files.com/64830736e7f43d491d70ef30/64bfca46b1569eeda774403d_64a57f4512ee9430c0ea7cf8_64a2cf43ee15ed8228d585a0_Business_Model_Examples-Spotify.webp",
     logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Spotify_logo_without_text.svg/2048px-Spotify_logo_without_text.svg.png",
-    live: "https://username-portfolio.vercel.app/",
+    live: "https://noiseraft.onrender.com",
   },
   {
     id: 3,

@@ -4,6 +4,11 @@ import { fadeInLeft, fadeInRight, fadeInUp, navContainer } from "/src/animation"
 import projects from '/src/data/data.js'
 
 function Projects() {
+
+  const openProject = (link) => {
+    window.open(link, "_blank");
+  };
+
   return (
     <div className='transform-gpu'>
       <div className='justify-self-center items-center flex flex-col space-y-4 px-10'>
@@ -25,7 +30,7 @@ function Projects() {
           <motion.div
             variants={fadeInUp}
             key={idx}
-            className="max-w-sm bg-[#efdbb8] rounded-2xl shadow-2xl shadow-[#717171]">
+            className="max-w-sm bg-[#efdbb8] rounded-2xl shadow-2xl shadow-[#717171] hover:scale-105 transition-all duration-300 active:scale-95 transform-gpu will-change-transform" onClick={() => {openProject(project.live)}}>
             {/* Header */}
             <div className="bg-gradient-to-r from-[#efdbb8] to-[#f3eddc] rounded-2xl w-full aspect-square h-24 relative inset-shadow-sm inset-shadow-[#717171] transform-gpu will-change-contents">
               <img src={project.image} className='object-cover h-full w-full rounded-2xl' loading="eager"></img>
@@ -43,7 +48,11 @@ function Projects() {
 
               {/* View */}
               <div className="flex gap-3">
-                <button className="bg-[#6D4300] border-2 border-[#6D4300] text-white px-5 py-1.5 rounded-full font-semibold text-sm transform-gpu will-change-transform active:bg-transparent active:text-black transition-colors duration-200 hover:bg-[#915a02] shadow-md shadow-[#6D4300]/50">
+                <button className="bg-[#6D4300] border-2 border-[#6D4300] text-white px-5 py-1.5 rounded-full font-semibold text-sm transform-gpu will-change-transform active:bg-transparent active:text-black transition-colors duration-200 hover:bg-[#915a02] shadow-md shadow-[#6D4300]/50"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    openProject(project.live);
+                  }}>
                   View
                 </button>
               </div>
