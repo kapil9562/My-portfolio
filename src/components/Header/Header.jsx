@@ -10,7 +10,7 @@ function Header() {
   const tabs = ["/", "/about", "/skills", "/projects", "/experiences"];
 
   return (
-    <header className='sticky z-50 top-0'>
+    <header className='sticky z-100 top-0'>
       <nav className='flex-row flex justify-between px-5 py-2 md:px-20 lg:px-50 sm:py-5 bg-gradient-to-r from-[#F7F4EA]/50 to-[#EBCB90]/50 backdrop-blur-md'>
         <motion.div
           variants={fadeInLeft}
@@ -51,7 +51,7 @@ function Header() {
         </div>
         <ul className={`rounded-2xl absolute right-5 top-12 justify-center items-start text-[16px] flex flex-col text-white bg-[#6D4300] shadow-2xl z-20 w-50 sm:hidden ${isOpen ? "flex" : "hidden"}`}>
           {tabs.map((path, index) => (
-            <div className='w-full px-4  active:bg-[#815003] transition-colors duration-150 rounded-xl'>
+            <div className='w-full px-4  active:bg-[#815003] transition-colors duration-150 rounded-xl' key={index}>
               <li className="w-full cursor-pointer pt-2 pb-2 border-b-2 border-b-[#815003]">
                 <NavLink
                   to={path}

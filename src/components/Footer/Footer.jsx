@@ -21,7 +21,7 @@ const Footer = () => {
   const tabs = ["/", "/About", "/Skills", "/Projects", "/Experiences"];
 
   return (
-    <footer className="bg-[#432901] text-white py-10 px-5 md:px-20 shadow-2xl flex flex-col justify-center items-center">
+    <footer className="bg-[#432901] text-white py-10 px-5 md:px-20 shadow-2xl flex flex-col justify-center items-center z-100">
       <div className="w-full grid grid-cols-2 sm:grid-cols-3 gap-10 sm:text-left">
 
         {/* Contact Info */}

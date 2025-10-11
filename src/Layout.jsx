@@ -6,7 +6,7 @@ import Footer from './components/Footer/Footer'
 
 function Layout() {
   return (
-    <main className='main-scrollable transform-gpu will-change-scroll'>
+    <main className='main-scrollable transform-gpu will-change-scroll overflow-x-hidden'>
       <Header />
         <Outlet />
       <Footer />
