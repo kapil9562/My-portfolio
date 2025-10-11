@@ -14,7 +14,7 @@ function Projects() {
     const timer = setTimeout(() => {
       setLoader(false);
       setAnimate(true); // ✅ Trigger animations after loader ends
-    }, 3000);
+    }, 5000);
     return () => clearTimeout(timer);
   }, []);
 
