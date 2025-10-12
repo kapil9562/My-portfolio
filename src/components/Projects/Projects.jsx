@@ -25,7 +25,7 @@ function Projects() {
   return (
     <>
       {loader && (
-        <div className="fixed top-0 left-0 h-screen w-screen flex items-center justify-center backdrop-blur-xl z-50">
+        <div className="h-full w-full md:h-[90vh] flex items-center justify-center backdrop-blur-xl z-50">
           <Lottie
             animationData={loaderAnimation}
             loop={true}

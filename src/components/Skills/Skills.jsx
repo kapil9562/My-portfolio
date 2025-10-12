@@ -170,7 +170,7 @@ function Skills() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoader(false);
-      setAnimate(true); // ✅ Trigger animations after loader ends
+      setAnimate(true);
     }, 2000);
     return () => clearTimeout(timer);
   }, []);
@@ -178,7 +178,7 @@ function Skills() {
   return (
     <>
       {loader && (
-        <div className="fixed top-0 left-0 h-screen w-screen flex items-center justify-center backdrop-blur-xl z-50">
+        <div className="h-full w-full md:h-[90vh] flex items-center justify-center backdrop-blur-xl z-50">
           <Lottie
             loop
             animationData={loaderAnimation}
@@ -255,7 +255,7 @@ function Skills() {
             variants={fadeInLeft}
             initial="hidden"
             animate={animate ? "show" : "hidden"}>Professional Skills</motion.h1>
-          <div className="grid grid-cols-2 sm:grid-cols-4 justify-center">
+          <div className={animate?"grid grid-cols-2 sm:grid-cols-4 justify-center":"hidden"}>
             {skills.map((skill, idx) => (
               <SegmentedCircle key={idx} {...skill} />
             ))}

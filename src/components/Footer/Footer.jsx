@@ -28,9 +28,9 @@ const Footer = () => {
         <div className="font-bold">
           <h2 className="text-xl mb-4">Contact Me</h2>
           <p className="space-y-2 text-[16px] break-all whitespace-normal">
-            <p>Email: <a href="adhikarikapil389@gmail.com" className="hover:text-white font-semibold hover:underline">adhikarikapil389@gmail.com</a></p>
-            <p>Phone: <a href="tel:+918791029562" className="hover:text-white font-semibold hover:underline">+91-8791029562</a></p>
-            <p>Location: <p className="hover:text-white font-semibold">Almora, Uttarakhand, India</p></p>
+            <span>Email: <a href="adhikarikapil389@gmail.com" className="hover:text-white font-semibold hover:underline">adhikarikapil389@gmail.com</a></span>
+            <span>Phone: <a href="tel:+918791029562" className="hover:text-white font-semibold hover:underline">+91-8791029562</a></span>
+            <span>Location: <a className="hover:text-white font-semibold">Almora, Uttarakhand, India</a></span>
           </p>
         </div>
 
@@ -62,7 +62,7 @@ const Footer = () => {
             <div
               className="grid grid-cols-4 sm:grid-cols-2 md:grid-cols-4 gap-2 md:gap-8 lg:gap-2">
               {icons.map((item, idx) => (
-                <div className="h-8 w-8 sm:h-12 sm:w-12 rounded-full border-2 border-[#6D4300]
+                <div key={idx} className="h-8 w-8 sm:h-12 sm:w-12 rounded-full border-2 border-[#6D4300]
                  flex items-center justify-center text-white
                  hover:bg-[#6D4300] hover:scale-110 
                  transition-all duration-300 ease-in-out cursor-pointer active:text-white active:scale-95 active:bg-[#6D4300] active:duration-100"
