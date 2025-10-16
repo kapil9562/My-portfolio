@@ -13,13 +13,17 @@ function Projects() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoader(false);
-      setAnimate(true); // ✅ Trigger animations after loader ends
+      setAnimate(true);
     }, 5000);
     return () => clearTimeout(timer);
   }, []);
 
   const openProject = (link) => {
-    window.open(link, "_blank");
+    if (!link) return;
+    const newWindow = window.open(link, "_blank");
+    if (!newWindow) {
+      window.location.href = link;
+    }
   };
 
   return (
@@ -57,7 +61,7 @@ function Projects() {
             <motion.div
               variants={fadeInUp}
               key={idx}
-              >
+            >
               <div className="max-w-sm bg-[#efdbb8] rounded-2xl shadow-2xl shadow-[#717171] hover:scale-105 transition-all duration-300 active:scale-95 transform-gpu will-change-transform" onClick={() => { openProject(project.live) }}>
                 {/* Header */}
                 <div className="bg-gradient-to-r from-[#efdbb8] to-[#f3eddc] rounded-2xl w-full aspect-square h-24 relative inset-shadow-sm inset-shadow-[#717171] transform-gpu will-change-contents">
