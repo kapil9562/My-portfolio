@@ -10,7 +10,7 @@ const projects = [
     technologies: ["React", "Tailwind CSS", "Framer Motion"],
     image:img,
     logo: logo,
-    live: "https://drive.google.com/file/d/1SWCQyHJOCwLOu88HCWVGF_y4JKtGMKKH/view?usp=sharing",
+    live: "https://drive.google.com/uc?export=download&id=1SWCQyHJOCwLOu88HCWVGF_y4JKtGMKKH",
   },
   {
     id: 2,
