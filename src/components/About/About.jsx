@@ -9,16 +9,8 @@ import Lottie from "lottie-react";
 
 function About() {
 
-  const [loader, setLoader] = useState(true);
-  const [animate, setAnimate] = useState(false);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoader(false);
-      setAnimate(true); // ✅ Trigger animations after loader ends
-    }, 2000);
-    return () => clearTimeout(timer);
-  }, []);
+  const [loader, setLoader] = useState(false);
+  const [animate, setAnimate] = useState(true);
 
   const icons = [
     { icon: "fa-github", link: "https://github.com/kapil9562" },

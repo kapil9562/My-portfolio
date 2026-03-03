@@ -9,15 +9,11 @@ import Lottie from "lottie-react";
 
 function Home() {
 
-  const [loader, setLoader] = useState(true);
+  const [loader, setLoader] = useState(false);
   const [animate, setAnimate] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoader(false);
-      setAnimate(true); // ✅ Trigger animations after loader ends
-    }, 2000);
-    return () => clearTimeout(timer);
+    setAnimate(true);
   }, []);
 
   const icons = [
@@ -68,7 +64,7 @@ function Home() {
             variants={fadeInRight}
             initial="hidden"
             animate={animate ? "show" : "hidden"}
-          >Hey, I'm <span className='text-[#6D4300] font-bold [text-shadow:2px_2px_4px_#C1856D]'>Kapil</span></motion.h1>
+          >Hey, I'm <span className='text-[#6D4300] font-bold [text-shadow:2px_2px_4px_#C1856D]'></span></motion.h1>
 
           <motion.h2 className='text-2xl font-bold'
             variants={fadeInLeft}
@@ -76,7 +72,7 @@ function Home() {
             animate={animate ? "show" : "hidden"}
           >I'm{" "}<span className='text-[#6D4300] font-bold [text-shadow:2px_2px_4px_#C1856D]'>
               <ReactTyped
-                strings={["a Web Developer", "an App Developer", "a Frontend Developer"]}
+                strings={["a Full Stack Developer", "an App Developer"]}
                 typeSpeed={150}
                 backSpeed={100}
                 loop

@@ -7,16 +7,8 @@ import Lottie from "lottie-react";
 
 function Projects() {
 
-  const [loader, setLoader] = useState(true);
-  const [animate, setAnimate] = useState(false);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoader(false);
-      setAnimate(true);
-    }, 5000);
-    return () => clearTimeout(timer);
-  }, []);
+  const [loader, setLoader] = useState(false);
+  const [animate, setAnimate] = useState(true);
 
   const openProject = (link) => {
     if (!link) return;
@@ -62,9 +54,9 @@ function Projects() {
               variants={fadeInUp}
               key={idx}
             >
-              <div className="max-w-sm bg-[#efdbb8] rounded-2xl shadow-2xl shadow-[#717171] hover:scale-105 transition-all duration-300 active:scale-95 transform-gpu will-change-transform" onClick={() => { openProject(project.live) }}>
+              <div className=" bg-[#efdbb8] rounded-2xl shadow-2xl shadow-[#717171] hover:scale-105 transition-all duration-300 active:scale-95 transform-gpu will-change-transform" onClick={() => { openProject(project.live) }}>
                 {/* Header */}
-                <div className="bg-gradient-to-r from-[#efdbb8] to-[#f3eddc] rounded-2xl w-full aspect-square h-24 relative inset-shadow-sm inset-shadow-[#717171] transform-gpu will-change-contents">
+                <div className="bg-linear-to-r from-[#efdbb8] to-[#f3eddc] rounded-2xl w-full aspect-square h-50 relative inset-shadow-sm inset-shadow-[#717171] transform-gpu will-change-contents">
                   <img src={project.image} className='object-cover h-full w-full rounded-2xl' loading="eager"></img>
 
                   {/* Center circle icon */}
