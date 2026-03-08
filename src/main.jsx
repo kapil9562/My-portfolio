@@ -8,22 +8,17 @@ import Skills from './components/Skills/Skills.jsx';
 import Projects from './components/Projects/Projects.jsx';
 import Experiences from './components/Experiences/Experiences.jsx';
 import Contact from './components/Contact/Contact.jsx';
-import { HashRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter, Routes, Route, BrowserRouter } from 'react-router-dom';
 import "@fortawesome/fontawesome-free/css/all.min.css";
+import App from './App.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <HashRouter>
+    <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route path="about" element={<About />} />
-          <Route path="skills" element={<Skills />} />
-          <Route path="projects" element={<Projects />} />
-          <Route path="experiences" element={<Experiences />} />
-          <Route path="contact" element={<Contact />} />
+        <Route path="/" element={<App />}>
         </Route>
       </Routes>
-    </HashRouter>
+    </BrowserRouter>
   </StrictMode>
 );

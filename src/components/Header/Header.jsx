@@ -1,16 +1,47 @@
-import React, { useState } from 'react'
-import { Link, NavLink } from 'react-router-dom'
+import React, { useEffect, useState } from 'react'
+import { Link, NavLink, useLocation } from 'react-router-dom'
 import { motion } from "framer-motion";
 import { fadeInLeft, fadeInUp, navContainer } from "/src/animation";
 
 function Header() {
 
+  const location = useLocation();
+
   const [isOpen, setIsOpen] = useState(false);
   const MotionNavLink = motion.create(NavLink);
-  const tabs = ["/", "/about", "/skills", "/projects", "/experiences"];
+  const tabs = ["/#home", "/#about", "/#skills", "/#projects", "/#experiences"];
+
+  const [isActiveSec, setActiveSec] = useState("");
+
+  useEffect(() => {
+    location.hash === "/" ? setActiveSec("#home") : setActiveSec(location.hash);
+  }, [location.hash]);
+
+  useEffect(() => {
+  const sections = tabs.map((path) =>
+    document.getElementById(path.replace("/#", ""))
+  );
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const id = entry.target.id;
+          setActiveSec(`#${id}`);
+          window.history.replaceState(null, "", `/#${id}`);
+        }
+      });
+    },
+    { threshold: 0.6 }
+  );
+
+  sections.forEach((sec) => sec && observer.observe(sec));
+
+  return () => observer.disconnect();
+}, []);
 
   return (
-    <header className='sticky z-100 top-0'>
+    <header className='fixed w-full z-100 top-0'>
       <nav className='flex-row flex justify-between px-5 py-2 md:px-20 lg:px-50 sm:py-5 bg-gradient-to-r from-[#F7F4EA]/50 to-[#EBCB90]/50 backdrop-blur-md'>
         <motion.div
           variants={fadeInLeft}
@@ -28,18 +59,18 @@ function Header() {
           >
             {tabs.map((path, index) => (
               <motion.div key={index} variants={fadeInUp}>
-                <NavLink
-                  to={path}
-                  className={({ isActive }) =>
-                    `${isActive ? 'underline underline-offset-4 text-[#6D4300]' : 'relative inline-block after:absolute after:left-0 after:bottom-0 after:h-[2px] after:bg-black after:w-0 after:transition-all after:duration-500 hover:after:w-full'}`
+                <a
+                  href={path}
+                  className={
+                    `${isActiveSec === path.replace("/", "") ? 'underline underline-offset-4 text-[#6D4300]' : 'relative inline-block after:absolute after:left-0 after:bottom-0 after:h-0.5 after:bg-black after:w-0 after:transition-all after:duration-500 hover:after:w-full'}`
                   }
                 >
-                  {path === "/" ? "Home" : path.replace("/", "")}
-                </NavLink>
+                  {path.replace("/#", "")}
+                </a>
               </motion.div>
             ))}
           </motion.div>
-          <motion.div className='bg-[#6D4300] text-white p-1 px-3 rounded-2xl hover:bg-[#8B5E2A] cursor-pointer active:bg-transparent transition-all duration-100 active:font-semibold active:text-black border-2 border-[#6D4300] shadow-xl shadow-[#6D4300]/50'
+          <motion.div className='bg-[#6D4300] text-white p-1 px-3 rounded-2xl hover:bg-[#8B5E2A] cursor-pointer active:bg-transparent transition-colors duration-100 active:font-semibold active:text-black border-2 border-[#6D4300] shadow-xl shadow-[#6D4300]/50'
             variants={fadeInUp}
             initial="hidden"
             animate="show">
@@ -68,13 +99,13 @@ function Header() {
           ))}
           <div className='w-full px-4  active:bg-[#815003] transition-colors duration-150 rounded-xl'>
             <li className='w-full cursor-pointer pt-2 pb-2 py-1 border-b-2 border-b-[#815003]'>
-            <MotionNavLink
-              to='/contact'
-              className={({ isActive }) =>
-                `${isActive ? 'text-[#EBCB90]' : ''} block w-full h-full`
-              }>Contact Us
-            </MotionNavLink>
-          </li>
+              <MotionNavLink
+                to='/contact'
+                className={({ isActive }) =>
+                  `${isActive ? 'text-[#EBCB90]' : ''} block w-full h-full`
+                }>Contact Us
+              </MotionNavLink>
+            </li>
           </div>
         </ul>
 

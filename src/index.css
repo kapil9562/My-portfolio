@@ -1,8 +1,12 @@
 @import "tailwindcss";
 
 body {
-  @apply bg-gradient-to-r from-[#F7F4EA] to-[#EBCB90] min-h-[100svh];
-  overflow: hidden;
+  @apply bg-gradient-to-r from-[#F7F4EA] to-[#EBCB90] min-h-[100dvh];
+  overflow-x: hidden;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 .main-scrollable {
