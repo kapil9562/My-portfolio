@@ -7,59 +7,39 @@ import Home from './components/Home/Home'
 import Projects from './components/Projects/Projects'
 import Skills from './components/Skills/Skills'
 import './index.css'
-import { useEffect } from 'react'
-
-function useScrollHash() {
-  useEffect(() => {
-    const sections = document.querySelectorAll("section");
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const id = entry.target.id;
-            window.history.replaceState(null, "", `#${id}`);
-          }
-        });
-      },
-      {
-        threshold: 0.6
-      }
-    );
-
-    sections.forEach((section) => observer.observe(section));
-
-    return () => observer.disconnect();
-  }, []);
-}
+import FluidCursor from './utils/FluidCursor'
+import Journey from './components/Journey/Journey'
 
 
 function App() {
 
-  useScrollHash();
-
   return (
     <>
+      <FluidCursor />
       <div className='h-dvh'>
         <Header />
         <main>
-          <section id="home" className="scroll-mt-21 mt-21">
+          <section id="home" >
             <Home />
           </section>
 
-          <section id="about" className="scroll-mt-21">
+          <section id="about">
             <About />
           </section>
 
-          <section id="skills" className="scroll-mt-21">
+          <section id="journey">
+            <Journey />
+          </section>
+
+          <section id="skills">
             <Skills />
           </section>
 
-          <section id="projects" className="scroll-mt-21">
+          <section id="projects">
             <Projects />
           </section>
 
-          <section id="experiences" className="scroll-mt-21">
+          <section id="experiences">
             <Experiences />
           </section>
         </main>

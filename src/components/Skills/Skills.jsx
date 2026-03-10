@@ -3,7 +3,7 @@ import Lottie from "react-lottie-player";
 import animationData from "/src/assets/python.json";
 import loaderAnimation from "/src/assets/loader.json";
 import { motion } from "framer-motion";
-import { fadeInLeft, fadeInRight, fadeInUp, navContainer } from "/src/animation";
+import { fadeInLeft, fadeInRight, fadeInUp, Container } from "/src/animation";
 
 const logos = {
   HTML: "https://img.icons8.com/?size=100&id=20909&format=png&color=000000",
@@ -163,7 +163,7 @@ export default function Skills() {
 
           <motion.div
             className="grid grid-cols-4 md:grid-cols-5 xl:grid-cols-6 gap-6 p-6 justify-items-center"
-            variants={navContainer}
+            variants={Container}
             initial="hidden"
             whileInView="show"
             viewport={{ once: false }}

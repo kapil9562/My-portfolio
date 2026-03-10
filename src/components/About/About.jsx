@@ -2,19 +2,13 @@ import React, { useState } from "react";
 import { ReactTyped } from "react-typed";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import { motion } from "framer-motion";
-import { fadeInDown, fadeInLeft, fadeInRight, navContainer } from "/src/animation";
+import { fadeInDown, fadeInLeft, fadeInRight, Container } from "/src/animation";
 import loaderAnimation from "/src/assets/loader.json";
 import Lottie from "lottie-react";
 
 function About() {
 
   const [loader, setLoader] = useState(false);
-
-  const icons = [
-    { icon: "fa-github", link: "https://github.com/kapil9562" },
-    { icon: "fa-instagram", link: "https://www.instagram.com/kapil_art_official" },
-    { icon: "fa-linkedin", link: "https://www.linkedin.com/in/kapil9562" }
-  ];
 
   const handleClick = (url) => {
     setTimeout(() => {
@@ -38,46 +32,46 @@ function About() {
         </div>
       )}
 
-      <div className="flex flex-col md:flex-row pb-5 md:h-[90vh]">
+      <div className="flex flex-col md:flex-row pb-5 min-h-dvh pt-15">
 
         {/* LEFT SIDE */}
-        <div className="w-full md:w-[50%] p-2 flex flex-col items-center md:items-start justify-center space-y-4 text-center md:text-start lg:pl-40 md:pl-20">
+        <motion.div
+          className="w-full md:w-[50%] p-2 flex flex-col items-center md:items-start justify-center space-y-4 text-center md:text-start lg:pl-40 md:pl-20 transform-gpu will-change-transform"
+          variants={Container}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: false, amount: 0.4 }}
+        >
 
           <motion.h1
-            className="text-4xl font-bold"
-            variants={fadeInRight}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: false, amount: 0.4 }}
+            className="text-6xl font-bold text-white transform-gpu will-change-transform"
+            variants={fadeInLeft}
+            viewport={{ once: false }}
           >
             ABOUT{" "}
-            <span className="text-[#6D4300] font-bold [text-shadow:2px_2px_4px_#C1856D]">
+            <span className="bg-linear-to-r from-pink-500 to-orange-500 bg-clip-text text-transparent font-bold">
               Me
             </span>
           </motion.h1>
 
           <motion.h1
-            className="text-2xl font-bold"
+            className="text-4xl font-bold text-white transform-gpu will-change-transform"
             variants={fadeInLeft}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: false, amount: 0.4 }}
+            viewport={{ once: false }}
           >
             Hello! I'm{" "}
-            <span className="text-[#6D4300] font-bold [text-shadow:2px_2px_4px_#C1856D]">
+            <span className="font-bold bg-linear-to-r from-pink-500 to-orange-500 bg-clip-text text-transparent">
               Kapil,
             </span>
           </motion.h1>
 
           <motion.span
-            className="text-[#6D4300] [text-shadow:2px_2px_4px_#C1856D] text-2xl font-bold"
-            variants={fadeInRight}
-            initial="hidden"
-            whileInView="show"
+            className="bg-linear-to-r from-pink-500 to-orange-500 bg-clip-text text-transparent text-2xl font-bold transform-gpu will-change-transform"
+            variants={fadeInLeft}
             viewport={{ once: false }}
           >
             <ReactTyped
-              strings={["a Web Developer", "an App Developer", "a Frontend Developer"]}
+              strings={["a Full Stack Developer", "an App Developer"]}
               typeSpeed={150}
               backSpeed={100}
               loop
@@ -85,69 +79,37 @@ function About() {
           </motion.span>
 
           <motion.p
-            className="text-lg text-gray-700 leading-relaxed w-[90%]"
+            className="text-lg text-gray-400 leading-relaxed w-[90%] transform-gpu will-change-transform"
             variants={fadeInLeft}
-            initial="hidden"
-            whileInView="show"
             viewport={{ once: false }}
-            transition={{ duration: 0.8 }}
           >
-            Passionate about creating modern, responsive, and user-friendly
-            applications. I specialize in building scalable web apps, elegant
-            front-end designs, and efficient mobile experiences.
+            I turn complex problems into simple, intuitive solutions, building fast, smooth, and highly engaging user-friendly applications while exploring new technologies and best practices.
           </motion.p>
 
-          {/* SOCIAL ICONS */}
-          <motion.div
-            variants={navContainer}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: false }}
-            className="flex space-x-4"
-          >
-            {icons.map((item, idx) => (
-              <motion.div
-                variants={fadeInDown}
-                key={idx}
-                onClick={() => handleClick(item.link)}
-              >
-                <div
-                  className="h-12 w-12 rounded-full border-2 border-[#6D4300] flex items-center justify-center text-[#6D4300]
-                  hover:bg-[#6D4300] hover:text-white hover:scale-110
-                  transition-all duration-300 ease-in-out cursor-pointer
-                  active:text-white active:scale-95 active:bg-[#6D4300]"
-                >
-                  <i className={`fa-brands ${item.icon} text-2xl`}></i>
-                </div>
-              </motion.div>
-            ))}
-          </motion.div>
-
           <motion.button
-            className="px-4 py-2 bg-[#6D4300] text-white rounded-lg flex items-center gap-2
-            hover:bg-[#8B5E2A] cursor-pointer active:bg-transparent transition-all duration-100
-            active:font-semibold active:text-black border-2 border-[#6D4300]
-            shadow-xl shadow-[#6D4300]/50"
+            className="px-4 py-2 bg-linear-to-r from-pink-500 to-orange-500 text-white rounded-lg flex items-center gap-2
+            active:scale-95 cursor-pointer active:bg-transparent transition-[scale] will-change-transform duration-300 border-2 border-[#F83C90] transform-gpu will-change-transform"
             variants={fadeInLeft}
-            initial="hidden"
-            whileInView="show"
             viewport={{ once: false }}
           >
             Contact Us
           </motion.button>
 
-        </div>
+        </motion.div>
 
         {/* RIGHT SIDE */}
-        <div className="flex items-center justify-center w-full md:w-[50%] md:justify-start p-2 max-w-3xl">
+        <motion.div
+          className="flex items-center justify-center w-full md:w-[50%] md:justify-start p-2 max-w-3xl transform-gpu will-change-transform"
+          variants={Container}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: false, amount: 0.4 }}
+        >
 
           <motion.div
-            className="max-w-[80%] bg-[#f4eada] rounded-4xl mb-10 md:mb-0 shadow-2xl border-3 border-[#EBCB90] font-semibold space-y-4 px-10 overflow-hidden"
+            className="max-w-[80%] bg-[#f4eada] rounded-4xl mb-10 md:mb-0 shadow-2xl border-3 border-[#EBCB90] font-semibold space-y-4 px-10 overflow-hidden transform-gpu will-change-transform"
             variants={fadeInRight}
-            initial="hidden"
-            whileInView="show"
             viewport={{ once: false }}
-            transition={{ duration: 0.8 }}
           >
 
             <p className="pt-6">
@@ -174,7 +136,7 @@ function About() {
 
           </motion.div>
 
-        </div>
+        </motion.div>
 
       </div>
     </>

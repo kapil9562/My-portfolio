@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { motion } from "framer-motion";
-import { fadeInLeft, fadeInRight, fadeInUp, navContainer } from "/src/animation";
+import { fadeInLeft, fadeInRight, fadeInUp, Container } from "/src/animation";
 import projects from '/src/data/data.js'
 import loaderAnimation from "/src/assets/loader.json";
 import Lottie from "lottie-react";
@@ -64,7 +64,7 @@ function Projects() {
         <motion.div
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3
                gap-4 md:gap-8 p-10 justify-items-center md:px-20 px-10"
-          variants={navContainer}
+          variants={Container}
           initial="hidden"
           whileInView="show"
           viewport={{ once: false, amount: 0.15 }}

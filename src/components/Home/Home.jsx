@@ -7,7 +7,7 @@ import {
   fadeInLeft,
   fadeInRight,
   fadeInDown,
-  navContainer
+  Container
 } from "/src/animation";
 import loaderAnimation from "/src/assets/loader.json";
 import Lottie from "lottie-react";
@@ -38,11 +38,11 @@ function Home() {
         </div>
       )}
 
-      <div className="flex flex-col sm:flex-row pb-5 md:h-[90vh]">
+      <div className="flex flex-col md:flex-row pb-5 min-h-dvh pt-15">
 
         {/* IMAGE */}
         <motion.div
-          className="flex items-center justify-center w-full sm:w-[50%] p-2"
+          className="flex items-center justify-center w-full md:w-[50%] p-2 transform-gpu"
           variants={fadeInLeft}
           initial="hidden"
           whileInView="show"
@@ -51,7 +51,7 @@ function Home() {
           <motion.img
             src={pfp}
             alt="profile pic"
-            className="object-cover w-full lg:w-[70%]"
+            className="object-contain w-120 lg:w-[70%] transform-gpu"
             animate={{ y: [0, -15, 0] }}
             transition={{
               duration: 3,
@@ -62,30 +62,31 @@ function Home() {
         </motion.div>
 
         {/* TEXT */}
-        <div className="w-full sm:w-[50%] p-2 flex flex-col items-center sm:items-start justify-center space-y-4 text-center sm:text-start sm:pb-0 pb-10">
+        <motion.div
+          className="w-full md:w-[50%] p-2 flex flex-col items-center md:items-start justify-center space-y-4 text-center md:text-start md:pb-0 pb-10"
+          variants={Container}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: false, amount: 0.4 }}>
 
           <motion.h1
-            className="text-4xl font-bold"
+            className="text-4xl font-bold text-white transform-gpu"
             variants={fadeInRight}
-            initial="hidden"
-            whileInView="show"
             viewport={{ once: false }}
           >
             Hey, I'm{" "}
-            <span className="text-[#6D4300] font-bold [text-shadow:2px_2px_4px_#C1856D]">
+            <span className="text-5xl font-bold bg-gradient-to-r from-pink-500 to-orange-500 bg-clip-text text-transparent">
               Kapil
             </span>
           </motion.h1>
 
           <motion.h2
-            className="text-2xl font-bold"
-            variants={fadeInLeft}
-            initial="hidden"
-            whileInView="show"
+            className="text-2xl font-bold text-white transform-gpu"
+            variants={fadeInRight}
             viewport={{ once: false }}
           >
             I'm{" "}
-            <span className="text-[#6D4300] font-bold [text-shadow:2px_2px_4px_#C1856D]">
+            <span className="bg-gradient-to-r from-pink-500 to-orange-500 bg-clip-text text-transparent font-bold transform-gpu">
               <ReactTyped
                 strings={["a Full Stack Developer", "an App Developer"]}
                 typeSpeed={150}
@@ -96,11 +97,9 @@ function Home() {
           </motion.h2>
 
           <motion.p
-            className="text-lg text-gray-700 leading-relaxed w-[90%]"
-            initial={{ opacity: 0, y: 40 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            className="text-lg text-gray-400 leading-relaxed w-[90%] transform-gpu"
+            variants={fadeInRight}
             viewport={{ once: false }}
-            transition={{ duration: 0.8 }}
           >
             Passionate about creating modern, responsive, and user-friendly
             applications. I specialize in building scalable web apps, elegant
@@ -109,24 +108,23 @@ function Home() {
 
           {/* SOCIAL ICONS */}
           <motion.div
-            variants={navContainer}
-            initial="hidden"
-            whileInView="show"
+            variants={Container}
             viewport={{ once: false }}
-            className="flex space-x-4"
+            className="flex space-x-4 transform-gpu"
           >
             {icons.map((item, idx) => (
               <motion.div
                 key={idx}
-                variants={fadeInDown}
+                variants={fadeInRight}
                 onClick={() => handleClick(item.link)}
+                className="transform-gpu"
               >
                 <div
-                  className="h-12 w-12 rounded-full border-2 border-[#6D4300]
-                  flex items-center justify-center text-[#6D4300]
-                  hover:bg-[#6D4300] hover:text-white hover:scale-110
+                  className="h-12 w-12 rounded-full border-2 border-[#FC5464]
+                  flex items-center justify-center text-[#FC5464]
+                  hover:bg-[#FC5464] hover:text-white hover:-translate-y-1
                   transition-all duration-300 ease-in-out cursor-pointer
-                  active:text-white active:scale-95 active:bg-[#6D4300]"
+                  active:text-white active:scale-95 active:bg-[#FC5464]"
                 >
                   <i className={`fa-brands ${item.icon} text-2xl`}></i>
                 </div>
@@ -136,12 +134,9 @@ function Home() {
 
           {/* DOWNLOAD BUTTON */}
           <motion.button
-            className="px-4 py-2 bg-[#6D4300] text-white rounded-lg flex items-center gap-2
-            hover:bg-[#8B5E2A] cursor-pointer transition-colors duration-200
-            border-2 border-[#6D4300] shadow-xl shadow-[#6D4300]/50"
+            className="transform-gpu px-4 py-2 bg-linear-to-r from-pink-500 to-orange-500 text-white rounded-lg flex items-center gap-2 cursor-pointer transition-[scale] duration-300 active:scale-95 will-change-transform
+            border-2 border-[#F83C90] shadow-xl shadow-[#6D4300]/50"
             variants={fadeInRight}
-            initial="hidden"
-            whileInView="show"
             viewport={{ once: false }}
           >
             <i className="fas fa-download"></i>
@@ -151,7 +146,7 @@ function Home() {
             </a>
           </motion.button>
 
-        </div>
+        </motion.div>
 
       </div>
     </>

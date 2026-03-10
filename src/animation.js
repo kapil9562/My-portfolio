@@ -33,11 +33,16 @@ export const fadeInDiagonalDownRight = {
   show: { opacity: 1, x: 0, y: 0, transition: { duration: 0.7 } },
 };
 
-export const navContainer = {
+export const fadeIn = {
+  hidden: { opacity: 0 },
+  show: { opacity: 1, transition: { duration: 1 } },
+};
+
+export const Container = {
     hidden: {},
     show: {
         transition: {
-            staggerChildren: 0.1,
+            staggerChildren: 0.15,
         },
     },
 };

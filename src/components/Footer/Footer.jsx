@@ -1,7 +1,7 @@
 import React from "react";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import { motion } from "framer-motion";
-import { fadeInDown, fadeInLeft, fadeInRight, navContainer } from "/src/animation";
+import { fadeInDown, fadeInLeft, fadeInRight, Container } from "/src/animation";
 import { Link, NavLink } from "react-router-dom";
 
 const Footer = () => {
