@@ -109,7 +109,7 @@ function Projects() {
 
           {projects.map((project, idx) => (
 
-            <div className="card" key={idx} onClick={openProject(project.live)}>
+            <div className="card" key={idx} onClick={() => openProject(project.live)}>
 
               <h1 className='text-4xl font-sans w-fit flex justify-center items-center font-bold bg-linear-to-b from-slate-600 to-slate-100 bg-clip-text text-transparent transform-gpu will-change-transform'>{idx < 10 ? "0" + (idx + 1) : (idx + 1)}</h1>
 
