@@ -130,13 +130,13 @@ export default function Skills() {
         </div>
       )}
 
-      <div className="sm:px-10 sm:space-y-10 py-5 min-h-dvh">
+      <div className="sm:px-10 sm:space-y-10 py-5 min-h-[calc(100dvh-84px)]">
 
         {/* HEADER */}
         <div className="flex flex-col items-center space-y-4">
 
           <motion.h1
-            className="text-4xl font-bold text-[#6D4300] underline underline-offset-6"
+            className="text-6xl underline w-fit flex justify-center items-center font-bold bg-linear-to-r from-pink-500 to-orange-500 bg-clip-text text-transparent"
             variants={fadeInLeft}
             initial="hidden"
             whileInView="show"
@@ -146,7 +146,7 @@ export default function Skills() {
           </motion.h1>
 
           <motion.p
-            className="xl:px-60 text-center text-[#00000090] font-semibold px-10"
+            className="xl:px-60 text-center text-[#b3b3b3] font-semibold px-10"
             variants={fadeInRight}
             initial="hidden"
             whileInView="show"

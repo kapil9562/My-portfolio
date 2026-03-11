@@ -23,7 +23,7 @@ function Experiences() {
           />
         </div>
       )}
-      <div className='transform-gpu min-h-dvh'>
+      <div className='transform-gpu min-h-[calc(100dvh-84px)]'>
         <div className='justify-self-center items-center flex flex-col space-y-4 px-10'>
           <motion.h1 className='text-4xl font-bold text-[#6D4300] underline underline-offset-6'
             variants={fadeInLeft}

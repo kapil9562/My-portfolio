@@ -1,6 +1,16 @@
 import React from 'react';
-import { CheckCircle, Briefcase, GraduationCap, MapPin, ArrowRight } from 'lucide-react';
-import { FaHandsHoldingChild } from "react-icons/fa6";
+import { motion } from "framer-motion";
+import {
+    fadeInLeft,
+    fadeInRight,
+    fadeInDown,
+    Container,
+    fadeIn,
+    fadeInUpBig,
+    springUp,
+    slideInRight,
+    slideInLeft
+} from "/src/animation";
 
 // 1. Define your data here
 const timelineData = [
@@ -33,15 +43,21 @@ const timelineData = [
 
 const Journey = () => {
     return (
-        <div className="min-h-screen pt-20 w-full">
+        <div className="flex flex-col md:flex-row pb-5 min-h-[calc(100dvh-84px)]">
             <div className="flex flex-col justify-center items-center w-full">
 
                 {/* Header */}
-                <div className="mb-16">
+                <motion.div
+                    className="mb-16"
+                    variants={springUp}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: false, amount: 0.4 }}
+                >
                     <h2 className="text-6xl underline w-fit flex justify-center items-center font-bold bg-linear-to-r from-pink-500 to-orange-500 bg-clip-text text-transparent ">
                         JOURNEY
                     </h2>
-                </div>
+                </motion.div>
 
                 {/* Timeline Container */}
                 <div className="relative mx-auto w-full">
@@ -67,8 +83,14 @@ const Journey = () => {
                                 </div>
 
                                 {/* The Content Card */}
-                                <div className="ml-12 md:ml-0 md:w-1/2 px-10">
-                                    <div className={` p-6 rounded-lg flex flex-col justify-center ${isEven? "items-end": "items-start"} w-full`}>
+                                <motion.div
+                                    className="ml-12 md:ml-0 md:w-1/2 px-10"
+                                    variants={isEven ? slideInLeft : slideInRight}
+                                    initial="hidden"
+                                    whileInView="show"
+                                    viewport={{ once: false, amount: 0.4 }}
+                                >
+                                    <div className={` p-6 rounded-lg flex flex-col justify-center ${isEven ? "items-end" : "items-start"} w-full`}>
 
                                         {/* Date Badge */}
                                         <span className="inline-block font-normal tracking-wider text-[#ffffff80]  uppercase rounded-full mb-1">
@@ -77,17 +99,17 @@ const Journey = () => {
 
                                         {/* Icon & Title */}
                                         <div className="flex items-center gap-3 mb-2">
-                                            <h3 className={`text-3xl font-medium text-[#FFFFFFBF] font-sans ${isEven? "text-end" : "text-start"}`}>
+                                            <h3 className={`text-3xl font-medium text-[#FFFFFFBF] font-sans ${isEven ? "text-end" : "text-start"}`}>
                                                 {item.title}
                                             </h3>
                                         </div>
 
                                         {/* Company/Location */}
-                                        <p className={`text-[#AAAAAA] font-normal mb-3 whitespace-wrap ${isEven? 'text-end' : 'text-start'}`}>
+                                        <p className={`text-[#AAAAAA] font-normal mb-3 whitespace-wrap ${isEven ? 'text-end' : 'text-start'}`}>
                                             {item.description}
                                         </p>
                                     </div>
-                                </div>
+                                </motion.div>
                             </div>
                         );
                     })}

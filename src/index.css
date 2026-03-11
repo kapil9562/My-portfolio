@@ -3,23 +3,26 @@
 body {
   overflow-x: hidden;
   background: #000;
-}
-
-html {
+  height: 100dvh;
   scroll-behavior: smooth;
 }
 
-.main-scrollable {
-  height: 100vh;
-  overflow-y: auto;
-  scrollbar-width: thin;
-  scrollbar-color: #6D4300 transparent;
+html {
+  overflow-x: hidden;
+  height: 100dvh;
+  scroll-behavior: smooth;
 }
 
 canvas {
   touch-action: none;
   display: block;
 }
+
+.custom-scroll {
+  scrollbar-width: thin; /* for Firefox */
+  scrollbar-color: #ee6110 transparent; /* fallback for Firefox */
+}
+
 
 @keyframes spin-slow {
   from {

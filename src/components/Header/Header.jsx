@@ -41,7 +41,7 @@ function Header() {
   }, []);
 
   return (
-    <header className='fixed w-full z-100 top-0'>
+    <header className='sticky w-full z-99 top-0'>
       <nav className='flex-row flex justify-between px-5 py-2 md:px-20 lg:px-50 sm:py-5  backdrop-blur-md'>
         <motion.div
           variants={fadeInLeft}

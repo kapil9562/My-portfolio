@@ -32,7 +32,7 @@ function About() {
         </div>
       )}
 
-      <div className="flex flex-col md:flex-row pb-5 min-h-dvh pt-15">
+      <div className="flex flex-col md:flex-row pb-5 min-h-[calc(100dvh-84px)]">
 
         {/* LEFT SIDE */}
         <motion.div
