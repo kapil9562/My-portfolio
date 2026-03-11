@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { motion } from "framer-motion";
 import { fadeInLeft, fadeInRight, fadeInUp, Container } from "/src/animation";
 import projects from '/src/data/data.js'
@@ -8,7 +8,9 @@ import Lottie from "lottie-react";
 function Projects() {
 
   const [loader, setLoader] = useState(false);
-  const [seeMore, setSeeMore] = useState(false);
+  const [seeMore, setSeeMore] = useState({});
+  const [overflowMap, setOverflowMap] = useState({});
+  const textRefs = useRef({});
 
   const openProject = (link) => {
     if (!link) return;
@@ -17,6 +19,40 @@ function Projects() {
       window.location.href = link;
     }
   };
+
+  const toggleSeeMore = (idx) => {
+    setSeeMore((prev) => ({
+      ...prev,
+      [idx]: !prev[idx]
+    }));
+  };
+
+  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setScreenWidth(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  useEffect(() => {
+    const newOverflow = {};
+
+    Object.keys(textRefs.current).forEach((key) => {
+      const el = textRefs.current[key];
+      if (el) {
+        newOverflow[key] = el.scrollHeight > el.clientHeight;
+      }
+    });
+
+    setOverflowMap(newOverflow);
+  }, [projects, screenWidth]);
 
   return (
     <>
@@ -40,7 +76,7 @@ function Projects() {
         <div className='justify-self-center items-center flex flex-col space-y-4 px-10'>
 
           <motion.h1
-            className='text-6xl underline w-fit flex justify-center items-center font-bold bg-linear-to-r from-pink-500 to-orange-500 bg-clip-text text-transparent transform-gpu will-change-transform'
+            className='md:text-6xl text-4xl underline w-fit flex justify-center items-center font-bold bg-linear-to-r from-pink-500 to-orange-500 bg-clip-text text-transparent transform-gpu will-change-transform'
             variants={fadeInLeft}
             initial="hidden"
             whileInView="show"
@@ -50,7 +86,7 @@ function Projects() {
           </motion.h1>
 
           <motion.p
-            className='xl:px-60 text-center text-[#b3b3b3] font-semibold sm:px-10'
+            className='xl:px-60 text-sm sm:text-[18px] text-center text-[#b3b3b3] font-semibold sm:px-10'
             variants={fadeInRight}
             initial="hidden"
             whileInView="show"
@@ -64,7 +100,7 @@ function Projects() {
         {/* Projects Grid */}
         <motion.div
           className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3
-               gap-4 md:gap-8 p-10 justify-items-center md:px-20 px-10"
+               gap-4 md:gap-8 p-5 justify-items-center md:px-20 sm:px-10"
           variants={Container}
           initial="hidden"
           whileInView="show"
@@ -73,7 +109,7 @@ function Projects() {
 
           {projects.map((project, idx) => (
 
-            <div className="card">
+            <div className="card" key={idx}>
 
               <h1 className='text-4xl font-sans w-fit flex justify-center items-center font-bold bg-linear-to-b from-slate-600 to-slate-100 bg-clip-text text-transparent transform-gpu will-change-transform'>{idx < 10 ? "0" + (idx + 1) : (idx + 1)}</h1>
 
@@ -86,31 +122,33 @@ function Projects() {
                 <h3 className="lg:text-3xl md:text-2xl sm:text-xl text-2xl font-sans font-bold text-gray-100">{project.title}</h3>
                 <div className="relative text-gray-100 text-sm">
 
-                  <p className="text-gray-100 text-sm">
-                    {seeMore? project.description : project.description.slice(0, 100)}{!seeMore? "... " : " "}
-                    <button className="text-slate-300 font-semibold cursor-pointer underline" onClick={() => setSeeMore(!seeMore)}>
-                      {seeMore? 'less': "read more"}
-                    </button>
+                  <p className={`text-gray-100 text-sm ${seeMore[idx] ? "line-clamp-none" : "line-clamp-2"}`} ref={(el) => (textRefs.current[idx] = el)}>
+                    {project.description}
                   </p>
-                  </div>
+                  {overflowMap[idx] &&
+                    <button className="text-slate-300 font-semibold cursor-pointer underline" onClick={() => toggleSeeMore(idx)}>
+                      {seeMore[idx] ? 'less' : "read more"}
+                    </button>
+                  }
                 </div>
-
-                <hr className="line" />
-
-                {/* {img} */}
-                <div className=''>
-                  <img src={project.image} alt="Thumbnail" className='h-30 w-full object-cover rounded-2xl' />
-                </div>
-
-                {/* button */}
-                <button className="button border-2 border-pink-400 rounded-l-full rounded-r-full font-semibold">
-                  Explore Project
-                </button>
               </div>
+
+              <hr className="line" />
+
+              {/* {img} */}
+              <div className=''>
+                <img src={project.image} alt="Thumbnail" className='h-30 w-full object-cover rounded-2xl' />
+              </div>
+
+              {/* button */}
+              <button className="button border-2 border-pink-400 rounded-l-full rounded-r-full font-semibold">
+                Explore Project
+              </button>
+            </div>
 
           ))}
 
-            </motion.div>
+        </motion.div>
 
       </div>
     </>

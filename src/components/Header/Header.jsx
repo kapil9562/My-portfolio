@@ -42,17 +42,17 @@ function Header() {
 
   return (
     <header className='sticky w-full z-99 top-0'>
-      <nav className='flex-row flex justify-between px-5 py-2 md:px-20 lg:px-50 sm:py-5  backdrop-blur-md'>
+      <nav className='flex-row flex justify-between h-15 md:h-21 px-5 py-2 lg:px-20 xl:px-50 sm:py-2 items-center bg-black/30  backdrop-blur-md'>
         <motion.div
           variants={fadeInLeft}
           initial="hidden"
           animate="show"
         >
           <Link className='text-red-500 text-2xl font-bold [text-shadow:2px_2px_4px_#C1856D]'>
-            <img src="/KA.png" alt="logo" className='md:h-10 h-8 w-fit' />
+            <img src="/KA.png" alt="logo" className='object-contain h-13 w-13' />
           </Link>
         </motion.div>
-        <div className='p-1 sm:flex flex-row sm:gap-5 md:gap-10 text-1xl font-semibold justify-center items-center hidden'>
+        <div className='p-1 md:flex flex-row sm:gap-5 md:gap-10 text-1xl font-semibold justify-center items-center hidden'>
           <motion.div
             variants={Container}
             initial="hidden"
@@ -79,39 +79,39 @@ function Header() {
             <NavLink to="/contact">LET'S TALK</NavLink>
           </motion.div>
         </div>
-        <div className='h-10 w-10 sm:hidden text-2xl text-[#F5EBFA] hover:bg-[#6D430030] rounded-full text-center content-center cursor-pointer' onClick={() => setIsOpen(!isOpen)}>
+        <div className='h-10 w-10 md:hidden text-2xl text-[#fcb49e] hover:bg-[#6D430030] rounded-full text-center content-center cursor-pointer' onClick={() => setIsOpen(!isOpen)}>
           <i className="fa-solid fa-bars"></i>
         </div>
-        <ul className={`rounded-2xl absolute right-5 top-12 justify-center items-start text-[16px] flex flex-col text-white bg-[#6D4300] shadow-2xl z-20 w-50 sm:hidden ${isOpen ? "flex" : "hidden"}`}>
-          {tabs.map((path, index) => (
-            <div className='w-full px-4  active:bg-[#815003] transition-colors duration-150 rounded-xl' key={index}>
-              <li className="w-full cursor-pointer pt-2 pb-2 border-b-2 border-b-[#815003]">
-                <a
-                  href={path}
-                  onClick={() => setIsOpen(false)}
-                  className={
-                    `h-full w-full ${isActiveSec === path.replace("/", "") ? 'underline underline-offset-4 text-[#6D4300]' : 'relative inline-block after:absolute after:left-0 after:bottom-0 after:h-0.5 after:bg-black after:w-0 after:transition-all after:duration-500 hover:after:w-full'}`
-                  }
-                >
-                  {path.replace("/#", "")}
-                </a>
-              </li>
-            </div>
+      </nav>
 
-          ))}
-          <div className='w-full px-4  active:bg-[#815003] transition-colors duration-150 rounded-xl'>
-            <li className='w-full cursor-pointer pt-2 pb-2 py-1 border-b-2 border-b-[#815003]'>
-              <MotionNavLink
-                to='/contact'
-                className={({ isActive }) =>
-                  `${isActive ? 'text-[#EBCB90]' : ''} block w-full h-full`
-                }>LET'S TALK
-              </MotionNavLink>
+      <ul className={`rounded-xl absolute right-5 top-15 border border-gray-700 justify-center items-start text-[16px] flex-col text-white shadow-gray-800 shadow-md z-99 bg-black/50 backdrop-blur-lg w-50 sm:hidden flex ${isOpen ? "opacity-100 scale-100 visible" : "opacity-0 scale-60 invisible"} transition-all origin-top-right duration-500`}>
+        {tabs.map((path, index) => (
+          <div className='w-full  active:bg-black/60 transition-colors duration-150 rounded-xl' key={index}>
+            <li className="w-full cursor-pointer pt-2 pb-2 border-b border-b-gray-700 px-4">
+              <a
+                href={path}
+                onClick={() => setIsOpen(false)}
+                className={
+                  `h-full w-full font-medium ${isActiveSec === path.replace("/", "") ? 'underline underline-offset-4 text-orange-400' : 'relative inline-block after:absolute after:left-0 after:bottom-0 after:h-0.5 after:bg-black/60 after:w-0 after:transition-all after:duration-500 hover:after:w-full'}`
+                }
+              >
+                {path.replace("/#", "").toUpperCase()}
+              </a>
             </li>
           </div>
-        </ul>
 
-      </nav>
+        ))}
+        <div className='w-full px-4  active:bg-black/60 transition-colors duration-150 rounded-xl'>
+          <li className='w-full cursor-pointer pt-2 pb-2 py-1'>
+            <MotionNavLink
+              to='/contact'
+              className={({ isActive }) =>
+                `${isActive ? 'text-[#EBCB90]' : ''} block w-full h-full`
+              }>LET'S TALK
+            </MotionNavLink>
+          </li>
+        </div>
+      </ul>
     </header>
   )
 }

@@ -50,7 +50,7 @@ function Home() {
           <motion.img
             src="/pfp.png"
             alt="profile pic"
-            className="object-contain w-120 lg:w-[70%] transform-gpu"
+            className="object-contain w-90 md:w-110 lg:w-[70%] transform-gpu"
             animate={{ y: [0, -15, 0] }}
             transition={{
               duration: 3,

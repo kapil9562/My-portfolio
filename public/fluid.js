@@ -820,7 +820,6 @@ window.addEventListener("mousemove", () => {
 });
 
 window.addEventListener("touchstart", (e) => {
-    e.preventDefault();
     const touches = e.targetTouches;
     for (let i = 0; i < touches.length; i++) {
         if (i >= pointers.length) pointers.push(new pointerPrototype());

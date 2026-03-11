@@ -41,6 +41,8 @@ const timelineData = [
     },
 ];
 
+const isMd = window.matchMedia("(min-width: 640px)").matches;
+
 const Journey = () => {
     return (
         <div className="flex flex-col md:flex-row pb-5 min-h-[calc(100dvh-84px)]">
@@ -48,13 +50,13 @@ const Journey = () => {
 
                 {/* Header */}
                 <motion.div
-                    className="mb-16"
+                    className="mb-16 will-change-transform transform-gpu"
                     variants={springUp}
                     initial="hidden"
                     whileInView="show"
                     viewport={{ once: false, amount: 0.4 }}
                 >
-                    <h2 className="text-6xl underline w-fit flex justify-center items-center font-bold bg-linear-to-r from-pink-500 to-orange-500 bg-clip-text text-transparent ">
+                    <h2 className="md:text-6xl text-5xl underline w-fit flex justify-center items-center font-bold bg-linear-to-r from-pink-500 to-orange-500 bg-clip-text text-transparent ">
                         JOURNEY
                     </h2>
                 </motion.div>
@@ -63,34 +65,35 @@ const Journey = () => {
                 <div className="relative mx-auto w-full">
 
                     {/* The Vertical Line */}
-                    <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-gray-500"></div>
+                    <div className="absolute sm:left-1/2 left-10 transform sm:-translate-x-1/2 h-full w-1 bg-gray-500"></div>
 
                     {timelineData.map((item, index) => {
                         const isEven = index % 2 === 0;
 
                         return (
-                            <div
+                            <motion.div
                                 key={item.id}
-                                className={`relative w-full mb-12 flex flex-col md:flex-row items-center  ${isEven ? 'md:flex-row-reverse' : ''
-                                    }`}
+                                className={`will-change-transform transform-gpu relative w-full mb-12 flex items-center flex-row  ${isEven ? 'sm:flex-row-reverse' : 'sm:flex-row'}`}
+                                variants={Container}
+                                initial="hidden"
+                                whileInView="show"
+                                viewport={{ once: false, amount: 0.4 }}
                             >
                                 {/* Empty space to push content to left or right */}
-                                <div className="flex-1"></div>
+                                <div className="sm:flex-1"></div>
 
                                 {/* The Center Dot */}
-                                <div className="absolute left-1/2 transform -translate-x-1/2 flex items-center justify-center w-8 h-8 rounded-full border-4 border-orange-600 shadow-sm z-10">
+                                <div className="absolute sm:left-1/2 left-10 transform -translate-x-1/2 flex items-center justify-center w-8 h-8 rounded-full border-4 border-orange-600 shadow-sm z-10">
                                     <div className={`w-3 h-3 rounded-full bg-orange-500`}></div>
                                 </div>
 
                                 {/* The Content Card */}
                                 <motion.div
-                                    className="ml-12 md:ml-0 md:w-1/2 px-10"
-                                    variants={isEven ? slideInLeft : slideInRight}
-                                    initial="hidden"
-                                    whileInView="show"
+                                    className="ml-5 w-full sm:w-1/2 pl-10 sm:px-10 will-change-transform transform-gpu"
+                                    variants={isMd ? isEven ? slideInLeft : slideInRight : slideInRight}
                                     viewport={{ once: false, amount: 0.4 }}
                                 >
-                                    <div className={` p-6 rounded-lg flex flex-col justify-center ${isEven ? "items-end" : "items-start"} w-full`}>
+                                    <div className={`sm:p-6 pl-6 pr-2 rounded-lg flex flex-col justify-center ${isEven ? "sm:items-end" : "sm:items-start"} w-full`}>
 
                                         {/* Date Badge */}
                                         <span className="inline-block font-normal tracking-wider text-[#ffffff80]  uppercase rounded-full mb-1">
@@ -99,18 +102,18 @@ const Journey = () => {
 
                                         {/* Icon & Title */}
                                         <div className="flex items-center gap-3 mb-2">
-                                            <h3 className={`text-3xl font-medium text-[#FFFFFFBF] font-sans ${isEven ? "text-end" : "text-start"}`}>
+                                            <h3 className={`md:text-3xl sm:text-2xl text-xl font-medium text-[#FFFFFFBF] font-sans ${isEven ? "sm:text-end" : "sm:text-start"}`}>
                                                 {item.title}
                                             </h3>
                                         </div>
 
                                         {/* Company/Location */}
-                                        <p className={`text-[#AAAAAA] font-normal mb-3 whitespace-wrap ${isEven ? 'text-end' : 'text-start'}`}>
+                                        <p className={`text-[#AAAAAA] font-normal mb-3 whitespace-wrap ${isEven ? 'sm:text-end' : 'sm:text-start'}`}>
                                             {item.description}
                                         </p>
                                     </div>
                                 </motion.div>
-                            </div>
+                            </motion.div>
                         );
                     })}
                 </div>

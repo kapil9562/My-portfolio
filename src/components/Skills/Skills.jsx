@@ -100,7 +100,7 @@ const SegmentedCircle = ({ percent, label, segments = 90 }) => {
 
   return (
     <div ref={containerRef} className="flex flex-col items-center py-2">
-      <svg viewBox="0 0 100 100" className="w-50 h-50">
+      <svg viewBox="0 0 100 100" className="xl:w-50 xl:h-50 md:w-45 md:h-45 h-35 w-35">
         {renderSegments()}
 
         <text
@@ -114,7 +114,7 @@ const SegmentedCircle = ({ percent, label, segments = 90 }) => {
         </text>
       </svg>
 
-      <p className="text-gray-400 text-xl font-semibold mt-2 text-center">
+      <p className="text-gray-400 md:text-xl font-semibold mt-2 text-center">
         {label}
       </p>
     </div>
@@ -146,7 +146,7 @@ export default function Skills() {
         <div className="flex flex-col items-center space-y-4">
 
           <motion.h1
-            className="text-6xl underline w-fit flex justify-center items-center font-bold bg-linear-to-r from-pink-500 to-orange-500 bg-clip-text text-transparent transform-gpu will-change-transform"
+            className="md:text-6xl sm:text-4xl text-3xl underline w-full flex justify-center items-center font-bold bg-linear-to-r from-pink-500 to-orange-500 bg-clip-text text-transparent transform-gpu will-change-transform text-center"
             variants={fadeInLeft}
             initial="hidden"
             whileInView="show"
@@ -156,7 +156,7 @@ export default function Skills() {
           </motion.h1>
 
           <motion.p
-            className="xl:px-60 text-center text-[#b3b3b3] font-semibold px-10 transform-gpu will-change-transform"
+            className="xl:px-60 text-center text-sm sm:text-[18px] text-[#b3b3b3] font-semibold px-10 transform-gpu will-change-transform"
             variants={fadeInRight}
             initial="hidden"
             whileInView="show"
@@ -169,7 +169,7 @@ export default function Skills() {
         </div>
 
         {/* LOGOS */}
-        <div className="xl:px-20">
+        <div className="xl:px-20 pt-10 sm:pt-0">
 
           <div className="flex flex-col items-center gap-6 w-full">
             {rows.map((count, rowIndex) => {
@@ -179,25 +179,25 @@ export default function Skills() {
               return (
                 <motion.div
                   key={rowIndex}
-                  className="flex justify-center gap-15 transform-gpu will-change-transform"
+                  className="flex justify-center md:gap-15 gap-5 transform-gpu will-change-transform"
                   variants={Container}
                   initial="hidden"
                   whileInView="show"
                   viewport={{ once: false, amount: 0.4 }}
                 >
-                  {rowItems.map(([name, url]) => (
+                  {rowItems.map(([name, url], idx) => (
                     <motion.div
                       className="flex flex-col justify-center items-center transform-gpu will-change-transform"
                       variants={fadeIn}
                       viewport={{ once: false, amount: 0.4 }}
+                      key={idx}
                     >
                       <img
-                        key={name}
                         src={url}
                         alt={name}
-                        className="w-14 h-14 object-contain"
+                        className="sm:w-14 sm:h-14 h-5 w-5 object-contain"
                       />
-                      <span className="text-gray-400">{name}</span>
+                      <span className="text-gray-400 text-[6px] sm:text-sm">{name}</span>
                     </motion.div>
                   ))}
                 </motion.div>
@@ -210,7 +210,7 @@ export default function Skills() {
         <div className="py-10 text-center lg:px-20 space-y-10">
 
           <motion.h1
-            className="text-6xl underline w-full flex justify-center items-center font-bold bg-linear-to-r from-pink-500 to-orange-500 bg-clip-text text-transparent transform-gpu will-change-transform"
+            className="md:text-6xl sm:text-4xl text-3xl underline w-full flex justify-center items-center font-bold bg-linear-to-r from-pink-500 to-orange-500 bg-clip-text text-transparent transform-gpu will-change-transform"
             variants={springUp}
             initial="hidden"
             whileInView="show"

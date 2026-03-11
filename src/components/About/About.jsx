@@ -44,7 +44,7 @@ function About() {
         >
 
           <motion.h1
-            className="text-6xl font-bold text-white transform-gpu will-change-transform"
+            className="md:text-6xl text-5xl font-bold text-white transform-gpu will-change-transform"
             variants={fadeInLeft}
             viewport={{ once: false }}
           >
@@ -55,7 +55,7 @@ function About() {
           </motion.h1>
 
           <motion.h1
-            className="text-4xl font-bold text-white transform-gpu will-change-transform"
+            className="md:text-4xl text-3xl font-bold text-white transform-gpu will-change-transform"
             variants={fadeInLeft}
             viewport={{ once: false }}
           >
@@ -66,7 +66,7 @@ function About() {
           </motion.h1>
 
           <motion.span
-            className="bg-linear-to-r from-pink-500 to-orange-500 bg-clip-text text-transparent text-2xl font-bold transform-gpu will-change-transform"
+            className="bg-linear-to-r from-pink-500 to-orange-500 bg-clip-text text-transparent md:text-2xl text-xl font-bold transform-gpu will-change-transform"
             variants={fadeInLeft}
             viewport={{ once: false }}
           >
@@ -79,7 +79,7 @@ function About() {
           </motion.span>
 
           <motion.p
-            className="text-lg text-gray-400 leading-relaxed w-[90%] transform-gpu will-change-transform"
+            className="text-lg text-gray-400 text-center leading-relaxed w-[90%] transform-gpu will-change-transform"
             variants={fadeInLeft}
             viewport={{ once: false }}
           >
@@ -87,12 +87,12 @@ function About() {
           </motion.p>
 
           <motion.button
-            className="px-4 py-2 bg-linear-to-r from-pink-500 to-orange-500 text-white rounded-lg flex items-center gap-2
-            active:scale-95 cursor-pointer active:bg-transparent transition-[scale] will-change-transform duration-300 border-2 border-[#F83C90] transform-gpu will-change-transform"
+            className="px-4 py-2 font-semibold bg-linear-to-r from-pink-500 to-orange-500 text-white rounded-lg flex items-center gap-2
+            active:scale-95 cursor-pointer active:bg-transparent transition-[scale] duration-300 border-2 border-[#F83C90] transform-gpu will-change-transform"
             variants={fadeInLeft}
             viewport={{ once: false }}
           >
-            Contact Us
+            LET'S TALK
           </motion.button>
 
         </motion.div>
