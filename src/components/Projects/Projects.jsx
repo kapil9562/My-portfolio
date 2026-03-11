@@ -8,6 +8,7 @@ import Lottie from "lottie-react";
 function Projects() {
 
   const [loader, setLoader] = useState(false);
+  const [seeMore, setSeeMore] = useState(false);
 
   const openProject = (link) => {
     if (!link) return;
@@ -39,21 +40,21 @@ function Projects() {
         <div className='justify-self-center items-center flex flex-col space-y-4 px-10'>
 
           <motion.h1
-            className='text-4xl font-bold text-[#6D4300] underline underline-offset-6'
+            className='text-6xl underline w-fit flex justify-center items-center font-bold bg-linear-to-r from-pink-500 to-orange-500 bg-clip-text text-transparent transform-gpu will-change-transform'
             variants={fadeInLeft}
             initial="hidden"
             whileInView="show"
-            viewport={{ once: false, amount: 0.2 }}
+            viewport={{ once: false, amount: 0.4 }}
           >
             My Projects
           </motion.h1>
 
           <motion.p
-            className='xl:px-60 text-center text-[#00000090] font-semibold sm:px-10'
+            className='xl:px-60 text-center text-[#b3b3b3] font-semibold sm:px-10'
             variants={fadeInRight}
             initial="hidden"
             whileInView="show"
-            viewport={{ once: false, amount: 0.2 }}
+            viewport={{ once: false, amount: 0.4 }}
           >
             I design and build modern, responsive web applications that blend creativity with functionality. My goal is to craft seamless user experiences that are fast, intuitive, and visually engaging across all devices.
           </motion.p>
@@ -62,7 +63,7 @@ function Projects() {
 
         {/* Projects Grid */}
         <motion.div
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3
+          className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3
                gap-4 md:gap-8 p-10 justify-items-center md:px-20 px-10"
           variants={Container}
           initial="hidden"
@@ -72,69 +73,44 @@ function Projects() {
 
           {projects.map((project, idx) => (
 
-            <motion.div
-              key={idx}
-              variants={fadeInUp}
-            >
+            <div className="card">
 
-              <div
-                className="bg-[#efdbb8] rounded-2xl shadow-2xl shadow-[#717171] hover:scale-105 transition-all duration-300 active:scale-95 transform-gpu will-change-transform"
-                onClick={() => openProject(project.live)}
-              >
+              <h1 className='text-4xl font-sans w-fit flex justify-center items-center font-bold bg-linear-to-b from-slate-600 to-slate-100 bg-clip-text text-transparent transform-gpu will-change-transform'>{idx < 10 ? "0" + (idx + 1) : (idx + 1)}</h1>
 
-                {/* Image Section */}
-                <div className="bg-linear-to-r from-[#efdbb8] to-[#f3eddc] rounded-2xl w-full aspect-square h-50 relative inset-shadow-sm inset-shadow-[#717171]">
-
-                  <img
-                    src={project.image}
-                    className='object-cover h-full w-full rounded-2xl'
-                    loading="eager"
-                  />
-
-                  {/* Logo Circle */}
-                  <div className="absolute left-6 bottom-0 translate-y-1/2 bg-[#ffffff] w-20 h-20 rounded-full flex items-center justify-center overflow-hidden shadow-xl shadow-[#b3b3b3] border-2 border-white">
-                    <img
-                      src={project.logo}
-                      className='object-cover h-full w-full'
-                      loading="eager"
-                    />
-                  </div>
-
-                </div>
-
-                {/* Content */}
-                <div className="pt-12 pb-6 px-6">
-
-                  <h2 className="text-2xl font-bold mb-2 text-[#000000]">
-                    {project.title}
-                  </h2>
-
-                  <p className="text-[#6D4300] text-sm mb-6">
-                    {project.description}
-                  </p>
-
-                  {/* Button */}
-                  <div className="flex gap-3">
-                    <button
-                      className="bg-[#6D4300] border-2 border-[#6D4300] text-white px-5 py-1.5 rounded-full font-semibold text-sm transform-gpu active:bg-transparent active:text-black transition-colors duration-200 hover:bg-[#915a02] shadow-md shadow-[#6D4300]/50"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        openProject(project.live);
-                      }}
-                    >
-                      View
-                    </button>
-                  </div>
-
-                </div>
-
+              {/* rotating border */}
+              <div className="card__border">
               </div>
 
-            </motion.div>
+              {/* content */}
+              <div className="card_title__container space-y-4">
+                <h3 className="lg:text-3xl md:text-2xl sm:text-xl text-2xl font-sans font-bold text-gray-100">{project.title}</h3>
+                <div className="relative text-gray-100 text-sm">
+
+                  <p className="text-gray-100 text-sm">
+                    {seeMore? project.description : project.description.slice(0, 100)}{!seeMore? "... " : " "}
+                    <button className="text-slate-300 font-semibold cursor-pointer underline" onClick={() => setSeeMore(!seeMore)}>
+                      {seeMore? 'less': "read more"}
+                    </button>
+                  </p>
+                  </div>
+                </div>
+
+                <hr className="line" />
+
+                {/* {img} */}
+                <div className=''>
+                  <img src={project.image} alt="Thumbnail" className='h-30 w-full object-cover rounded-2xl' />
+                </div>
+
+                {/* button */}
+                <button className="button border-2 border-pink-400 rounded-l-full rounded-r-full font-semibold">
+                  Explore Project
+                </button>
+              </div>
 
           ))}
 
-        </motion.div>
+            </motion.div>
 
       </div>
     </>

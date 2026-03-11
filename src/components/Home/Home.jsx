@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import pfp from "/src/assets/pfp.png";
 import { ReactTyped } from "react-typed";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import { motion } from "framer-motion";
@@ -49,7 +48,7 @@ function Home() {
           viewport={{ once: false, amount: 0.4 }}
         >
           <motion.img
-            src={pfp}
+            src="/pfp.png"
             alt="profile pic"
             className="object-contain w-120 lg:w-[70%] transform-gpu"
             animate={{ y: [0, -15, 0] }}

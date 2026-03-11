@@ -4,7 +4,7 @@ import logo from "/src/assets/vehicle.png";
 const projects = [
   {
     id: 1,
-    title: "Avenza – E-Commerce Platform",
+    title: "Avenza – E-Commerce",
     description:
       "Responsive e-commerce app with product catalog, shopping cart, authentication, and secure payments. Built with React, Node.js, MongoDB, Stripe API.",
     technologies: ["React", "Node.js", "Express", "MongoDB"],

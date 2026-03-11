@@ -3,23 +3,30 @@ import Lottie from "react-lottie-player";
 import animationData from "/src/assets/python.json";
 import loaderAnimation from "/src/assets/loader.json";
 import { motion } from "framer-motion";
-import { fadeInLeft, fadeInRight, fadeInUp, Container } from "/src/animation";
+import { fadeInLeft, fadeInRight, fadeInUp, Container, fadeIn,  springUp, bounceIn } from "/src/animation";
+
+
+const rows = [7, 5, 3, 2, 1];
 
 const logos = {
   HTML: "https://img.icons8.com/?size=100&id=20909&format=png&color=000000",
   CSS: "https://img.icons8.com/?size=100&id=21278&format=png&color=000000",
   Tailwind: "https://img.icons8.com/?size=100&id=4PiNHtUJVbLs&format=png&color=000000",
-  JavaScript:
-    "https://static.vecteezy.com/system/resources/previews/027/127/463/non_2x/javascript-logo-javascript-icon-transparent-free-png.png",
+  JavaScript: "https://static.vecteezy.com/system/resources/previews/027/127/463/non_2x/javascript-logo-javascript-icon-transparent-free-png.png",
   "React JS": "https://img.icons8.com/?size=100&id=asWSSTBrDlTW&format=png&color=000000",
   "React Native": "https://img.icons8.com/?size=100&id=t4YbEbA834uH&format=png&color=000000",
-  "Node js":
-    "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Node.js_logo.svg/1280px-Node.js_logo.svg.png",
+  "Node JS": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Node.js_logo.svg/1280px-Node.js_logo.svg.png",
+  "Express JS": "https://logowik.com/content/uploads/images/express-js1720895488.logowik.com.webp",
+  Redux: "https://cdn.worldvectorlogo.com/logos/redux.svg",
+  Vite: "/vite.svg",
   "Mongo DB": "https://d2lgmzy8vjj79z.cloudfront.net/mongodb.svg",
   SQL: "https://img.icons8.com/?size=100&id=UFXRpPFebwa2&format=png&color=000000",
-  "Git & GitHub":
-    "https://img.icons8.com/?size=100&id=3tC9EQumUAuq&format=png&color=000000",
+  Git: "https://git-scm.com/images/logos/downloads/Git-Icon-1788C.png",
+  "GitHub": "https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/github-white-icon.png",
   Java: "https://img.icons8.com/?size=100&id=13679&format=png&color=000000",
+  Firebase: "/firebase.png",
+  GoogleCloud: "https://brandlogos.net/wp-content/uploads/2022/07/google_cloud-logo_brandlogos.net_qxnsy-512x512.png",
+  Figma: "https://upload.wikimedia.org/wikipedia/commons/3/33/Figma-logo.svg"
 };
 
 const skills = [
@@ -83,7 +90,7 @@ const SegmentedCircle = ({ percent, label, segments = 90 }) => {
           y1={y1}
           x2={x2}
           y2={y2}
-          stroke={i < activeSegments ? "#06b6d4" : "#ccc"}
+          stroke={i < activeSegments ? "#22d3ee" : "#444"}
           strokeWidth="2"
           strokeLinecap="round"
         />
@@ -93,7 +100,7 @@ const SegmentedCircle = ({ percent, label, segments = 90 }) => {
 
   return (
     <div ref={containerRef} className="flex flex-col items-center py-2">
-      <svg viewBox="0 0 100 100" className="w-32 h-32">
+      <svg viewBox="0 0 100 100" className="w-50 h-50">
         {renderSegments()}
 
         <text
@@ -101,13 +108,13 @@ const SegmentedCircle = ({ percent, label, segments = 90 }) => {
           y="50%"
           textAnchor="middle"
           dy=".3em"
-          className="fill-[#090040] text-[12px] font-bold"
+          className="fill-[#e5e7eb] text-[12px] font-bold"
         >
           {Math.round(animatedPercent)}%
         </text>
       </svg>
 
-      <p className="text-black text-[14px] font-semibold mt-2 text-center">
+      <p className="text-gray-400 text-xl font-semibold mt-2 text-center">
         {label}
       </p>
     </div>
@@ -116,6 +123,9 @@ const SegmentedCircle = ({ percent, label, segments = 90 }) => {
 
 export default function Skills() {
   const [loader] = useState(false);
+
+  const logosArray = Object.entries(logos);
+  let index = 0;
 
   return (
     <>
@@ -136,7 +146,7 @@ export default function Skills() {
         <div className="flex flex-col items-center space-y-4">
 
           <motion.h1
-            className="text-6xl underline w-fit flex justify-center items-center font-bold bg-linear-to-r from-pink-500 to-orange-500 bg-clip-text text-transparent"
+            className="text-6xl underline w-fit flex justify-center items-center font-bold bg-linear-to-r from-pink-500 to-orange-500 bg-clip-text text-transparent transform-gpu will-change-transform"
             variants={fadeInLeft}
             initial="hidden"
             whileInView="show"
@@ -146,7 +156,7 @@ export default function Skills() {
           </motion.h1>
 
           <motion.p
-            className="xl:px-60 text-center text-[#b3b3b3] font-semibold px-10"
+            className="xl:px-60 text-center text-[#b3b3b3] font-semibold px-10 transform-gpu will-change-transform"
             variants={fadeInRight}
             initial="hidden"
             whileInView="show"
@@ -161,65 +171,47 @@ export default function Skills() {
         {/* LOGOS */}
         <div className="xl:px-20">
 
-          <motion.div
-            className="grid grid-cols-4 md:grid-cols-5 xl:grid-cols-6 gap-6 p-6 justify-items-center"
-            variants={Container}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once: false }}
-          >
+          <div className="flex flex-col items-center gap-6 w-full">
+            {rows.map((count, rowIndex) => {
+              const rowItems = logosArray.slice(index, index + count);
+              index += count;
 
-            {Object.entries(logos).map(([name, logo]) => (
-              <motion.div key={name} variants={fadeInUp} className="w-full aspect-square">
-
-                <div className="bg-gradient-to-r from-[#efdbb8] to-[#f3eddc] rounded-lg w-full aspect-square shadow-xl flex flex-col justify-center items-center p-4 hover:scale-105 transition duration-300">
-
-                  <img
-                    src={logo}
-                    alt={name}
-                    className="object-contain h-12 sm:h-16"
-                    loading="lazy"
-                  />
-
-                  <h1 className="text-center font-semibold text-xs mt-2 uppercase">
-                    {name}
-                  </h1>
-
-                </div>
-
-              </motion.div>
-            ))}
-
-            {/* Python Lottie */}
-            <motion.div variants={fadeInUp} className="w-full aspect-square">
-
-              <div className="bg-gradient-to-r from-[#efdbb8] to-[#f3eddc] rounded-lg w-full aspect-square shadow-xl flex flex-col justify-center items-center p-4 hover:scale-105 transition duration-300">
-
-                <Lottie
-                  loop
-                  animationData={animationData}
-                  play
-                  className="h-14 w-14"
-                />
-
-                <h1 className="font-semibold text-xs mt-2 uppercase">
-                  Python
-                </h1>
-
-              </div>
-
-            </motion.div>
-
-          </motion.div>
-
+              return (
+                <motion.div
+                  key={rowIndex}
+                  className="flex justify-center gap-15 transform-gpu will-change-transform"
+                  variants={Container}
+                  initial="hidden"
+                  whileInView="show"
+                  viewport={{ once: false, amount: 0.4 }}
+                >
+                  {rowItems.map(([name, url]) => (
+                    <motion.div
+                      className="flex flex-col justify-center items-center transform-gpu will-change-transform"
+                      variants={fadeIn}
+                      viewport={{ once: false, amount: 0.4 }}
+                    >
+                      <img
+                        key={name}
+                        src={url}
+                        alt={name}
+                        className="w-14 h-14 object-contain"
+                      />
+                      <span className="text-gray-400">{name}</span>
+                    </motion.div>
+                  ))}
+                </motion.div>
+              );
+            })}
+          </div>
         </div>
 
         {/* PROFESSIONAL SKILLS */}
-        <div className="py-10 text-center lg:px-20">
+        <div className="py-10 text-center lg:px-20 space-y-10">
 
           <motion.h1
-            className="text-[#6D4300] text-4xl font-bold mb-10 underline underline-offset-6"
-            variants={fadeInLeft}
+            className="text-6xl underline w-full flex justify-center items-center font-bold bg-linear-to-r from-pink-500 to-orange-500 bg-clip-text text-transparent transform-gpu will-change-transform"
+            variants={springUp}
             initial="hidden"
             whileInView="show"
             viewport={{ once: false }}

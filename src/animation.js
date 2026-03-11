@@ -42,7 +42,7 @@ export const Container = {
     hidden: {},
     show: {
         transition: {
-            staggerChildren: 0.15,
+            staggerChildren: 0.2,
         },
     },
 };
