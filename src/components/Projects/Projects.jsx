@@ -1,15 +1,13 @@
-import React, { useEffect, useRef, useState } from 'react'
+import React, { useState } from 'react'
 import { motion } from "framer-motion";
-import { fadeInLeft, fadeInRight, fadeInUp, Container, fadeIn } from "/src/animation";
-import projects from '/src/data/data.js'
-import loaderAnimation from "/src/assets/loader.json";
-import Lottie from "lottie-react";
+import { fadeInLeft, fadeInRight, Container, fadeIn } from "/src/animation";
+import projects from '/src/data/data.js';
 import { FaRocket } from "react-icons/fa";
 import { FaRotate } from "react-icons/fa6";
+import { FaArrowUpRightFromSquare } from "react-icons/fa6";
 
 function Projects() {
 
-  const [loader, setLoader] = useState(false);
   const [rotate, setRotate] = useState({});
 
   const openProject = (link) => {
@@ -29,20 +27,6 @@ function Projects() {
 
   return (
     <>
-      {loader && (
-        <div className="h-full w-full md:h-[90vh] flex items-center justify-center backdrop-blur-xl z-50">
-          <Lottie
-            animationData={loaderAnimation}
-            loop={true}
-            className="w-30 h-30"
-            style={{
-              filter:
-                'invert(43%) sepia(59%) saturate(700%) hue-rotate(320deg) brightness(60%) contrast(100%)'
-            }}
-          />
-        </div>
-      )}
-
       <div className='transform-gpu min-h-dvh'>
 
         {/* Heading Section */}
@@ -86,10 +70,11 @@ function Projects() {
               variants={fadeIn}
               key={idx}
               viewport={{ once: false, amount: 0.4 }}
-              className={`w-full h-fit bg-transparent transform-style-preserve-3d ${rotate[idx] ? "rotate-y-180" : "rotate-y-0"} transition-transform duration-700 relative transform-gpu will-change-transform`}
+              className={`w-full h-fit bg-transparent transform-style-preserve-3d cursor-pointer ${rotate[idx] ? "rotate-y-180" : "rotate-y-0"} transition-transform duration-700 relative transform-gpu will-change-transform`}
+              onClick={() => openProject(project.live)}
             >
 
-              <div className={`bg-black p-4 h-full w-full flex flex-col justify-between absolute top-0 left-0 z-10 rounded-2xl transition-all duration-500 -rotate-y-180 ${rotate[idx] ? "opacity-100 visible" : "opacity-0"} invisible`}>
+              <div className={`bg-black cursor-pointer p-4 h-full w-full flex flex-col justify-between absolute top-0 left-0 z-10 rounded-2xl transition-all duration-500 -rotate-y-180 ${rotate[idx] ? "opacity-100 visible" : "opacity-0"} invisible`}>
 
                 <div className='space-y-5'>
                   <div className='w-full flex flex-row justify-between items-start'>
@@ -129,7 +114,6 @@ function Projects() {
 
               <div
                 className={`card`}
-                onClick={() => openProject(project.live)}
               >
 
                 <div className='w-full flex flex-row justify-between items-start'>
@@ -162,8 +146,9 @@ function Projects() {
                 </div>
 
                 {/* button */}
-                <button className="button border-2 border-pink-400 rounded-l-full rounded-r-full font-semibold">
-                  Explore Project
+                <button className="button border-2 border-pink-400 rounded-l-full rounded-r-full font-semibold flex flex-row justify-center items-center gap-4">
+                  <FaArrowUpRightFromSquare/>
+                  <span>Explore</span>
                 </button>
               </div>
             </motion.div>

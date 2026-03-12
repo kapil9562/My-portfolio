@@ -18,7 +18,7 @@ function Home() {
   const icons = [
     { icon: "fa-github", link: "https://github.com/kapil9562" },
     { icon: "fa-instagram", link: "https://www.instagram.com/kapil_art_official" },
-    { icon: "fa-linkedin", link: "https://www.linkedin.com/in/kapil9562" }
+    { icon: "fa-linkedin", link: "https://www.linkedin.com/in/kapil-adhikari9562" }
   ];
 
   const handleClick = (url) => {

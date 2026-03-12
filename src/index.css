@@ -7,6 +7,8 @@ body {
   scroll-behavior: smooth;
 }
 
+
+
 html {
   overflow-x: hidden;
   height: 100dvh;
@@ -19,8 +21,11 @@ canvas {
 }
 
 .custom-scroll {
-  scrollbar-width: thin; /* for Firefox */
-  scrollbar-color: #ee6110 transparent; /* fallback for Firefox */
+  scrollbar-gutter: stable;
+  scrollbar-width: thin;
+  /* for Firefox */
+  scrollbar-color: #ee6110 transparent;
+  /* fallback for Firefox */
 }
 
 
@@ -38,15 +43,81 @@ canvas {
   animation: spin-slow 6s linear infinite;
 }
 
-/* For Chrome autofill */
 input:-webkit-autofill,
 textarea:-webkit-autofill,
 select:-webkit-autofill {
-  /* your input bg color */
   transition: background-color 5000s ease-in-out;
-  /* prevents flash */
 }
 
+.aboutCard {
+  --white: hsl(0, 0%, 100%);
+  --black: hsl(240, 15%, 9%);
+  --paragraph: hsl(0, 0%, 83%);
+  --line: hsl(240, 9%, 17%);
+  --primary: hsl(26, 100%, 55%);
+
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  padding: 1rem;
+  background-color: hsla(240, 15%, 9%, 1);
+  background-image: radial-gradient(at 88% 40%,
+      hsla(240, 15%, 9%, 1) 0px,
+      transparent 85%),
+    radial-gradient(at 88% 40%, hsla(240, 15%, 9%, 1) 0px, transparent 85%),
+    radial-gradient(at 49% 30%, hsla(240, 15%, 9%, 1) 0px, transparent 85%),
+    radial-gradient(at 14% 26%, hsla(240, 15%, 9%, 1) 0px, transparent 85%),
+    radial-gradient(at 0% 64%, rgb(255, 102, 0) 0px, transparent 85%),
+    radial-gradient(at 41% 94%, rgb(255, 153, 102) 0px, transparent 85%),
+    radial-gradient(at 100% 99%, rgb(255, 51, 153) 0px, transparent 85%);
+
+  border-radius: 1rem;
+  box-shadow: 0px -16px 24px 0px rgba(255, 255, 255, 0.25) inset;
+}
+
+.aboutCard .aboutCard_border {
+  overflow: hidden;
+  pointer-events: none;
+
+  position: absolute;
+  z-index: -10;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: calc(100% + 2px);
+  height: calc(100% + 2px);
+  background-image: linear-gradient(0deg,
+      hsl(0, 0%, 100%) -50%,
+      hsl(0, 0%, 40%) 100%);
+
+  border-radius: 1rem;
+}
+
+.aboutCard .aboutCard_border::before {
+  content: "";
+  pointer-events: none;
+
+  position: fixed;
+  z-index: 200;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%), rotate(0deg);
+  transform-origin: left;
+
+  width: 200%;
+  height: 10rem;
+  background-image: linear-gradient(0deg,
+      hsla(0, 0%, 100%, 0) 0%,
+      hsl(26, 100%, 55%) 40%,
+      hsl(345, 100%, 60%) 60%,
+      hsla(0, 0%, 40%, 0) 100%);
+
+  animation: rotate 8s linear infinite;
+}
 
 
 
@@ -65,11 +136,9 @@ select:-webkit-autofill {
 
   padding: 1rem;
   background-color: hsla(240, 15%, 9%, 1);
-  background-image: radial-gradient(
-      at 88% 40%,
+  background-image: radial-gradient(at 88% 40%,
       hsla(240, 15%, 9%, 1) 0px,
-      transparent 85%
-    ),
+      transparent 85%),
     radial-gradient(at 49% 30%, hsla(240, 15%, 9%, 1) 0px, transparent 85%),
     radial-gradient(at 14% 26%, hsla(240, 15%, 9%, 1) 0px, transparent 85%),
     radial-gradient(at 0% 64%, rgb(247, 38, 212) 0px, transparent 85%),
@@ -92,11 +161,9 @@ select:-webkit-autofill {
 
   width: calc(100% + 2px);
   height: calc(100% + 2px);
-  background-image: linear-gradient(
-    0deg,
-    hsl(0, 0%, 100%) -50%,
-    hsl(0, 0%, 40%) 100%
-  );
+  background-image: linear-gradient(0deg,
+      hsl(0, 0%, 100%) -50%,
+      hsl(0, 0%, 40%) 100%);
 
   border-radius: 1rem;
 }
@@ -114,13 +181,11 @@ select:-webkit-autofill {
 
   width: 200%;
   height: 10rem;
-  background-image: linear-gradient(
-    0deg,
-    hsla(0, 0%, 100%, 0) 0%,
-    hsl(311, 95%, 60%) 40%,
-    hsl(325, 95%, 60%) 60%,
-    hsla(0, 0%, 40%, 0) 100%
-  );
+  background-image: linear-gradient(0deg,
+      hsla(0, 0%, 100%, 0) 0%,
+      hsl(311, 95%, 60%) 40%,
+      hsl(325, 95%, 60%) 60%,
+      hsla(0, 0%, 40%, 0) 100%);
 
   animation: rotate 8s linear infinite;
 }
@@ -157,10 +222,8 @@ select:-webkit-autofill {
 
   padding: 0.5rem;
   width: 100%;
-  background-image: linear-gradient(
-    0deg,
-    rgb(238, 58, 166) 0%,
-    rgba(197, 107, 240, 1) 100%
-  );
+  background-image: linear-gradient(0deg,
+      rgb(238, 58, 130) 0%,
+      rgb(240, 107, 107) 100%);
   color: var(--white);
 }

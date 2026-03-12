@@ -1,12 +1,7 @@
 import React from 'react';
 import { motion } from "framer-motion";
 import {
-    fadeInLeft,
-    fadeInRight,
-    fadeInDown,
     Container,
-    fadeIn,
-    fadeInUpBig,
     springUp,
     slideInRight,
     slideInLeft

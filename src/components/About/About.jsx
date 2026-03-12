@@ -11,6 +11,7 @@ function About() {
   const [loader, setLoader] = useState(false);
 
   const handleClick = (url) => {
+    if(!url) return;
     setTimeout(() => {
       window.open(url, "_blank", "noopener,noreferrer");
     }, 300);
@@ -91,6 +92,7 @@ function About() {
             active:scale-95 cursor-pointer active:bg-transparent transition-[scale] duration-300 border-2 border-[#F83C90] transform-gpu will-change-transform"
             variants={fadeInLeft}
             viewport={{ once: false }}
+            onClick={() => handleClick("mailto:adhikarikapil389@gmail.com")}
           >
             LET'S TALK
           </motion.button>
@@ -107,33 +109,32 @@ function About() {
         >
 
           <motion.div
-            className="max-w-[80%] bg-[#f4eada] rounded-4xl mb-10 md:mb-0 shadow-2xl border-3 border-[#EBCB90] font-semibold space-y-4 px-10 overflow-hidden transform-gpu will-change-transform"
+            className="relative w-[80%] bg-cover bg-center h-fit rounded-4xl"
             variants={fadeInRight}
-            viewport={{ once: false }}
-          >
+            viewport={{ once: false }}>
 
-            <p className="pt-6">
-              <li>
-                I am from Uttarakhand, India. I'm currently pursuing a Bachelor's
-                in Computer Application (BCA) and will graduate in 2027.
-              </li>
-            </p>
+            {/* Liquid glass card */}
+            <div
+              className="aboutCard w-full rounded-4xl text-white/80 via-white/20 to-white/10 shadow-inner shadow-white/10 font-semibold space-y-4 px-10 py-6"
 
-            <p>
-              <li>
-                I'm a passionate UI/UX Designer and Web Developer, dedicated to
-                creating modern, user-centered digital experiences.
-              </li>
-            </p>
-
-            <p className="pb-6">
-              <li>
-                My goal is to combine creativity and technology to design digital
-                products that not only look great but also deliver smooth,
-                meaningful user experiences.
-              </li>
-            </p>
-
+            >
+              <div className="aboutCard_border"></div>
+              <ul className="space-y-4 list-disc list-inside">
+                <li>
+                  I am from Uttarakhand, India. I'm currently pursuing a Bachelor's
+                  in Computer Application (BCA) and will graduate in 2027.
+                </li>
+                <li>
+                  I'm a passionate UI/UX Designer and Web Developer, dedicated to
+                  creating modern, user-centered digital experiences.
+                </li>
+                <li>
+                  My goal is to combine creativity and technology to design digital
+                  products that not only look great but also deliver smooth,
+                  meaningful user experiences.
+                </li>
+              </ul>
+            </div>
           </motion.div>
 
         </motion.div>
