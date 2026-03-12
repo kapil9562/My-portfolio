@@ -9,7 +9,7 @@ function Header() {
 
   const [isOpen, setIsOpen] = useState(false);
   const MotionNavLink = motion.create(NavLink);
-  const tabs = ["/#home", "/#about", "/#journey", "/#skills", "/#projects", "/#experiences"];
+  const tabs = ["/#home", "/#about", "/#journey", "/#skills", "/#projects"];
 
   const [isActiveSec, setActiveSec] = useState("");
 
@@ -84,7 +84,7 @@ function Header() {
         </div>
       </nav>
 
-      <ul className={`rounded-xl absolute right-5 top-15 border border-gray-700 justify-center items-start text-[16px] flex-col text-white shadow-gray-800 shadow-md z-99 bg-black/50 backdrop-blur-lg w-50 sm:hidden flex ${isOpen ? "opacity-100 scale-100 visible" : "opacity-0 scale-60 invisible"} transition-all origin-top-right duration-500`}>
+      <ul className={`rounded-xl absolute right-5 top-15 border border-gray-700 justify-center items-start text-[16px] flex-col text-white shadow-gray-800 shadow-md z-99 bg-black/50 backdrop-blur-lg w-50 md:hidden flex ${isOpen ? "opacity-100 scale-100 visible" : "opacity-0 scale-60 invisible"} transition-all origin-top-right duration-500`}>
         {tabs.map((path, index) => (
           <div className='w-full  active:bg-black/60 transition-colors duration-150 rounded-xl' key={index}>
             <li className="w-full cursor-pointer pt-2 pb-2 border-b border-b-gray-700 px-4">

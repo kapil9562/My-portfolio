@@ -1,6 +1,5 @@
 import { useLocation } from 'react-router-dom'
 import About from './components/About/About'
-import Experiences from './components/Experiences/Experiences'
 import Footer from './components/Footer/Footer'
 import Header from './components/Header/Header'
 import Home from './components/Home/Home'
@@ -37,10 +36,6 @@ function App() {
 
           <section id="projects" className='scroll-mt-21'>
             <Projects />
-          </section>
-
-          <section id="experiences" className='scroll-mt-21'>
-            <Experiences />
           </section>
         </main>
         <Footer />
