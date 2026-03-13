@@ -51,7 +51,7 @@ const Journey = () => {
                     whileInView="show"
                     viewport={{ once: false, amount: 0.4 }}
                 >
-                    <h2 className="md:text-6xl text-5xl underline w-fit flex justify-center items-center font-bold bg-linear-to-r from-pink-500 to-orange-500 bg-clip-text text-transparent ">
+                    <h2 className="md:text-6xl text-5xl underline w-fit flex justify-center items-center font-bold bg-linear-to-r from-pink-500 to-orange-500 bg-clip-text text-transparent pb-4 underline-offset-4 decoration-2">
                         JOURNEY
                     </h2>
                 </motion.div>

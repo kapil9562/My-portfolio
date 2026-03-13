@@ -146,7 +146,7 @@ export default function Skills() {
         <div className="flex flex-col items-center space-y-4">
 
           <motion.h1
-            className="md:text-6xl sm:text-4xl text-3xl underline w-full flex justify-center items-center font-bold bg-linear-to-r from-pink-500 to-orange-500 bg-clip-text text-transparent transform-gpu will-change-transform text-center"
+            className="md:text-6xl sm:text-4xl text-3xl underline w-full flex justify-center items-center font-bold bg-linear-to-r from-pink-500 to-orange-500 bg-clip-text text-transparent transform-gpu will-change-transform text-center pb-4 underline-offset-4 decoration-2"
             variants={fadeInLeft}
             initial="hidden"
             whileInView="show"
@@ -210,7 +210,7 @@ export default function Skills() {
         <div className="py-10 text-center lg:px-20 space-y-10">
 
           <motion.h1
-            className="md:text-6xl sm:text-4xl text-3xl underline w-full flex justify-center items-center font-bold bg-linear-to-r from-pink-500 to-orange-500 bg-clip-text text-transparent transform-gpu will-change-transform"
+            className="md:text-6xl sm:text-4xl text-3xl underline w-full flex justify-center items-center font-bold bg-linear-to-r from-pink-500 to-orange-500 bg-clip-text text-transparent transform-gpu will-change-transform pb-4 underline-offset-4 decoration-2"
             variants={springUp}
             initial="hidden"
             whileInView="show"

@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "@fortawesome/fontawesome-free/css/all.min.css";
-import { motion } from "framer-motion";
-import { fadeInDown, fadeInLeft, fadeInRight, Container } from "/src/animation";
-import { Link, NavLink, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 const Footer = ({ showContent }) => {
 
@@ -82,7 +80,7 @@ const Footer = ({ showContent }) => {
             <div className='sm:flex flex-col sm:gap-5 md:gap-10 text-[16px] sm:font-semibold justify-center items-start'>
               <div className="flex flex-col space-y-2">
                 {tabs.map((path, index) => (
-                  <motion.div key={index}>
+                  <div key={index}>
                     <a
                       href={path}
                       className={
@@ -91,7 +89,7 @@ const Footer = ({ showContent }) => {
                     >
                       {path.replace("/#", "")}
                     </a>
-                  </motion.div>
+                  </div>
                 ))}
               </div>
             </div>

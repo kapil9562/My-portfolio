@@ -613,7 +613,7 @@ const blit = (() => {
 })();
 
 let lastTime = Date.now();
-multipleSplats(parseInt(Math.random() * 10) + 5);
+// multipleSplats(parseInt(Math.random() * 10) + 5);
 update();
 
 function update() {

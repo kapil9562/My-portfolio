@@ -33,7 +33,7 @@ function Projects() {
         <div className='justify-self-center items-center flex flex-col space-y-4 px-10'>
 
           <motion.h1
-            className='md:text-6xl text-4xl underline w-fit flex justify-center items-center font-bold bg-linear-to-r from-pink-500 to-orange-500 bg-clip-text text-transparent transform-gpu will-change-transform'
+            className='md:text-6xl text-4xl underline w-fit flex justify-center pb-4 underline-offset-4 decoration-2 items-center font-bold bg-linear-to-r from-pink-500 to-orange-500 bg-clip-text text-transparent transform-gpu will-change-transform'
             variants={fadeInLeft}
             initial="hidden"
             whileInView="show"
