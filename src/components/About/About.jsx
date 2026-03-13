@@ -80,7 +80,7 @@ function About() {
           </motion.span>
 
           <motion.p
-            className="text-lg text-gray-400 text-center leading-relaxed w-[90%] transform-gpu will-change-transform"
+            className="text-lg text-gray-400 text-center md:text-start leading-relaxed w-[90%] transform-gpu will-change-transform"
             variants={fadeInLeft}
             viewport={{ once: false }}
           >
