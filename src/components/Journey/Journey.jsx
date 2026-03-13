@@ -6,6 +6,8 @@ import {
     slideInRight,
     slideInLeft
 } from "/src/animation";
+import Pointer from '../../assets/pointer.json';
+import Lottie from "lottie-react";
 
 // 1. Define your data here
 const timelineData = [
@@ -78,9 +80,15 @@ const Journey = () => {
                                 <div className="sm:flex-1"></div>
 
                                 {/* The Center Dot */}
-                                <div className="absolute sm:left-1/2 left-10 transform -translate-x-1/2 flex items-center justify-center w-8 h-8 rounded-full border-4 border-orange-600 shadow-sm z-10">
-                                    <div className={`w-3 h-3 rounded-full bg-orange-500`}></div>
-                                </div>
+                                {item.id !== 1 ?
+                                    <div className="absolute sm:left-1/2 left-10 transform -translate-x-1/2 flex items-center justify-center shadow-sm z-10">
+                                        <div className={`w-5 h-5 rounded-full bg-green-500`}></div>
+                                    </div>
+                                    :
+                                    <div className="absolute sm:left-1/2 left-10 transform -translate-x-1/2 flex items-center justify-center shadow-sm z-10">
+                                        <Lottie animationData={Pointer} loop={true} className='h-15 w-15' />
+                                    </div>
+                                }
 
                                 {/* The Content Card */}
                                 <motion.div
