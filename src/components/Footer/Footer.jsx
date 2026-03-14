@@ -57,11 +57,11 @@ const Footer = ({ showContent }) => {
   }, [showContent]);
 
   return (
-    <footer className="text-white shadow-2xl flex flex-col justify-center items-center z-100 relative border-t border-[#FFFFFF30]">
+    <footer className="text-white shadow-2xl flex flex-col justify-center items-center z-88 relative border-t border-[#FFFFFF30]">
 
-      <img src="https://plus.unsplash.com/premium_photo-1681400038462-38b5f8aa51a5?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" className="absolute top-0 left-0 h-full w-full opacity-50" />
+      <img src="https://plus.unsplash.com/premium_photo-1681400038462-38b5f8aa51a5?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" className="absolute top-0 left-0 h-full w-full opacity-50 -z-10" />
 
-      <div className=" backdrop-blur-2xl pb-20 w-full">
+      <div className="relative z-95 backdrop-blur-2xl pb-20 w-full">
         <div className="w-full grid grid-cols-2 sm:grid-cols-3 gap-10 sm:text-left py-10 px-5 md:px-20">
 
           {/* Contact Info */}
@@ -79,8 +79,8 @@ const Footer = ({ showContent }) => {
             <h2 className="text-xl font-bold mb-4">Quick Links</h2>
             <div className='sm:flex flex-col sm:gap-5 md:gap-10 text-[16px] sm:font-semibold justify-center items-start'>
               <div className="flex flex-col space-y-2">
-                {tabs.map((path, index) => (
-                  <div key={index}>
+                {tabs.map((path) => (
+                  <div key={path}>
                     <a
                       href={path}
                       className={

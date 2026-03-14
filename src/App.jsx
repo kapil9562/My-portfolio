@@ -9,6 +9,7 @@ import FluidCursor from './utils/FluidCursor'
 import Journey from './components/Journey/Journey'
 import { motion, AnimatePresence, LayoutGroup } from "framer-motion";
 import { useEffect, useState } from 'react'
+import { fadeIn } from './animation'
 
 function App() {
 
@@ -46,7 +47,7 @@ function App() {
   // Variant for parent to stagger children
   const parentVariant = {
     visible: { transition: { staggerChildren: 0.1 } },
-    exit: { transition: { staggerChildren: 0.05, staggerDirection: -1 } },
+    exit: { opacity: 0 , transition: { staggerChildren: 0.05, staggerDirection: -1 } },
   };
 
   return (
@@ -56,10 +57,9 @@ function App() {
         <AnimatePresence >
           {showIntro && (
             <motion.div
-              className="fixed inset-0 bg-black flex items-center justify-center px-4 md:px-70 z-999 "
+              className="fixed inset-0 bg-black flex items-center justify-center px-4 md:px-70 z-999"
               initial={{ opacity: 1 }}
               animate={{ opacity: 1, backgroundColor: "transparent" }}
-              exit={{ opacity: 0 }}
             >
 
               {/* Center Logo */}
@@ -90,9 +90,8 @@ function App() {
                   layout
                   layoutId="logo"
                   src="/KA.png"
-                  className="w-13 h-13 object-contain will-change-transform transform-gpu delay: 0.2"
+                  className="w-13 h-13 object-contain will-change-transform transform-gpu"
                   initial={{ scale: 5 }}
-                  transition={{ type: "spring", stiffness: 200, damping: 25 }}
                 />
 
                 {/* Right letters */}
@@ -150,7 +149,7 @@ function App() {
               </section>
             </main>
 
-            <Footer showContent={showContent}/>
+            <Footer showContent={showContent} />
           </motion.div>
         )}
       </div>

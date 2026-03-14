@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Link, NavLink, useLocation } from 'react-router-dom'
 import { motion } from "framer-motion";
-import { fadeInLeft, fadeInUp, Container } from "/src/animation";
+import { fadeInLeft, fadeInUp, Container, fadeIn } from "/src/animation";
 
 function Header({ showIntro, showContent }) {
 
@@ -39,7 +39,7 @@ function Header({ showIntro, showContent }) {
           }
         });
       },
-      { threshold: 0.6 }
+      { threshold: 0.2, rootMargin: "-100px 0px -20% 0px" }
     );
 
     sections.forEach((sec) => sec && observer.observe(sec));
@@ -56,22 +56,22 @@ function Header({ showIntro, showContent }) {
   };
 
   return (
-    <header className='sticky w-full z-999 top-0'>
+    <header className='sticky w-full z-99 top-0'>
       <nav className='flex-row flex justify-between h-15 md:h-21 px-5 py-2 lg:px-20 xl:px-50 sm:py-2 items-center bg-black/30  backdrop-blur-md'>
         {!showIntro && (
           <>
             <Link to="/#home">
               <motion.img
+                transition={{duration: 0.7}}
                 layout
                 layoutId="logo"
                 src="/KA.png"
                 alt="logo"
-                className="object-contain h-13 w-13"
-                transition={{ type: "spring", stiffness: 200, damping: 25 }}
+                className="object-contain h-13 w-13 will-change-transform transform-gpu z-999"
               />
             </Link>
 
-            <div className='p-1 md:flex flex-row sm:gap-5 md:gap-10 text-1xl font-semibold justify-center items-center hidden'>
+            <div className='p-1 md:flex flex-row sm:gap-5 md:gap-10 text-lg font-semibold justify-center items-center hidden'>
               <motion.div
                 variants={Container}
                 initial="hidden"
