@@ -62,7 +62,7 @@ function Header({ showIntro, showContent }) {
           <>
             <Link to="/#home">
               <motion.img
-                transition={{duration: 0.7}}
+                transition={{ duration: 0.7 }}
                 layout
                 layoutId="logo"
                 src="/KA.png"
@@ -98,9 +98,25 @@ function Header({ showIntro, showContent }) {
                 <button onClick={() => openLink("mailto:adhikarikapil389@gmail.com")} className='cursor-pointer'>LET'S TALK</button>
               </motion.div>
             </div>
-            <div className='h-10 w-10 md:hidden text-2xl text-[#fcb49e] hover:bg-[#6D430030] rounded-full text-center content-center cursor-pointer' onClick={() => setIsOpen(!isOpen)}>
-              <i className="fa-solid fa-bars"></i>
-            </div>
+            <button className='hover:bg-[#6D430030] h-12 w-12
+             rounded-full cursor-pointer md:hidden flex justify-center items-center' onClick={() => setIsOpen(!isOpen)}>
+              <div className='h-8 w-10 flex p-1.5 flex-col justify-between items-center'>
+                <span
+                  className={`h-0.5 w-full border-t-2 border-orange-300 transition-all duration-400 ${isOpen ? "rotate-45 translate-y-[9.2px]" : ""
+                    }`}
+                ></span>
+
+                <span
+                  className={`h-0.5 w-full border-t-2 border-orange-300 transition-all duration-300 ${isOpen ? "opacity-0" : ""
+                    }`}
+                ></span>
+
+                <span
+                  className={`h-0.5 w-full border-t-2 border-orange-300 transition-all duration-400 ${isOpen ? "-rotate-45 -translate-y-[9.2px]" : ""
+                    }`}
+                ></span>
+              </div>
+            </button>
           </>
         )}
       </nav>
