@@ -49,6 +49,8 @@ function Home() {
         >
           <motion.img
             src="/pfp.webp"
+            loading="eager"
+            decoding="sync"
             alt="profile pic"
             className="object-contain w-90 md:w-110 lg:w-[70%] transform-gpu"
             animate={{ y: [0, -15, 0] }}
