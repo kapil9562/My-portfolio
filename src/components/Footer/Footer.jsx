@@ -100,7 +100,7 @@ const Footer = ({ showContent }) => {
             <h2 className="text-xl font-bold mb-4">Connect & Download</h2>
             <div className="flex space-x-4 mb-4">
               <div
-                className="grid grid-cols-4 sm:grid-cols-2 md:grid-cols-4 gap-2 md:gap-8 lg:gap-2">
+                className="flex flex-wrap gap-2">
                 {icons.map((item, idx) => (
                   <div
                     key={idx}
