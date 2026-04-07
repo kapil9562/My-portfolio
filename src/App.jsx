@@ -10,6 +10,7 @@ import Journey from './components/Journey/Journey'
 import { motion, AnimatePresence, LayoutGroup } from "framer-motion";
 import { useEffect, useState } from 'react'
 import { fadeIn } from './animation'
+import { ReactLenis } from "lenis/react";
 
 function App() {
 
@@ -47,13 +48,20 @@ function App() {
   // Variant for parent to stagger children
   const parentVariant = {
     visible: { transition: { staggerChildren: 0.1 } },
-    exit: { opacity: 0 , transition: { staggerChildren: 0.05, staggerDirection: -1 } },
+    exit: { opacity: 0, transition: { staggerChildren: 0.05, staggerDirection: -1 } },
   };
 
   return (
     <LayoutGroup id="layout">
       <FluidCursor />
-      <div className='h-dvh custom-scroll overflow-x-hidden scroll-smooth relative'>
+      <ReactLenis
+        options={{
+          duration: 2.5,
+          smoothWheel: true,
+          anchors: true,
+        }}
+        className='h-dvh overflow-y-auto overflow-x-hidden relative custom-scroll'
+      >
         <AnimatePresence >
           {showIntro && (
             <motion.div
@@ -152,7 +160,7 @@ function App() {
             <Footer showContent={showContent} />
           </motion.div>
         )}
-      </div>
+      </ReactLenis>
     </LayoutGroup>
   )
 }
