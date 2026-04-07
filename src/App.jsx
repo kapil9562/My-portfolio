@@ -9,7 +9,6 @@ import FluidCursor from './utils/FluidCursor'
 import Journey from './components/Journey/Journey'
 import { motion, AnimatePresence, LayoutGroup } from "framer-motion";
 import { useEffect, useState } from 'react'
-import { fadeIn } from './animation'
 import { ReactLenis } from "lenis/react";
 
 function App() {

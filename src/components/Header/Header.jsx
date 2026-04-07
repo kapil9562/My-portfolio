@@ -124,12 +124,12 @@ function Header({ showIntro, showContent }) {
       <ul className={`rounded-xl absolute right-5 top-15 border border-gray-700 justify-center items-start text-[16px] flex-col text-white shadow-gray-800 shadow-md z-99 bg-black/50 backdrop-blur-lg w-50 md:hidden flex ${isOpen ? "opacity-100 scale-100 visible" : "opacity-0 scale-60 invisible"} transition-all origin-top-right duration-500`}>
         {tabs.map((path, index) => (
           <div className='w-full  active:bg-black/60 transition-colors duration-150 rounded-xl' key={index}>
-            <li className="w-full cursor-pointer pt-2 pb-2 border-b border-b-gray-700 px-4">
+            <li className="w-full cursor-pointer border-b border-b-gray-700">
               <a
                 href={path}
                 onClick={() => setIsOpen(false)}
                 className={
-                  `h-full w-full font-medium ${isActiveSec === path.replace("/", "") ? 'text-orange-400' : 'hover:text-orange-500'}`
+                  `block h-full w-full font-medium py-2 px-4 ${isActiveSec === path.replace("/", "") ? 'text-orange-400' : 'hover:text-orange-500'}`
                 }
               >
                 {path.replace("/#", "").toUpperCase()}
@@ -139,7 +139,7 @@ function Header({ showIntro, showContent }) {
 
         ))}
         <div className='w-full px-4  active:bg-black/60 transition-colors duration-150 rounded-xl'>
-          <button onClick={() => openLink("mailto:adhikarikapil389@gmail.com")} className='w-full h-full text-start font-semibold cursor-pointer pt-2 pb-2 py-1'>
+          <button onClick={() => openLink("mailto:adhikarikapil389@gmail.com")} className='w-full h-full text-start font-semibold cursor-pointer pt-2 pb-2 py-1 hover:text-orange-500'>
             LET'S TALK
           </button>
         </div>

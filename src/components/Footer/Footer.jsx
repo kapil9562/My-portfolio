@@ -120,11 +120,12 @@ const Footer = ({ showContent }) => {
                 ))}
               </div>
             </div>
-            <button
+            <a
+              href='./resume.pdf' download="resume.pdf"
               className="bg-linear-to-b from-pink-500 to-orange-500 text-white inline-block px-4 py-2 rounded-lg shadow-lg shadow-white/20 font-semibold w-fit cursor-pointer active:scale-95 transition-transform duration-300 will-change-transform"
             >
-              <a href='./resume.pdf' download="resume.pdf">Download CV</a>
-            </button>
+              <span>Download CV</span>
+            </a>
           </div>
 
         </div>

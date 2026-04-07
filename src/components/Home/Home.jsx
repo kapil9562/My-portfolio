@@ -48,7 +48,7 @@ function Home() {
           viewport={{ once: false, amount: 0.4 }}
         >
           <motion.img
-            src="/pfp.png"
+            src="/pfp.webp"
             alt="profile pic"
             className="object-contain w-90 md:w-110 lg:w-[70%] transform-gpu"
             animate={{ y: [0, -15, 0] }}
@@ -74,7 +74,7 @@ function Home() {
             viewport={{ once: false }}
           >
             Hey, I'm{" "}
-            <span className="text-5xl font-bold bg-gradient-to-r from-pink-500 to-orange-500 bg-clip-text text-transparent">
+            <span className="text-5xl font-bold bg-linear-to-r from-pink-500 to-orange-500 bg-clip-text text-transparent">
               Kapil
             </span>
           </motion.h1>
@@ -85,7 +85,7 @@ function Home() {
             viewport={{ once: false }}
           >
             I'm{" "}
-            <span className="bg-gradient-to-r from-pink-500 to-orange-500 bg-clip-text text-transparent font-bold transform-gpu">
+            <span className="bg-linear-to-r from-pink-500 to-orange-500 bg-clip-text text-transparent font-bold transform-gpu">
               <ReactTyped
                 strings={["a Full Stack Developer", "an App Developer"]}
                 typeSpeed={150}
@@ -132,7 +132,8 @@ function Home() {
           </motion.div>
 
           {/* DOWNLOAD BUTTON */}
-          <motion.button
+          <motion.a
+            href="/resume.pdf" download
             className="transform-gpu px-4 py-2 bg-linear-to-r from-pink-500 to-orange-500 text-white rounded-lg flex items-center gap-2 cursor-pointer transition-[scale] duration-300 active:scale-95 will-change-transform
             border-2 border-[#F83C90] shadow-xl shadow-[#6D4300]/50"
             variants={fadeInRight}
@@ -140,10 +141,10 @@ function Home() {
           >
             <i className="fas fa-download"></i>
 
-            <a href="/resume.pdf" download>
+            <span>
               Download CV
-            </a>
-          </motion.button>
+            </span>
+          </motion.a>
 
         </motion.div>
 
