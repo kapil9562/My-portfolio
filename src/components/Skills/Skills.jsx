@@ -18,7 +18,7 @@ const logos = {
   "Node JS": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Node.js_logo.svg/1280px-Node.js_logo.svg.png",
   "Express JS": "https://logowik.com/content/uploads/images/express-js1720895488.logowik.com.webp",
   Redux: "https://cdn.worldvectorlogo.com/logos/redux.svg",
-  Vite: "/vite.svg",
+  Vite: "/viteLogo.svg",
   "Mongo DB": "https://d2lgmzy8vjj79z.cloudfront.net/mongodb.svg",
   SQL: "https://img.icons8.com/?size=100&id=UFXRpPFebwa2&format=png&color=000000",
   Git: "https://git-scm.com/images/logos/downloads/Git-Icon-1788C.png",
