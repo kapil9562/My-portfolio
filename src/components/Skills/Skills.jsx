@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 import { fadeInLeft, fadeInRight, fadeInUp, Container, fadeIn,  springUp, bounceIn } from "/src/animation";
 
 
-const rows = [7, 5, 3, 2, 1];
+const rows = [5, 4, 2, 1];
 
 const logos = {
   HTML: "https://img.icons8.com/?size=100&id=20909&format=png&color=000000",
@@ -17,16 +17,10 @@ const logos = {
   "React Native": "https://img.icons8.com/?size=100&id=t4YbEbA834uH&format=png&color=000000",
   "Node JS": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Node.js_logo.svg/1280px-Node.js_logo.svg.png",
   "Express JS": "https://logowik.com/content/uploads/images/express-js1720895488.logowik.com.webp",
-  Redux: "https://cdn.worldvectorlogo.com/logos/redux.svg",
-  Vite: "/viteLogo.svg",
   "Mongo DB": "https://d2lgmzy8vjj79z.cloudfront.net/mongodb.svg",
   SQL: "https://img.icons8.com/?size=100&id=UFXRpPFebwa2&format=png&color=000000",
   Git: "https://git-scm.com/images/logos/downloads/Git-Icon-1788C.png",
-  "GitHub": "https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/github-white-icon.png",
-  Java: "https://img.icons8.com/?size=100&id=13679&format=png&color=000000",
-  Firebase: "/firebase.png",
-  GoogleCloud: "https://brandlogos.net/wp-content/uploads/2022/07/google_cloud-logo_brandlogos.net_qxnsy-512x512.png",
-  Figma: "https://upload.wikimedia.org/wikipedia/commons/3/33/Figma-logo.svg"
+  "GitHub": "https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/github-white-icon.png"
 };
 
 const skills = [

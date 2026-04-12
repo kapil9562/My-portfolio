@@ -125,13 +125,10 @@ function About() {
                   in Computer Application (BCA) and will graduate in 2027.
                 </li>
                 <li>
-                  I'm a passionate UI/UX Designer and Web Developer, dedicated to
-                  creating modern, user-centered digital experiences.
+                  I'm a passionate Web Developer. I specialize in creating smooth, interactive, and user-friendly experiences using modern technologies, with a strong focus on performance and clean design.
                 </li>
                 <li>
-                  My goal is to combine creativity and technology to design digital
-                  products that not only look great but also deliver smooth,
-                  meaningful user experiences.
+                  My goal is to combine creativity and frontend engineering to craft digital products that not only look great but feel seamless and intuitive to use.
                 </li>
               </ul>
             </div>
