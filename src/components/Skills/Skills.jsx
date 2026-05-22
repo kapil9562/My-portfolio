@@ -144,7 +144,7 @@ export default function Skills() {
             variants={fadeInLeft}
             initial="hidden"
             whileInView="show"
-            viewport={{ once: false }}
+            viewport={{ once:true }}
           >
             Technical Skills
           </motion.h1>
@@ -154,7 +154,7 @@ export default function Skills() {
             variants={fadeInRight}
             initial="hidden"
             whileInView="show"
-            viewport={{ once: false }}
+            viewport={{ once:true }}
           >
             I specialize in designing and developing responsive, user-friendly
             web and mobile interfaces.
@@ -177,13 +177,13 @@ export default function Skills() {
                   variants={Container}
                   initial="hidden"
                   whileInView="show"
-                  viewport={{ once: false, amount: 0.4 }}
+                  viewport={{ once:true, amount: 0.4 }}
                 >
                   {rowItems.map(([name, url], idx) => (
                     <motion.div
                       className="flex flex-col justify-center items-center transform-gpu will-change-transform"
                       variants={fadeIn}
-                      viewport={{ once: false, amount: 0.4 }}
+                      viewport={{ once:true, amount: 0.4 }}
                       key={idx}
                     >
                       <img
@@ -208,7 +208,7 @@ export default function Skills() {
             variants={springUp}
             initial="hidden"
             whileInView="show"
-            viewport={{ once: false }}
+            viewport={{ once:true }}
           >
             Professional Skills
           </motion.h1>

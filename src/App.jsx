@@ -10,6 +10,7 @@ import Journey from './components/Journey/Journey'
 import { motion, AnimatePresence, LayoutGroup } from "framer-motion";
 import { useEffect, useState } from 'react'
 import { ReactLenis } from "lenis/react";
+import { Helmet } from "react-helmet-async";
 
 function App() {
 
@@ -51,116 +52,131 @@ function App() {
   };
 
   return (
-    <LayoutGroup id="layout">
-      <FluidCursor />
-      <ReactLenis
-        options={{
-          duration: 2.5,
-          smoothWheel: true,
-          anchors: true,
-        }}
-        className='h-dvh overflow-y-auto overflow-x-hidden relative custom-scroll'
-      >
-        <AnimatePresence >
-          {showIntro && (
+    <>
+      <Helmet>
+        <title>Kapil Adhikari | Full Stack Developer</title>
+
+        <meta
+          name="description"
+          content="Portfolio of Kapil Adhikari - MERN Stack and React Developer."
+        />
+
+        <meta
+          name="keywords"
+          content="Kapil Adhikari, MERN Developer, React Developer"
+        />
+      </Helmet>
+      <LayoutGroup id="layout">
+        <FluidCursor />
+        <ReactLenis
+          options={{
+            duration: 2.5,
+            smoothWheel: true,
+            anchors: true,
+          }}
+          className='h-dvh overflow-y-auto overflow-x-hidden relative custom-scroll'
+        >
+          <AnimatePresence >
+            {showIntro && (
+              <motion.div
+                className="fixed inset-0 bg-black flex items-center justify-center px-4 md:px-70 z-999"
+                initial={{ opacity: 1 }}
+                animate={{ opacity: 1, backgroundColor: "transparent" }}
+              >
+
+                {/* Center Logo */}
+                <div className='justify-center items-center flex relative'>
+
+                  {/* Left letters */}
+                  <motion.div
+                    className="flex flex-row gap-2 sm:gap-4 justify-center md:items-center items-end absolute lg:-left-80 md:-left-70 -top-40 md:top-1/12 "
+                    variants={parentVariant}
+                    initial="hidden"
+                    animate="visible"
+                    exit="exit"
+                    duration={1}
+                  >
+                    {nameLeft.map((char, i) => (
+                      <motion.span
+                        key={i}
+                        className="text-white/50 text-4xl md:text-3xl lg:text-4xl font-normal font-[Outfit]"
+                        variants={letterVariant}
+                      >
+                        {char}
+                      </motion.span>
+                    ))}
+                  </motion.div>
+
+                  {/* Image */}
+                  <motion.img
+                    layout
+                    layoutId="logo"
+                    src="/KA.png"
+                    className="w-13 h-13 object-contain will-change-transform transform-gpu"
+                    initial={{ scale: 5 }}
+                  />
+
+                  {/* Right letters */}
+                  <motion.div
+                    className="flex flex-row gap-1 h-full sm:gap-2 md:gap-4 justify-center items-center absolute lg:-right-100 md:-right-90 -bottom-40 md:bottom-1/12"
+                    variants={parentVariant}
+                    initial="hidden"
+                    animate="visible"
+                    exit="exit"
+                    duration={1}
+                  >
+                    {nameRight.map((char, i) => (
+                      <motion.span
+                        key={i}
+                        className="text-white/50 text-4xl md:text-3xl lg:text-4xl font-normal font-[Outfit]"
+                        variants={letterVariant}
+                      >
+                        {char}
+                      </motion.span>
+                    ))}
+                  </motion.div>
+
+                </div>
+
+
+              </motion.div>
+            )}
+          </AnimatePresence>
+          <Header showIntro={showIntro} showContent={showContent} />
+          {showContent && (
             <motion.div
-              className="fixed inset-0 bg-black flex items-center justify-center px-4 md:px-70 z-999"
-              initial={{ opacity: 1 }}
-              animate={{ opacity: 1, backgroundColor: "transparent" }}
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
             >
+              <main>
+                <section id="home" className='scroll-mt-21'>
+                  <Home />
+                </section>
 
-              {/* Center Logo */}
-              <div className='justify-center items-center flex relative'>
+                <section id="about" className='scroll-mt-21'>
+                  <About />
+                </section>
 
-                {/* Left letters */}
-                <motion.div
-                  className="flex flex-row gap-2 sm:gap-4 justify-center md:items-center items-end absolute lg:-left-80 md:-left-70 -top-40 md:top-1/12 "
-                  variants={parentVariant}
-                  initial="hidden"
-                  animate="visible"
-                  exit="exit"
-                  duration={1}
-                >
-                  {nameLeft.map((char, i) => (
-                    <motion.h1
-                      key={i}
-                      className="text-white/50 text-4xl md:text-3xl lg:text-4xl font-normal font-[Outfit]"
-                      variants={letterVariant}
-                    >
-                      {char}
-                    </motion.h1>
-                  ))}
-                </motion.div>
+                <section id="journey" className='scroll-mt-21'>
+                  <Journey />
+                </section>
 
-                {/* Image */}
-                <motion.img
-                  layout
-                  layoutId="logo"
-                  src="/KA.png"
-                  className="w-13 h-13 object-contain will-change-transform transform-gpu"
-                  initial={{ scale: 5 }}
-                />
+                <section id="skills" className='scroll-mt-21'>
+                  <Skills />
+                </section>
 
-                {/* Right letters */}
-                <motion.div
-                  className="flex flex-row gap-1 h-full sm:gap-2 md:gap-4 justify-center items-center absolute lg:-right-100 md:-right-90 -bottom-40 md:bottom-1/12"
-                  variants={parentVariant}
-                  initial="hidden"
-                  animate="visible"
-                  exit="exit"
-                  duration={1}
-                >
-                  {nameRight.map((char, i) => (
-                    <motion.h1
-                      key={i}
-                      className="text-white/50 text-4xl md:text-3xl lg:text-4xl font-normal font-[Outfit]"
-                      variants={letterVariant}
-                    >
-                      {char}
-                    </motion.h1>
-                  ))}
-                </motion.div>
+                <section id="projects" className='scroll-mt-21'>
+                  <Projects />
+                </section>
+              </main>
 
-              </div>
-
-
+              <Footer showContent={showContent} />
             </motion.div>
           )}
-        </AnimatePresence>
-        <Header showIntro={showIntro} showContent={showContent} />
-        {showContent && (
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-          >
-            <main>
-              <section id="home" className='scroll-mt-21'>
-                <Home />
-              </section>
-
-              <section id="about" className='scroll-mt-21'>
-                <About />
-              </section>
-
-              <section id="journey" className='scroll-mt-21'>
-                <Journey />
-              </section>
-
-              <section id="skills" className='scroll-mt-21'>
-                <Skills />
-              </section>
-
-              <section id="projects" className='scroll-mt-21'>
-                <Projects />
-              </section>
-            </main>
-
-            <Footer showContent={showContent} />
-          </motion.div>
-        )}
-      </ReactLenis>
-    </LayoutGroup>
+        </ReactLenis>
+      </LayoutGroup>
+    </>
   )
 }
 

@@ -37,7 +37,7 @@ function Projects() {
             variants={fadeInLeft}
             initial="hidden"
             whileInView="show"
-            viewport={{ once: false, amount: 0.4 }}
+            viewport={{ once:true, amount: 0.4 }}
           >
             My Projects
           </motion.h1>
@@ -47,7 +47,7 @@ function Projects() {
             variants={fadeInRight}
             initial="hidden"
             whileInView="show"
-            viewport={{ once: false, amount: 0.4 }}
+            viewport={{ once:true, amount: 0.4 }}
           >
             I design and build modern, responsive web applications that blend creativity with functionality. My goal is to craft seamless user experiences that are fast, intuitive, and visually engaging across all devices.
           </motion.p>
@@ -61,7 +61,7 @@ function Projects() {
           variants={Container}
           initial="hidden"
           whileInView="show"
-          viewport={{ once: false, amount: 0.4 }}
+          viewport={{ once:true, amount: 0.4 }}
         >
 
           {projects.map((project, idx) => (
@@ -69,7 +69,7 @@ function Projects() {
             <motion.div
               variants={fadeIn}
               key={idx}
-              viewport={{ once: false, amount: 0.4 }}
+              viewport={{ once:true, amount: 0.4 }}
               className={`w-full h-fit bg-transparent transform-style-preserve-3d cursor-pointer ${rotate[idx] ? "rotate-y-180" : "rotate-y-0"} transition-transform duration-700 relative transform-gpu will-change-transform`}
               onClick={() => openProject(project.live)}
             >

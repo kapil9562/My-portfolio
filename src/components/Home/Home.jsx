@@ -9,11 +9,8 @@ import {
   Container
 } from "/src/animation";
 import loaderAnimation from "/src/assets/loader.json";
-import Lottie from "lottie-react";
 
 function Home() {
-
-  const [loader] = useState(false);
 
   const icons = [
     { icon: "fa-github", link: "https://github.com/kapil9562" },
@@ -27,17 +24,7 @@ function Home() {
 
   return (
     <>
-      {loader && (
-        <div className="h-full w-full md:h-[90vh] flex items-center justify-center backdrop-blur-xl z-50">
-          <Lottie
-            animationData={loaderAnimation}
-            loop
-            className="w-30 h-30"
-          />
-        </div>
-      )}
-
-      <div className="flex flex-col md:flex-row pb-5 min-h-[calc(100dvh-84px)]">
+      <section id="home" className="flex flex-col md:flex-row pb-5 min-h-[calc(100dvh-84px)]">
 
         {/* IMAGE */}
         <motion.div
@@ -45,13 +32,13 @@ function Home() {
           variants={fadeInLeft}
           initial="hidden"
           whileInView="show"
-          viewport={{ once: false, amount: 0.4 }}
+          viewport={{ once: true, amount: 0.4 }}
         >
           <motion.img
             src="/pfp.webp"
             loading="eager"
             decoding="sync"
-            alt="profile pic"
+            alt="Kapil Adhikari Full Stack Developer"
             className="object-contain w-90 md:w-110 lg:w-[70%] transform-gpu"
             animate={{ y: [0, -15, 0] }}
             transition={{
@@ -68,23 +55,26 @@ function Home() {
           variants={Container}
           initial="hidden"
           whileInView="show"
-          viewport={{ once: false, amount: 0.4 }}>
+          viewport={{ once: true, amount: 0.4 }}>
 
-          <motion.h1
+          <h1 className="sr-only">
+            Kapil Adhikari - Full Stack Developer
+          </h1>
+          <motion.h2
             className="text-4xl font-bold text-white transform-gpu"
             variants={fadeInRight}
-            viewport={{ once: false }}
+            viewport={{ once: true }}
           >
             Hey, I'm{" "}
             <span className="text-5xl font-bold bg-linear-to-r from-pink-500 to-orange-500 bg-clip-text text-transparent">
               Kapil
             </span>
-          </motion.h1>
+          </motion.h2>
 
           <motion.h2
             className="text-2xl font-bold text-white transform-gpu"
             variants={fadeInRight}
-            viewport={{ once: false }}
+            viewport={{ once: true }}
           >
             I'm{" "}
             <span className="bg-linear-to-r from-pink-500 to-orange-500 bg-clip-text text-transparent font-bold transform-gpu">
@@ -94,23 +84,26 @@ function Home() {
                 backSpeed={100}
                 loop
               />
+              <span className="sr-only">
+                Full Stack Developer and App Developer
+              </span>
             </span>
           </motion.h2>
 
-          <motion.p
+          <motion.article
             className="text-lg text-gray-400 leading-relaxed w-[90%] transform-gpu"
             variants={fadeInRight}
-            viewport={{ once: false }}
+            viewport={{ once: true }}
           >
             Passionate about creating modern, responsive, and user-friendly
             applications. I specialize in building scalable web apps, elegant
             front-end designs, and efficient mobile experiences.
-          </motion.p>
+          </motion.article>
 
           {/* SOCIAL ICONS */}
           <motion.div
             variants={Container}
-            viewport={{ once: false }}
+            viewport={{ once: true }}
             className="flex space-x-4 transform-gpu"
           >
             {icons.map((item, idx) => (
@@ -134,23 +127,24 @@ function Home() {
           </motion.div>
 
           {/* DOWNLOAD BUTTON */}
-          <motion.a
+          <motion.button
             href="/resume.pdf" download
+            aria-label="Get Kapil Adhikari CV"
             className="transform-gpu px-4 py-2 bg-linear-to-r from-pink-500 to-orange-500 text-white rounded-lg flex items-center gap-2 cursor-pointer transition-[scale] duration-300 active:scale-95 will-change-transform
             border-2 border-[#F83C90] shadow-xl shadow-[#6D4300]/50"
             variants={fadeInRight}
-            viewport={{ once: false }}
+            viewport={{ once: true }}
           >
             <i className="fas fa-download"></i>
 
             <span>
               Download CV
             </span>
-          </motion.a>
+          </motion.button>
 
         </motion.div>
 
-      </div>
+      </section>
     </>
   );
 }

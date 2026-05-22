@@ -4,36 +4,17 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 import { motion } from "framer-motion";
 import { fadeInDown, fadeInLeft, fadeInRight, Container } from "/src/animation";
 import loaderAnimation from "/src/assets/loader.json";
-import Lottie from "lottie-react";
 
 function About() {
 
-  const [loader, setLoader] = useState(false);
-
   const handleClick = (url) => {
-    if(!url) return;
-    setTimeout(() => {
-      window.open(url, "_blank", "noopener,noreferrer");
-    }, 300);
+    if (!url) return;
+    window.open(url, "_blank", "noopener,noreferrer");
   };
 
   return (
     <>
-      {loader && (
-        <div className="h-full w-full md:h-[90vh] flex items-center justify-center backdrop-blur-xl z-50">
-          <Lottie
-            animationData={loaderAnimation}
-            loop
-            className="w-30 h-30"
-            style={{
-              filter:
-                "invert(43%) sepia(59%) saturate(700%) hue-rotate(320deg) brightness(60%) contrast(100%)"
-            }}
-          />
-        </div>
-      )}
-
-      <div className="flex flex-col md:flex-row pb-5 min-h-[calc(100dvh-84px)]">
+      <section id="about" className="flex flex-col md:flex-row pb-5 min-h-[calc(100dvh-84px)]">
 
         {/* LEFT SIDE */}
         <motion.div
@@ -41,35 +22,35 @@ function About() {
           variants={Container}
           initial="hidden"
           whileInView="show"
-          viewport={{ once: false, amount: 0.4 }}
+          viewport={{ once: true, amount: 0.4 }}
         >
 
-          <motion.h1
+          <motion.h2
             className="md:text-6xl text-5xl font-bold text-white transform-gpu will-change-transform"
             variants={fadeInLeft}
-            viewport={{ once: false }}
+            viewport={{ once: true }}
           >
             ABOUT{" "}
             <span className="bg-linear-to-r from-pink-500 to-orange-500 bg-clip-text text-transparent font-bold">
               Me
             </span>
-          </motion.h1>
+          </motion.h2>
 
-          <motion.h1
+          <motion.h3
             className="md:text-4xl text-3xl font-bold text-white transform-gpu will-change-transform"
             variants={fadeInLeft}
-            viewport={{ once: false }}
+            viewport={{ once: true }}
           >
             Hello! I'm{" "}
             <span className="font-bold bg-linear-to-r from-pink-500 to-orange-500 bg-clip-text text-transparent">
               Kapil,
             </span>
-          </motion.h1>
+          </motion.h3>
 
           <motion.span
             className="bg-linear-to-r from-pink-500 to-orange-500 bg-clip-text text-transparent md:text-2xl text-xl font-bold transform-gpu will-change-transform"
             variants={fadeInLeft}
-            viewport={{ once: false }}
+            viewport={{ once: true }}
           >
             <ReactTyped
               strings={["a Full Stack Developer", "an App Developer"]}
@@ -82,16 +63,20 @@ function About() {
           <motion.p
             className="text-lg text-gray-400 text-center md:text-start leading-relaxed w-[90%] transform-gpu will-change-transform"
             variants={fadeInLeft}
-            viewport={{ once: false }}
+            viewport={{ once: true }}
           >
-            I turn complex problems into simple, intuitive solutions, building fast, smooth, and highly engaging user-friendly applications while exploring new technologies and best practices.
+            I am a Full Stack Developer specializing in
+            React.js, Node.js, Express.js, MongoDB, and modern web technologies.
+            I build fast, responsive, and user-friendly web applications
+            with a strong focus on performance, clean UI, and smooth user experiences.
           </motion.p>
 
           <motion.button
+            aria-label="Contact Kapil Adhikari"
             className="px-4 py-2 font-semibold bg-linear-to-r from-pink-500 to-orange-500 text-white rounded-lg flex items-center gap-2
             active:scale-95 cursor-pointer active:bg-transparent transition-[scale] duration-300 border-2 border-[#F83C90] transform-gpu will-change-transform"
             variants={fadeInLeft}
-            viewport={{ once: false }}
+            viewport={{ once: true }}
             onClick={() => handleClick("mailto:adhikarikapil389@gmail.com")}
           >
             LET'S TALK
@@ -105,13 +90,13 @@ function About() {
           variants={Container}
           initial="hidden"
           whileInView="show"
-          viewport={{ once: false, amount: 0.4 }}
+          viewport={{ once: true, amount: 0.4 }}
         >
 
           <motion.div
             className="relative w-[80%] bg-cover bg-center h-fit rounded-4xl"
             variants={fadeInRight}
-            viewport={{ once: false }}>
+            viewport={{ once: true }}>
 
             {/* Liquid glass card */}
             <div
@@ -136,7 +121,7 @@ function About() {
 
         </motion.div>
 
-      </div>
+      </section>
     </>
   );
 }

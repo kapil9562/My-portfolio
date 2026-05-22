@@ -4,14 +4,16 @@ import './index.css';
 import { Routes, Route, BrowserRouter } from 'react-router-dom';
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import App from './App.jsx';
+import { HelmetProvider } from 'react-helmet-async'
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<App />}>
-        </Route>
-      </Routes>
-    </BrowserRouter>
+    <HelmetProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<App />} />
+        </Routes>
+      </BrowserRouter>
+    </HelmetProvider>
   </StrictMode>
 );
