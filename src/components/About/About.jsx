@@ -94,7 +94,7 @@ function About() {
         >
 
           <motion.div
-            className="relative w-[80%] bg-cover bg-center h-fit rounded-4xl"
+            className="relative w-[90%] sm:w-[80%] bg-cover bg-center h-fit rounded-4xl"
             variants={fadeInRight}
             viewport={{ once: true }}>
 
