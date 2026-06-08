@@ -8,7 +8,7 @@ const projects = [
     description:
       "Responsive e-commerce app with product catalog, shopping cart, authentication, and secure payments. Built with React, Node.js, MongoDB, Stripe API.",
     technologies: ["React", "Node.js", "Express", "MongoDB"],
-    image: "/avenzaPreImg.png",
+    image: "/avenzaPreImg2.png",
     live: "https://myavenza.onrender.com/",
     tools: [
       "React",

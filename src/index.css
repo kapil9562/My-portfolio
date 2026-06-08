@@ -135,12 +135,12 @@ select:-webkit-autofill {
   gap: 1rem;
 
   padding: 1rem;
-  background-color: hsla(240, 15%, 9%, 1);
+  background-color: hsla(240, 15%, 2%, 1);
   background-image: radial-gradient(at 88% 40%,
-      hsla(240, 15%, 9%, 1) 0px,
+      hsla(240, 15%, 2%, 1) 0px,
       transparent 85%),
-    radial-gradient(at 49% 30%, hsla(240, 15%, 9%, 1) 0px, transparent 85%),
-    radial-gradient(at 14% 26%, hsla(240, 15%, 9%, 1) 0px, transparent 85%),
+    radial-gradient(at 49% 30%, hsla(240, 15%, 2%, 1) 0px, transparent 85%),
+    radial-gradient(at 14% 26%, hsla(240, 15%, 2%, 1) 0px, transparent 85%),
     radial-gradient(at 0% 64%, rgb(247, 38, 212) 0px, transparent 85%),
     radial-gradient(at 41% 94%, rgb(255, 173, 173) 0px, transparent 85%),
     radial-gradient(at 100% 99%, rgb(255, 36, 102) 0px, transparent 85%);

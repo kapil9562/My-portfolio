@@ -56,7 +56,7 @@ function Projects() {
 
         {/* Projects Grid */}
         <motion.div
-          className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3
+          className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 mt-4
                gap-4 md:gap-8 p-5 justify-items-center md:px-20 sm:px-10 transform-gpu will-change-transform perspective-1000"
           variants={Container}
           initial="hidden"
@@ -141,8 +141,8 @@ function Projects() {
                 <hr className="line" />
 
                 {/* {img} */}
-                <div className=''>
-                  <img src={project.image} alt="Thumbnail" className='h-40 w-full object-cover rounded-2xl ' />
+                <div className='w-full'>
+                  <img src={project.image} alt="Thumbnail" className='h-auto w-full object-cover rounded-2xl align-top' />
                 </div>
 
                 {/* button */}
