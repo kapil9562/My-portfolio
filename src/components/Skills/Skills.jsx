@@ -189,9 +189,9 @@ export default function Skills() {
                       <img
                         src={url}
                         alt={name}
-                        className="sm:w-14 sm:h-14 h-5 w-5 object-contain"
+                        className="sm:w-14 sm:h-14 h-10 w-10 object-contain"
                       />
-                      <span className="text-gray-400 text-[6px] sm:text-sm">{name}</span>
+                      <span className="text-gray-400 text-[10px] sm:text-sm">{name}</span>
                     </motion.div>
                   ))}
                 </motion.div>
