@@ -21,7 +21,7 @@ function App() {
 
     const introTimer = setTimeout(() => {
       setShowIntro(false); // start logo move animation
-    }, 1500);
+    }, 1850);
 
     const contentTimer = setTimeout(() => {
       setShowContent(true); // render rest of website

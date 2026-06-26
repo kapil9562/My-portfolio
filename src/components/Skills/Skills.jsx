@@ -1,9 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import Lottie from "react-lottie-player";
-import animationData from "/src/assets/python.json";
 import loaderAnimation from "/src/assets/loader.json";
 import { motion } from "framer-motion";
-import { fadeInLeft, fadeInRight, fadeInUp, Container, fadeIn,  springUp, bounceIn } from "/src/animation";
+import { fadeInLeft, fadeInRight, Container, fadeIn,  springUp } from "/src/animation";
 
 
 const rows = [5, 4, 2, 1];
