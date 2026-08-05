@@ -9,15 +9,15 @@ const logos = {
   HTML: "https://img.icons8.com/?size=100&id=20909&format=png&color=000000",
   CSS: "https://img.icons8.com/?size=100&id=21278&format=png&color=000000",
   Tailwind: "https://img.icons8.com/?size=100&id=4PiNHtUJVbLs&format=png&color=000000",
-  JavaScript: "https://static.vecteezy.com/system/resources/previews/027/127/463/non_2x/javascript-logo-javascript-icon-transparent-free-png.png",
+  JavaScript: "/javascript.webp",
   "React JS": "https://img.icons8.com/?size=100&id=asWSSTBrDlTW&format=png&color=000000",
   "React Native": "https://img.icons8.com/?size=100&id=t4YbEbA834uH&format=png&color=000000",
-  "Node JS": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Node.js_logo.svg/1280px-Node.js_logo.svg.png",
+  "Node JS": "/nodeJS.webp",
   "Express JS": "https://logowik.com/content/uploads/images/express-js1720895488.logowik.com.webp",
   "Mongo DB": "https://d2lgmzy8vjj79z.cloudfront.net/mongodb.svg",
   SQL: "https://img.icons8.com/?size=100&id=UFXRpPFebwa2&format=png&color=000000",
   Git: "https://git-scm.com/images/logos/downloads/Git-Icon-1788C.png",
-  "GitHub": "https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/github-white-icon.png"
+  "GitHub": "/github.webp"
 };
 
 const skills = [

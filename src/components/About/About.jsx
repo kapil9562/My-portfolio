@@ -3,7 +3,6 @@ import { ReactTyped } from "react-typed";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 import { motion } from "framer-motion";
 import { fadeInDown, fadeInLeft, fadeInRight, Container } from "/src/animation";
-import loaderAnimation from "/src/assets/loader.json";
 
 function About() {
 
