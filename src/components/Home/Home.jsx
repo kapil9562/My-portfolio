@@ -5,11 +5,8 @@ import { motion } from "framer-motion";
 import {
   fadeInLeft,
   fadeInRight,
-  fadeInDown,
   Container
 } from "/src/animation";
-import loaderAnimation from "/src/assets/loader.json";
-
 function Home() {
 
   const icons = [

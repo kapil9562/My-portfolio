@@ -21,7 +21,7 @@ function App() {
 
     const introTimer = setTimeout(() => {
       setShowIntro(false); // start logo move animation
-    }, 1850);
+    }, 1500);
 
     const contentTimer = setTimeout(() => {
       setShowContent(true); // render rest of website
@@ -99,7 +99,7 @@ function App() {
                     {nameLeft.map((char, i) => (
                       <motion.span
                         key={i}
-                        className="text-white/50 text-4xl md:text-3xl lg:text-4xl font-normal font-[Outfit]"
+                        className="text-white/50 text-4xl md:text-3xl lg:text-4xl font-normal "
                         variants={letterVariant}
                       >
                         {char}
@@ -111,7 +111,7 @@ function App() {
                   <motion.img
                     layout
                     layoutId="logo"
-                    src="/KA.png"
+                    src="/KA.webp"
                     className="w-13 h-13 object-contain will-change-transform transform-gpu"
                     initial={{ scale: 5 }}
                   />
@@ -128,7 +128,7 @@ function App() {
                     {nameRight.map((char, i) => (
                       <motion.span
                         key={i}
-                        className="text-white/50 text-4xl md:text-3xl lg:text-4xl font-normal font-[Outfit]"
+                        className="text-white/50 text-4xl md:text-3xl lg:text-4xl font-normal"
                         variants={letterVariant}
                       >
                         {char}

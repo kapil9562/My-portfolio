@@ -65,7 +65,7 @@ function Header({ showIntro, showContent }) {
                 transition={{ duration: 0.7 }}
                 layout
                 layoutId="logo"
-                src="/KA.png"
+                src="/KA.webp"
                 alt="logo"
                 className="object-contain h-13 w-13 will-change-transform transform-gpu z-999"
               />

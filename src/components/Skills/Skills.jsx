@@ -1,8 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
-import Lottie from "react-lottie-player";
-import loaderAnimation from "/src/assets/loader.json";
 import { motion } from "framer-motion";
-import { fadeInLeft, fadeInRight, Container, fadeIn,  springUp } from "/src/animation";
+import { fadeInLeft, fadeInRight, Container, fadeIn, springUp } from "/src/animation";
 
 
 const rows = [5, 4, 2, 1];
@@ -115,112 +113,98 @@ const SegmentedCircle = ({ percent, label, segments = 90 }) => {
 };
 
 export default function Skills() {
-  const [loader] = useState(false);
 
   const logosArray = Object.entries(logos);
   let index = 0;
 
   return (
-    <>
-      {loader && (
-        <div className="fixed inset-0 flex items-center justify-center backdrop-blur-xl z-50">
-          <Lottie
-            loop
-            animationData={loaderAnimation}
-            play
-            style={{ width: 120, height: 120 }}
-          />
+    <div className="sm:px-10 sm:space-y-10 py-5 min-h-[calc(100dvh-84px)]">
+
+      {/* HEADER */}
+      <div className="flex flex-col items-center space-y-4">
+
+        <motion.h1
+          className="md:text-6xl sm:text-4xl text-3xl underline w-full flex justify-center items-center font-bold bg-linear-to-r from-pink-500 to-orange-500 bg-clip-text text-transparent transform-gpu will-change-transform text-center pb-4 underline-offset-4 decoration-2"
+          variants={fadeInLeft}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+        >
+          Technical Skills
+        </motion.h1>
+
+        <motion.p
+          className="xl:px-60 text-center text-sm sm:text-[18px] text-[#b3b3b3] font-semibold px-10 transform-gpu will-change-transform"
+          variants={fadeInRight}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+        >
+          I specialize in designing and developing responsive, user-friendly
+          web and mobile interfaces.
+        </motion.p>
+
+      </div>
+
+      {/* LOGOS */}
+      <div className="xl:px-20 pt-10 sm:pt-0">
+
+        <div className="flex flex-col items-center gap-6 w-full">
+          {rows.map((count, rowIndex) => {
+            const rowItems = logosArray.slice(index, index + count);
+            index += count;
+
+            return (
+              <motion.div
+                key={rowIndex}
+                className="flex justify-center md:gap-15 gap-5 transform-gpu will-change-transform"
+                variants={Container}
+                initial="hidden"
+                whileInView="show"
+                viewport={{ once: true, amount: 0.4 }}
+              >
+                {rowItems.map(([name, url], idx) => (
+                  <motion.div
+                    className="flex flex-col justify-center items-center transform-gpu will-change-transform"
+                    variants={fadeIn}
+                    viewport={{ once: true, amount: 0.4 }}
+                    key={idx}
+                  >
+                    <img
+                      src={url}
+                      alt={name}
+                      className="sm:w-14 sm:h-14 h-10 w-10 object-contain"
+                    />
+                    <span className="text-gray-400 text-[10px] sm:text-sm">{name}</span>
+                  </motion.div>
+                ))}
+              </motion.div>
+            );
+          })}
         </div>
-      )}
+      </div>
 
-      <div className="sm:px-10 sm:space-y-10 py-5 min-h-[calc(100dvh-84px)]">
+      {/* PROFESSIONAL SKILLS */}
+      <div className="py-10 text-center lg:px-20 space-y-10">
 
-        {/* HEADER */}
-        <div className="flex flex-col items-center space-y-4">
+        <motion.h1
+          className="md:text-6xl sm:text-4xl text-3xl underline w-full flex justify-center items-center font-bold bg-linear-to-r from-pink-500 to-orange-500 bg-clip-text text-transparent transform-gpu will-change-transform pb-4 underline-offset-4 decoration-2"
+          variants={springUp}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+        >
+          Professional Skills
+        </motion.h1>
 
-          <motion.h1
-            className="md:text-6xl sm:text-4xl text-3xl underline w-full flex justify-center items-center font-bold bg-linear-to-r from-pink-500 to-orange-500 bg-clip-text text-transparent transform-gpu will-change-transform text-center pb-4 underline-offset-4 decoration-2"
-            variants={fadeInLeft}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once:true }}
-          >
-            Technical Skills
-          </motion.h1>
-
-          <motion.p
-            className="xl:px-60 text-center text-sm sm:text-[18px] text-[#b3b3b3] font-semibold px-10 transform-gpu will-change-transform"
-            variants={fadeInRight}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once:true }}
-          >
-            I specialize in designing and developing responsive, user-friendly
-            web and mobile interfaces.
-          </motion.p>
-
-        </div>
-
-        {/* LOGOS */}
-        <div className="xl:px-20 pt-10 sm:pt-0">
-
-          <div className="flex flex-col items-center gap-6 w-full">
-            {rows.map((count, rowIndex) => {
-              const rowItems = logosArray.slice(index, index + count);
-              index += count;
-
-              return (
-                <motion.div
-                  key={rowIndex}
-                  className="flex justify-center md:gap-15 gap-5 transform-gpu will-change-transform"
-                  variants={Container}
-                  initial="hidden"
-                  whileInView="show"
-                  viewport={{ once:true, amount: 0.4 }}
-                >
-                  {rowItems.map(([name, url], idx) => (
-                    <motion.div
-                      className="flex flex-col justify-center items-center transform-gpu will-change-transform"
-                      variants={fadeIn}
-                      viewport={{ once:true, amount: 0.4 }}
-                      key={idx}
-                    >
-                      <img
-                        src={url}
-                        alt={name}
-                        className="sm:w-14 sm:h-14 h-10 w-10 object-contain"
-                      />
-                      <span className="text-gray-400 text-[10px] sm:text-sm">{name}</span>
-                    </motion.div>
-                  ))}
-                </motion.div>
-              );
-            })}
-          </div>
-        </div>
-
-        {/* PROFESSIONAL SKILLS */}
-        <div className="py-10 text-center lg:px-20 space-y-10">
-
-          <motion.h1
-            className="md:text-6xl sm:text-4xl text-3xl underline w-full flex justify-center items-center font-bold bg-linear-to-r from-pink-500 to-orange-500 bg-clip-text text-transparent transform-gpu will-change-transform pb-4 underline-offset-4 decoration-2"
-            variants={springUp}
-            initial="hidden"
-            whileInView="show"
-            viewport={{ once:true }}
-          >
-            Professional Skills
-          </motion.h1>
-
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-6">
-            {skills.map((skill, idx) => (
-              <SegmentedCircle key={idx} {...skill} />
-            ))}
-          </div>
-
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-6">
+          {skills.map((skill, idx) => (
+            <SegmentedCircle key={idx} {...skill} />
+          ))}
         </div>
 
       </div>
-    </>
+
+    </div>
   );
 }
