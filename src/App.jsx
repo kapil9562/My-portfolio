@@ -70,7 +70,7 @@ function App() {
         <FluidCursor />
         <ReactLenis
           options={{
-            duration: 2.5,
+            duration: 1.5,
             smoothWheel: true,
             anchors: true,
           }}
@@ -89,7 +89,7 @@ function App() {
 
                   {/* Left letters */}
                   <motion.div
-                    className="flex flex-row gap-2 sm:gap-4 justify-center md:items-center items-end absolute lg:-left-80 md:-left-70 -top-40 md:top-1/12 "
+                    className="flex flex-row gap-2 sm:gap-4 justify-center md:items-center items-end absolute lg:-left-80 md:-left-70 -top-40 md:top-1/12 font-instrumentSans"
                     variants={parentVariant}
                     initial="hidden"
                     animate="visible"
@@ -118,7 +118,7 @@ function App() {
 
                   {/* Right letters */}
                   <motion.div
-                    className="flex flex-row gap-1 h-full sm:gap-2 md:gap-4 justify-center items-center absolute lg:-right-100 md:-right-90 -bottom-40 md:bottom-1/12"
+                    className="flex flex-row gap-1 h-full sm:gap-2 md:gap-4 justify-center items-center absolute lg:-right-100 md:-right-90 -bottom-40 md:bottom-1/12 font-instrumentSans"
                     variants={parentVariant}
                     initial="hidden"
                     animate="visible"

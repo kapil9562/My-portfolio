@@ -7,8 +7,6 @@ body {
   scroll-behavior: smooth;
 }
 
-
-
 html {
   overflow-x: hidden;
   height: 100dvh;
@@ -226,4 +224,25 @@ select:-webkit-autofill {
       rgb(238, 58, 130) 0%,
       rgb(240, 107, 107) 100%);
   color: var(--white);
+}
+
+@font-face {
+  font-family: "Bricolage_Grotesque";
+  src: url("/fonts/BricolageGrotesque-ExtraBold.woff2") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "InstrumentSans";
+  src: url("/fonts/InstrumentSans-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme {
+  --font-bricolage: "Bricolage_Grotesque", sans-serif;
+  --font-instrumentSans: "InstrumentSans", sans-serif;
 }

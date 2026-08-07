@@ -32,22 +32,22 @@ function Projects() {
         {/* Heading Section */}
         <div className='justify-self-center items-center flex flex-col space-y-4 px-10'>
 
-          <motion.h1
-            className='md:text-6xl text-4xl underline w-fit flex justify-center pb-4 underline-offset-4 decoration-2 items-center font-bold bg-linear-to-r from-pink-500 to-orange-500 bg-clip-text text-transparent transform-gpu will-change-transform'
+          <motion.h2
+            className='md:text-6xl text-4xl underline w-fit flex justify-center pb-4 underline-offset-4 decoration-2 items-center font-bold bg-linear-to-r from-pink-500 to-orange-500 bg-clip-text text-transparent transform-gpu will-change-transform font-bricolage'
             variants={fadeInLeft}
             initial="hidden"
             whileInView="show"
-            viewport={{ once:true, amount: 0.4 }}
+            viewport={{ once: true, amount: 0.4 }}
           >
             My Projects
-          </motion.h1>
+          </motion.h2>
 
           <motion.p
-            className='xl:px-60 text-sm sm:text-[18px] text-center text-[#b3b3b3] font-semibold sm:px-10'
+            className='xl:px-60 text-sm sm:text-[18px] text-center text-[#b3b3b3] font-medium sm:px-10 font-instrumentSans tracking-wide'
             variants={fadeInRight}
             initial="hidden"
             whileInView="show"
-            viewport={{ once:true, amount: 0.4 }}
+            viewport={{ once: true, amount: 0.4 }}
           >
             I design and build modern, responsive web applications that blend creativity with functionality. My goal is to craft seamless user experiences that are fast, intuitive, and visually engaging across all devices.
           </motion.p>
@@ -61,7 +61,7 @@ function Projects() {
           variants={Container}
           initial="hidden"
           whileInView="show"
-          viewport={{ once:true, amount: 0.4 }}
+          viewport={{ once: true, amount: 0.4 }}
         >
 
           {projects.map((project, idx) => (
@@ -69,7 +69,7 @@ function Projects() {
             <motion.div
               variants={fadeIn}
               key={idx}
-              viewport={{ once:true, amount: 0.4 }}
+              viewport={{ once: true, amount: 0.4 }}
               className={`w-full h-fit bg-transparent transform-style-preserve-3d cursor-pointer ${rotate[idx] ? "rotate-y-180" : "rotate-y-0"} transition-transform duration-700 relative transform-gpu will-change-transform`}
               onClick={() => openProject(project.live)}
             >
@@ -78,22 +78,25 @@ function Projects() {
 
                 <div className='space-y-5'>
                   <div className='w-full flex flex-row justify-between items-start'>
-                    <FaRocket className='text-orange-700 text-4xl'/>
+                    <FaRocket className='text-orange-700 text-4xl' />
                     <button
+                      type="button"
+                      aria-label={`Flip ${project.title} card`}
+                      title={`Flip ${project.title} card`}
                       className='text-gray-400 hover:text-orange-400 font-medium cursor-pointer'
                       onClick={(e) => {
                         e.stopPropagation();
                         toggleRotate(idx);
                       }}>
-                      <FaRotate className="text-gray-400 hover:text-orange-400 text-lg active:rotate-180 transition-all duration-500"/>
+                      <FaRotate className="text-gray-400 hover:text-orange-400 text-lg active:rotate-180 transition-all duration-500" />
                     </button>
                   </div>
 
                   <div className="card_title__container space-y-4">
-                    <h3 className="lg:text-3xl md:text-2xl sm:text-xl text-2xl font-sans font-bold bg-linear-to-r from-pink-500 to-orange-500 bg-clip-text text-transparent">{project.title}</h3>
+                    <h3 className="lg:text-3xl md:text-2xl sm:text-xl text-2xl font-bold bg-linear-to-r from-pink-500 to-orange-500 bg-clip-text text-transparent font-bricolage">{project.title}</h3>
                     <div className="relative text-gray-100 text-sm">
 
-                      <p className={`text-[#FFFFFF80] font-medium text-sm`}>
+                      <p className={`text-[#FFFFFF80] font-medium text-sm font-instrumentSans tracking-wide`}>
                         {project.description}
                       </p>
                     </div>
@@ -102,12 +105,12 @@ function Projects() {
 
                 <div className='flex flex-row flex-wrap gap-x-4 gap-y-1 text-sm'>
                   {project.tools.map((tool, i) => (
-                    <span className='text-orange-600' key={i}>{tool}</span>
+                    <span className='text-orange-600 font-instrumentSans tracking-wide' key={i}>{tool}</span>
                   ))}
                 </div>
 
                 <div className=' absolute right-0 bottom-0 p-4'>
-                  <span className='text-[#FFFFFF15] font-semibold text-8xl font-[sans-serif]'>{project.year}</span>
+                  <span className='text-[#FFFFFF15] font-semibold text-8xl font-bricolage'>{project.year}</span>
                 </div>
 
               </div>
@@ -117,15 +120,18 @@ function Projects() {
               >
 
                 <div className='w-full flex flex-row justify-between items-start'>
-                  <h1 className='text-4xl font-sans w-fit flex justify-center items-center font-bold bg-linear-to-b from-slate-600 to-slate-100 bg-clip-text text-transparent transform-gpu will-change-transform'>{idx < 10 ? "0" + (idx + 1) : (idx + 1)}
-                  </h1>
+                  <span className='text-4xl w-fit flex justify-center items-center font-bold bg-linear-to-b from-slate-600 to-slate-100 bg-clip-text text-transparent transform-gpu will-change-transform font-instrumentSans'>{idx < 10 ? "0" + (idx + 1) : (idx + 1)}
+                  </span>
                   <button
+                    type="button"
+                    aria-label={`Flip ${project.title} card`}
+                    title={`Flip ${project.title} card`}
                     className='text-gray-400 hover:text-orange-400 font-medium cursor-pointer'
                     onClick={(e) => {
                       e.stopPropagation();
                       toggleRotate(idx);
                     }}>
-                    <FaRotate className="text-gray-400 hover:text-orange-400 text-lg active:rotate-180 transition-all duration-500"/>
+                    <FaRotate className="text-gray-400 hover:text-orange-400 text-lg active:rotate-180 transition-all duration-500" />
                   </button>
                 </div>
 
@@ -135,7 +141,7 @@ function Projects() {
 
                 {/* content */}
                 <div className="card_title__container space-y-4">
-                  <h3 className="lg:text-3xl md:text-2xl sm:text-xl text-2xl font-sans font-bold text-gray-100">{project.title}</h3>
+                  <h3 className="lg:text-3xl md:text-2xl sm:text-xl text-2xl font-bold text-gray-100 font-bricolage">{project.title}</h3>
                 </div>
 
                 <hr className="line" />
@@ -146,8 +152,13 @@ function Projects() {
                 </div>
 
                 {/* button */}
-                <button className="button border-2 border-pink-400 rounded-l-full rounded-r-full font-semibold flex flex-row justify-center items-center gap-4">
-                  <FaArrowUpRightFromSquare/>
+                <button
+                  type="button"
+                  aria-label={`Explore ${project.title}`}
+                  title={`Explore ${project.title}`}
+                  className="button border-2 border-pink-400 rounded-l-full rounded-r-full font-semibold flex flex-row justify-center items-center gap-4 font-instrumentSans"
+                >
+                  <FaArrowUpRightFromSquare />
                   <span>Explore</span>
                 </button>
               </div>

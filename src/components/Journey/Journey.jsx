@@ -57,9 +57,9 @@ const Journey = () => {
                     whileInView="show"
                     viewport={{ once: true, amount: 0.4 }}
                 >
-                    <h2 className="md:text-6xl text-5xl underline w-fit flex justify-center items-center font-bold bg-linear-to-r from-pink-500 to-orange-500 bg-clip-text text-transparent pb-4 underline-offset-4 decoration-2">
+                    <h3 className="md:text-6xl text-5xl underline w-fit flex justify-center items-center font-bold bg-linear-to-r from-pink-500 to-orange-500 bg-clip-text text-transparent pb-4 underline-offset-4 decoration-2 font-bricolage">
                         JOURNEY
-                    </h2>
+                    </h3>
                 </motion.div>
 
                 {/* Timeline Container */}
@@ -103,19 +103,19 @@ const Journey = () => {
                                     <div className={`sm:p-6 pl-6 pr-2 rounded-lg flex flex-col justify-center ${isEven ? "sm:items-end" : "sm:items-start"} w-full`}>
 
                                         {/* Date Badge */}
-                                        <span className="inline-block font-normal tracking-wider text-[#ffffff80]  uppercase rounded-full mb-1">
+                                        <span className="inline-block font-normal tracking-wider text-[#ffffff80]  uppercase rounded-full mb-1 font-instrumentSans">
                                             {item.date}
                                         </span>
 
                                         {/* Icon & Title */}
                                         <div className="flex items-center gap-3 mb-2">
-                                            <h3 className={`md:text-3xl sm:text-2xl text-xl font-medium text-[#FFFFFFBF] font-sans ${isEven ? "sm:text-end" : "sm:text-start"}`}>
+                                            <h3 className={`md:text-3xl sm:text-2xl text-xl font-bricolage font-medium text-[#FFFFFFBF] ${isEven ? "sm:text-end" : "sm:text-start"}`}>
                                                 {item.title}
                                             </h3>
                                         </div>
 
                                         {/* Company/Location */}
-                                        <p className={`text-[#AAAAAA] font-normal mb-3 whitespace-wrap ${isEven ? 'sm:text-end' : 'sm:text-start'}`}>
+                                        <p className={`text-[#AAAAAA] font-normal mb-3 whitespace-wrap ${isEven ? 'sm:text-end' : 'sm:text-start'} font-instrumentSans`}>
                                             {item.description}
                                         </p>
                                     </div>

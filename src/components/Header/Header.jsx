@@ -83,7 +83,7 @@ function Header({ showIntro, showContent }) {
                     <a
                       href={path}
                       className={
-                        `${isActiveSec === path.replace("/", "") ? 'underline underline-offset-4 text-orange-500' : 'relative inline-block after:absolute after:left-0 after:bottom-0 after:h-0.5 after:bg-orange-500 after:w-0 after:transition-all after:duration-500 hover:after:w-full hover:text-orange-500'} text-[#F5EBFA]`
+                        `${isActiveSec === path.replace("/", "") ? 'underline underline-offset-4 text-orange-500' : 'relative inline-block after:absolute after:left-0 after:bottom-0 after:h-0.5 after:bg-orange-500 after:w-0 after:transition-all after:duration-500 hover:after:w-full hover:text-orange-500'} text-[#F5EBFA] font-instrumentSans tracking-wide capitalize`
                       }
                     >
                       {path.replace("/#", "")}
@@ -95,10 +95,10 @@ function Header({ showIntro, showContent }) {
                 variants={fadeInUp}
                 initial="hidden"
                 animate="show">
-                <button onClick={() => openLink("mailto:adhikarikapil389@gmail.com")} className='cursor-pointer'>LET'S TALK</button>
+                <button title='Contact me' aria-label='Talk with me' onClick={() => openLink("mailto:adhikarikapil389@gmail.com")} className='cursor-pointer font-instrumentSans tracking-wide text-base'>LET'S TALK</button>
               </motion.div>
             </div>
-            <button className='hover:bg-[#6D430030] h-12 w-12
+            <button aria-label='menu' title='menu' className='hover:bg-[#6D430030] h-12 w-12
              rounded-full cursor-pointer md:hidden flex justify-center items-center' onClick={() => setIsOpen(!isOpen)}>
               <div className='h-8 w-10 flex p-1.5 flex-col justify-between items-center'>
                 <span
@@ -112,7 +112,7 @@ function Header({ showIntro, showContent }) {
                 ></span>
 
                 <span
-                  className={`h-0.5 w-full border-t-2 border-orange-300 transition-all duration-400 ${isOpen ? "-rotate-45 -translate-y-[9.2px]" : ""
+                  className={`h-0.5 w-full border-t-2 border-orange-300 transition-all duration-400 ${isOpen ? "-rotate-45 translate-y-[-9.2px]" : ""
                     }`}
                 ></span>
               </div>
@@ -121,7 +121,7 @@ function Header({ showIntro, showContent }) {
         )}
       </nav>
 
-      <ul className={`rounded-xl absolute right-5 top-15 border border-gray-700 justify-center items-start text-[16px] flex-col text-white shadow-gray-800 shadow-md z-99 bg-black/50 backdrop-blur-lg w-50 md:hidden flex ${isOpen ? "opacity-100 scale-100 visible" : "opacity-0 scale-60 invisible"} transition-all origin-top-right duration-500`}>
+      <ul className={`rounded-xl absolute right-5 top-15 border border-gray-700 justify-center items-start text-[16px] flex-col text-white shadow-gray-800 shadow-md z-99 bg-black/50 backdrop-blur-lg w-50 md:hidden flex ${isOpen ? "opacity-100 scale-100 visible" : "opacity-0 scale-60 invisible"} transition-all origin-top-right duration-500 font-instrumentSans tracking-wide`}>
         {tabs.map((path, index) => (
           <div className='w-full  active:bg-black/60 transition-colors duration-150 rounded-xl' key={index}>
             <li className="w-full cursor-pointer border-b border-b-gray-700">
@@ -139,7 +139,7 @@ function Header({ showIntro, showContent }) {
 
         ))}
         <div className='w-full px-4  active:bg-black/60 transition-colors duration-150 rounded-xl'>
-          <button onClick={() => openLink("mailto:adhikarikapil389@gmail.com")} className='w-full h-full text-start font-semibold cursor-pointer pt-2 pb-2 py-1 hover:text-orange-500'>
+          <button title='Contact me' aria-label='Talk with Me' onClick={() => openLink("mailto:adhikarikapil389@gmail.com")} className='w-full h-full text-start font-semibold cursor-pointer pt-2 pb-2 py-1 hover:text-orange-500'>
             LET'S TALK
           </button>
         </div>

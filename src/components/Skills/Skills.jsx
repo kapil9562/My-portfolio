@@ -21,10 +21,10 @@ const logos = {
 };
 
 const skills = [
-  { label: "Teamwork", percent: 87 },
-  { label: "Creativity", percent: 90 },
-  { label: "Project Management", percent: 85 },
-  { label: "Communication", percent: 70 },
+  { label: "Teamwork", percent: 85 },
+  { label: "Creativity", percent: 95 },
+  { label: "Project Management", percent: 90 },
+  { label: "Communication", percent: 80 },
 ];
 
 const SegmentedCircle = ({ percent, label, segments = 90 }) => {
@@ -99,13 +99,13 @@ const SegmentedCircle = ({ percent, label, segments = 90 }) => {
           y="50%"
           textAnchor="middle"
           dy=".3em"
-          className="fill-[#e5e7eb] text-[12px] font-bold"
+          className="fill-[#e5e7eb] text-[12px] font-bold font-bricolage"
         >
           {Math.round(animatedPercent)}%
         </text>
       </svg>
 
-      <p className="text-gray-400 md:text-xl font-semibold mt-2 text-center">
+      <p className="text-gray-400 md:text-xl font-semibold mt-2 text-center font-instrumentSans tracking-wide">
         {label}
       </p>
     </div>
@@ -123,18 +123,18 @@ export default function Skills() {
       {/* HEADER */}
       <div className="flex flex-col items-center space-y-4">
 
-        <motion.h1
-          className="md:text-6xl sm:text-4xl text-3xl underline w-full flex justify-center items-center font-bold bg-linear-to-r from-pink-500 to-orange-500 bg-clip-text text-transparent transform-gpu will-change-transform text-center pb-4 underline-offset-4 decoration-2"
+        <motion.h4
+          className="md:text-6xl sm:text-4xl text-3xl underline w-full flex justify-center items-center font-bold bg-linear-to-r from-pink-500 to-orange-500 bg-clip-text text-transparent transform-gpu will-change-transform text-center pb-4 underline-offset-4 decoration-2 font-bricolage"
           variants={fadeInLeft}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
         >
           Technical Skills
-        </motion.h1>
+        </motion.h4>
 
         <motion.p
-          className="xl:px-60 text-center text-sm sm:text-[18px] text-[#b3b3b3] font-semibold px-10 transform-gpu will-change-transform"
+          className="xl:px-60 text-center text-sm sm:text-[18px] text-[#b3b3b3] tracking-wide px-10 transform-gpu will-change-transform font-instrumentSans font-medium"
           variants={fadeInRight}
           initial="hidden"
           whileInView="show"
@@ -175,7 +175,7 @@ export default function Skills() {
                       alt={name}
                       className="sm:w-14 sm:h-14 h-10 w-10 object-contain"
                     />
-                    <span className="text-gray-400 text-[10px] sm:text-sm">{name}</span>
+                    <span className="text-gray-400 text-[10px] sm:text-sm font-instrumentSans">{name}</span>
                   </motion.div>
                 ))}
               </motion.div>
@@ -188,7 +188,7 @@ export default function Skills() {
       <div className="py-10 text-center lg:px-20 space-y-10">
 
         <motion.h1
-          className="md:text-6xl sm:text-4xl text-3xl underline w-full flex justify-center items-center font-bold bg-linear-to-r from-pink-500 to-orange-500 bg-clip-text text-transparent transform-gpu will-change-transform pb-4 underline-offset-4 decoration-2"
+          className="md:text-6xl sm:text-4xl text-3xl underline w-full flex justify-center items-center font-bold bg-linear-to-r from-pink-500 to-orange-500 bg-clip-text text-transparent transform-gpu will-change-transform pb-4 underline-offset-4 decoration-2 font-bricolage"
           variants={springUp}
           initial="hidden"
           whileInView="show"

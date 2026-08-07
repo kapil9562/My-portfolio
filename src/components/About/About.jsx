@@ -1,8 +1,6 @@
-import React, { useState } from "react";
 import { ReactTyped } from "react-typed";
-import "@fortawesome/fontawesome-free/css/all.min.css";
 import { motion } from "framer-motion";
-import { fadeInDown, fadeInLeft, fadeInRight, Container } from "/src/animation";
+import { fadeInLeft, fadeInRight, Container } from "/src/animation";
 
 function About() {
 
@@ -25,7 +23,7 @@ function About() {
         >
 
           <motion.h2
-            className="md:text-6xl text-5xl font-bold text-white transform-gpu will-change-transform"
+            className="md:text-6xl text-5xl font-bricolage font-bold text-white transform-gpu will-change-transform"
             variants={fadeInLeft}
             viewport={{ once: true }}
           >
@@ -36,7 +34,7 @@ function About() {
           </motion.h2>
 
           <motion.h3
-            className="md:text-4xl text-3xl font-bold text-white transform-gpu will-change-transform"
+            className="md:text-4xl text-3xl font-bricolage font-bold text-white transform-gpu will-change-transform"
             variants={fadeInLeft}
             viewport={{ once: true }}
           >
@@ -47,7 +45,7 @@ function About() {
           </motion.h3>
 
           <motion.span
-            className="bg-linear-to-r from-pink-500 to-orange-500 bg-clip-text text-transparent md:text-2xl text-xl font-bold transform-gpu will-change-transform"
+            className="bg-linear-to-r from-pink-500 to-orange-500 bg-clip-text text-transparent md:text-2xl text-xl font-bold transform-gpu will-change-transform font-bricolage"
             variants={fadeInLeft}
             viewport={{ once: true }}
           >
@@ -60,7 +58,7 @@ function About() {
           </motion.span>
 
           <motion.p
-            className="text-lg text-gray-400 text-center md:text-start leading-relaxed w-[90%] transform-gpu will-change-transform"
+            className="text-lg text-gray-400 font-instrumentSans text-center md:text-start leading-relaxed w-[90%] transform-gpu will-change-transform"
             variants={fadeInLeft}
             viewport={{ once: true }}
           >
@@ -72,8 +70,8 @@ function About() {
 
           <motion.button
             aria-label="Contact Kapil Adhikari"
-            className="px-4 py-2 font-semibold bg-linear-to-r from-pink-500 to-orange-500 text-white rounded-lg flex items-center gap-2
-            active:scale-95 cursor-pointer active:bg-transparent transition-[scale] duration-300 border-2 border-[#F83C90] transform-gpu will-change-transform"
+            title="Contact Kapil Adhikari"
+            className="px-4 py-2 font-semibold bg-linear-to-r from-pink-500 to-orange-500 text-white rounded-lg flex items-center gap-2 active:scale-95 cursor-pointer active:bg-transparent transition-[scale] duration-300 border-2 border-[#F83C90] transform-gpu will-change-transform font-instrumentSans"
             variants={fadeInLeft}
             viewport={{ once: true }}
             onClick={() => handleClick("mailto:adhikarikapil389@gmail.com")}
@@ -99,11 +97,11 @@ function About() {
 
             {/* Liquid glass card */}
             <div
-              className="aboutCard w-full rounded-4xl text-white/80 via-white/20 to-white/10 shadow-inner shadow-white/10 font-semibold space-y-4 px-10 py-6"
+              className="aboutCard w-full rounded-4xl text-white/80 via-white/20 to-white/10 shadow-inner shadow-white/10 font-medium space-y-4 px-10 py-6"
 
             >
               <div className="aboutCard_border"></div>
-              <ul className="space-y-4 list-disc list-inside">
+              <ul className="space-y-4 list-disc list-inside font-instrumentSans tracking-wider">
                 <li>
                   I am from Uttarakhand, India. I'm currently pursuing a Bachelor's
                   in Computer Application (BCA) and will graduate in 2027.

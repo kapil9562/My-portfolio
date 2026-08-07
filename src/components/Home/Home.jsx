@@ -1,18 +1,18 @@
 import React, { useState } from "react";
 import { ReactTyped } from "react-typed";
-import "@fortawesome/fontawesome-free/css/all.min.css";
 import { motion } from "framer-motion";
 import {
   fadeInLeft,
   fadeInRight,
   Container
 } from "/src/animation";
+import { FaGithub, FaInstagram, FaLinkedin } from "react-icons/fa";
 function Home() {
 
   const icons = [
-    { icon: "fa-github", link: "https://github.com/kapil9562" },
-    { icon: "fa-instagram", link: "https://www.instagram.com/kapil_art_official" },
-    { icon: "fa-linkedin", link: "https://www.linkedin.com/in/kapil-adhikari9562" }
+    { icon: <FaGithub size={28} />, link: "https://github.com/kapil9562" },
+    { icon: <FaInstagram size={28} />, link: "https://www.instagram.com/kapil_art_official" },
+    { icon: <FaLinkedin size={28} />, link: "https://www.linkedin.com/in/kapil-adhikari9562" }
   ];
 
   const handleClick = (url) => {
@@ -58,18 +58,18 @@ function Home() {
             Kapil Adhikari - Full Stack Developer
           </h1>
           <motion.h2
-            className="text-4xl font-bold text-white transform-gpu"
+            className="md:text-5xl text-4xl font-bold text-white transform-gpu font-bricolage"
             variants={fadeInRight}
             viewport={{ once: true }}
           >
             Hey, I'm{" "}
-            <span className="text-5xl font-bold bg-linear-to-r from-pink-500 to-orange-500 bg-clip-text text-transparent">
+            <span className="md:text-6xl text-5xl font-bold bg-linear-to-r from-pink-500 to-orange-500 bg-clip-text text-transparent">
               Kapil
             </span>
           </motion.h2>
 
           <motion.h2
-            className="text-2xl font-bold text-white transform-gpu"
+            className="text-2xl font-bold text-white transform-gpu font-bricolage"
             variants={fadeInRight}
             viewport={{ once: true }}
           >
@@ -88,7 +88,7 @@ function Home() {
           </motion.h2>
 
           <motion.article
-            className="text-lg text-gray-400 leading-relaxed w-[90%] transform-gpu"
+            className="text-lg text-gray-400 leading-relaxed w-[90%] transform-gpu font-instrumentSans"
             variants={fadeInRight}
             viewport={{ once: true }}
           >
@@ -117,7 +117,7 @@ function Home() {
                   transition-all duration-300 ease-in-out cursor-pointer
                   active:text-white active:scale-95 active:bg-[#FC5464]"
                 >
-                  <i className={`fa-brands ${item.icon} text-2xl`}></i>
+                  {item?.icon}
                 </div>
               </motion.div>
             ))}
@@ -127,6 +127,7 @@ function Home() {
           <motion.button
             href="/resume.pdf" download
             aria-label="Get Kapil Adhikari CV"
+            title="Get Kapil Adhikari CV"
             className="transform-gpu px-4 py-2 bg-linear-to-r from-pink-500 to-orange-500 text-white rounded-lg flex items-center gap-2 cursor-pointer transition-[scale] duration-300 active:scale-95 will-change-transform
             border-2 border-[#F83C90] shadow-xl shadow-[#6D4300]/50"
             variants={fadeInRight}
@@ -134,7 +135,7 @@ function Home() {
           >
             <i className="fas fa-download"></i>
 
-            <span>
+            <span className="font-instrumentSans">
               Download CV
             </span>
           </motion.button>
