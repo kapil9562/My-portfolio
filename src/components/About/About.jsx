@@ -1,6 +1,7 @@
 import { ReactTyped } from "react-typed";
 import { motion } from "framer-motion";
-import { fadeInLeft, fadeInRight, Container } from "/src/animation";
+import { Container } from "/src/animation";
+import { fadeIn, fadeUp } from "../../animation";
 
 function About() {
 
@@ -11,11 +12,11 @@ function About() {
 
   return (
     <>
-      <section id="about" className="flex flex-col md:flex-row pb-5 min-h-[calc(100dvh-84px)]">
+      <section id="about" className="flex flex-col md:flex-row px-5 lg:px-20 xl:px-40 min-h-[calc(100dvh-84px)] py-15">
 
         {/* LEFT SIDE */}
         <motion.div
-          className="w-full md:w-[50%] p-2 flex flex-col items-center md:items-start justify-center space-y-4 text-center md:text-start lg:pl-40 md:pl-20 transform-gpu will-change-transform"
+          className="w-full md:w-[50%] p-2 flex flex-col items-center md:items-start justify-center space-y-4 text-center md:text-start transform-gpu will-change-transform"
           variants={Container}
           initial="hidden"
           whileInView="show"
@@ -24,7 +25,7 @@ function About() {
 
           <motion.h2
             className="md:text-6xl text-5xl font-bricolage font-bold text-white transform-gpu will-change-transform"
-            variants={fadeInLeft}
+            variants={fadeUp}
             viewport={{ once: true }}
           >
             ABOUT{" "}
@@ -35,7 +36,7 @@ function About() {
 
           <motion.h3
             className="md:text-4xl text-3xl font-bricolage font-bold text-white transform-gpu will-change-transform"
-            variants={fadeInLeft}
+            variants={fadeUp}
             viewport={{ once: true }}
           >
             Hello! I'm{" "}
@@ -46,7 +47,7 @@ function About() {
 
           <motion.span
             className="bg-linear-to-r from-pink-500 to-orange-500 bg-clip-text text-transparent md:text-2xl text-xl font-bold transform-gpu will-change-transform font-bricolage"
-            variants={fadeInLeft}
+            variants={fadeUp}
             viewport={{ once: true }}
           >
             <ReactTyped
@@ -57,22 +58,22 @@ function About() {
             />
           </motion.span>
 
-          <motion.p
+          <motion.article
             className="text-lg text-gray-400 font-instrumentSans text-center md:text-start leading-relaxed w-[90%] transform-gpu will-change-transform"
-            variants={fadeInLeft}
+            variants={fadeUp}
             viewport={{ once: true }}
           >
             I am a Full Stack Developer specializing in
             React.js, Node.js, Express.js, MongoDB, and modern web technologies.
             I build fast, responsive, and user-friendly web applications
             with a strong focus on performance, clean UI, and smooth user experiences.
-          </motion.p>
+          </motion.article>
 
           <motion.button
             aria-label="Contact Kapil Adhikari"
             title="Contact Kapil Adhikari"
             className="px-4 py-2 font-semibold bg-linear-to-r from-pink-500 to-orange-500 text-white rounded-lg flex items-center gap-2 active:scale-95 cursor-pointer active:bg-transparent transition-[scale] duration-300 border-2 border-[#F83C90] transform-gpu will-change-transform font-instrumentSans"
-            variants={fadeInLeft}
+            variants={fadeUp}
             viewport={{ once: true }}
             onClick={() => handleClick("mailto:adhikarikapil389@gmail.com")}
           >
@@ -84,16 +85,13 @@ function About() {
         {/* RIGHT SIDE */}
         <motion.div
           className="flex items-center justify-center w-full md:w-[50%] md:justify-start p-2 max-w-3xl transform-gpu will-change-transform"
-          variants={Container}
+          variants={fadeIn}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.4 }}
         >
 
-          <motion.div
-            className="relative w-[90%] sm:w-[80%] bg-cover bg-center h-fit rounded-4xl"
-            variants={fadeInRight}
-            viewport={{ once: true }}>
+          <div className="relative bg-cover bg-center h-fit rounded-4xl">
 
             {/* Liquid glass card */}
             <div
@@ -114,7 +112,7 @@ function About() {
                 </li>
               </ul>
             </div>
-          </motion.div>
+          </div>
 
         </motion.div>
 

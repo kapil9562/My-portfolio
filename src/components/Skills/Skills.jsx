@@ -1,6 +1,6 @@
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useId } from "react";
 import { motion } from "framer-motion";
-import { fadeInLeft, fadeInRight, Container, fadeIn, springUp } from "/src/animation";
+import { Container, fadeIn, springUp } from "/src/animation";
 
 
 const rows = [5, 4, 2, 1];
@@ -21,96 +21,156 @@ const logos = {
 };
 
 const skills = [
-  { label: "Teamwork", percent: 85 },
-  { label: "Creativity", percent: 95 },
-  { label: "Project Management", percent: 90 },
-  { label: "Communication", percent: 80 },
+  { label: "Teamwork", percent: 85, sc: "#f0426a", ec: "#ff7849" },
+  { label: "Creativity", percent: 95, sc: "#a78bfa", ec: "#f0426a" },
+  { label: "Project Management", percent: 90, sc: "#22d3ee", ec: "#a78bfa" },
+  { label: "Communication", percent: 80, sc: "#4ade80", ec: "#22d3ee" },
 ];
 
-const SegmentedCircle = ({ percent, label, segments = 90 }) => {
+
+const SegmentedCircle = ({ percent, label, sc, ec }) => {
   const [animatedPercent, setAnimatedPercent] = useState(0);
+
   const containerRef = useRef(null);
+  const hasAnimated = useRef(false);
+
+  const gradientId = useId();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting) {
+        if (entry.isIntersecting && !hasAnimated.current) {
+          hasAnimated.current = true;
+
           animateCircle();
+
+          observer.disconnect();
         }
       },
-      { threshold: 0.5 }
+      {
+        threshold: 0.5,
+      }
     );
 
-    if (containerRef.current) observer.observe(containerRef.current);
+    if (containerRef.current) {
+      observer.observe(containerRef.current);
+    }
+
     return () => observer.disconnect();
-  }, []);
+  }, [percent]);
 
   const animateCircle = () => {
     const duration = 1200;
     const start = performance.now();
 
     const animate = (time) => {
-      const progress = Math.min((time - start) / duration, 1);
+      const progress = Math.min(
+        (time - start) / duration,
+        1
+      );
+
       setAnimatedPercent(progress * percent);
 
-      if (progress < 1) requestAnimationFrame(animate);
+      if (progress < 1) {
+        requestAnimationFrame(animate);
+      }
     };
 
     requestAnimationFrame(animate);
   };
 
-  const activeSegments = Math.round((animatedPercent / 100) * segments);
-  const radius = 45;
-  const center = 50;
+  const radius = 46;
+  const circumference = 2 * Math.PI * radius;
 
-  const renderSegments = () => {
-    const angleStep = (2 * Math.PI) / segments;
-    return [...Array(segments)].map((_, i) => {
-      const angle = i * angleStep - Math.PI / 2;
-
-      const x1 = center + radius * Math.cos(angle);
-      const y1 = center + radius * Math.sin(angle);
-
-      const x2 = center + (radius - 12) * Math.cos(angle);
-      const y2 = center + (radius - 12) * Math.sin(angle);
-
-      return (
-        <line
-          key={i}
-          x1={x1}
-          y1={y1}
-          x2={x2}
-          y2={y2}
-          stroke={i < activeSegments ? "#22d3ee" : "#444"}
-          strokeWidth="2"
-          strokeLinecap="round"
-        />
-      );
-    });
-  };
+  const strokeDashoffset =
+    circumference -
+    (animatedPercent / 100) * circumference;
 
   return (
-    <div ref={containerRef} className="flex flex-col items-center py-2">
-      <svg viewBox="0 0 100 100" className="xl:w-50 xl:h-50 md:w-45 md:h-45 h-35 w-35">
-        {renderSegments()}
+    <div
+      ref={containerRef}
+      className="flex flex-col items-center"
+    >
+      <svg
+        viewBox="0 0 110 110"
+        className="h-35 w-35 md:h-45 md:w-45 xl:h-50 xl:w-50"
+      >
+        <defs>
+          <linearGradient
+            id={gradientId}
+            x1="0%"
+            y1="0%"
+            x2="100%"
+            y2="0%"
+          >
+            <stop offset="0%" stopColor={sc} />
+            <stop offset="100%" stopColor={ec} />
+          </linearGradient>
+        </defs>
 
+        {/* Background */}
+        <circle
+          cx="55"
+          cy="55"
+          r={radius}
+          fill="none"
+          stroke="rgba(255,255,255,.06)"
+          strokeWidth="13"
+        />
+
+        {/* Glow / Track */}
+        <circle
+          cx="55"
+          cy="55"
+          r={radius}
+          fill="none"
+          stroke={`url(#${gradientId})`}
+          strokeWidth="13"
+          strokeLinecap="round"
+          strokeDasharray={circumference}
+          strokeDashoffset={
+            circumference -
+            (percent / 100) * circumference
+          }
+          opacity="0.15"
+          transform="rotate(-90 55 55)"
+        />
+
+        {/* Animated Progress */}
+        <circle
+          cx="55"
+          cy="55"
+          r={radius}
+          fill="none"
+          stroke={`url(#${gradientId})`}
+          strokeWidth="13"
+          strokeLinecap="round"
+          strokeDasharray={circumference}
+          strokeDashoffset={strokeDashoffset}
+          transform="rotate(-90 55 55)"
+        />
+
+        {/* Percentage */}
         <text
-          x="50%"
-          y="50%"
+          x="55"
+          y="55"
           textAnchor="middle"
           dy=".3em"
-          className="fill-[#e5e7eb] text-[12px] font-bold font-bricolage"
+          fill={`url(#${gradientId})`}
+          className="text-base font-bold font-bricolage"
         >
           {Math.round(animatedPercent)}%
         </text>
       </svg>
 
-      <p className="text-gray-400 md:text-xl font-semibold mt-2 text-center font-instrumentSans tracking-wide">
+      <p className="mt-2 text-center font-instrumentSans text-gray-400 font-semibold tracking-wide md:text-xl">
         {label}
       </p>
     </div>
   );
 };
+
+
 
 export default function Skills() {
 
@@ -118,30 +178,39 @@ export default function Skills() {
   let index = 0;
 
   return (
-    <div className="sm:px-10 sm:space-y-10 py-5 min-h-[calc(100dvh-84px)]">
+    <div className="sm:px-10 sm:space-y-10 py-15">
 
       {/* HEADER */}
       <div className="flex flex-col items-center space-y-4">
 
+        <motion.span
+          variants={springUp}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          className="text-base tracking-wider uppercase bg-linear-to-r from-pink-500 to-orange-500 bg-clip-text text-transparent font-bricolage"
+        >
+         technical skills
+        </motion.span>
         <motion.h4
-          className="md:text-6xl sm:text-4xl text-3xl underline w-full flex justify-center items-center font-bold bg-linear-to-r from-pink-500 to-orange-500 bg-clip-text text-transparent transform-gpu will-change-transform text-center pb-4 underline-offset-4 decoration-2 font-bricolage"
-          variants={fadeInLeft}
+          className="md:text-6xl sm:text-4xl text-3xl w-full flex justify-center items-center font-bold bg-linear-to-r from-pink-500 to-orange-500 bg-clip-text text-transparent transform-gpu will-change-transform pb-2 underline-offset-4 decoration-2 font-bricolage relative gap-2 mt-2"
+          variants={springUp}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
         >
-          Technical Skills
+          <span className="text-[#f1f1f5]">My</span> Toolkit
+          <div className="absolute top-full bg-linear-to-r from-pink-500 to-orange-500 h-1 w-15 rounded-r-full rounded-l-full" />
         </motion.h4>
 
         <motion.p
           className="xl:px-60 text-center text-sm sm:text-[18px] text-[#b3b3b3] tracking-wide px-10 transform-gpu will-change-transform font-instrumentSans font-medium"
-          variants={fadeInRight}
+          variants={fadeIn}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
         >
-          I specialize in designing and developing responsive, user-friendly
-          web and mobile interfaces.
+          Technologies I use to build responsive, performant, and user-friendly products.
         </motion.p>
 
       </div>
@@ -187,15 +256,25 @@ export default function Skills() {
       {/* PROFESSIONAL SKILLS */}
       <div className="py-10 text-center lg:px-20 space-y-10">
 
-        <motion.h1
-          className="md:text-6xl sm:text-4xl text-3xl underline w-full flex justify-center items-center font-bold bg-linear-to-r from-pink-500 to-orange-500 bg-clip-text text-transparent transform-gpu will-change-transform pb-4 underline-offset-4 decoration-2 font-bricolage"
+        <motion.span
+          variants={springUp}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true }}
+          className="text-base tracking-wider uppercase bg-linear-to-r from-pink-500 to-orange-500 bg-clip-text text-transparent font-bricolage"
+        >
+          professional skills
+        </motion.span>
+        <motion.h4
+          className="md:text-6xl sm:text-4xl text-3xl w-full flex justify-center items-center font-bold bg-linear-to-r from-pink-500 to-orange-500 bg-clip-text text-transparent transform-gpu will-change-transform pb-2 underline-offset-4 decoration-2 font-bricolage relative gap-2 mt-2"
           variants={springUp}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true }}
         >
-          Professional Skills
-        </motion.h1>
+          <span className="text-[#f1f1f5]">Soft</span> Skills
+          <div className="absolute top-full bg-linear-to-r from-pink-500 to-orange-500 h-1 w-15 rounded-r-full rounded-l-full" />
+        </motion.h4>
 
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-6">
           {skills.map((skill, idx) => (

@@ -11,11 +11,15 @@ import { motion, AnimatePresence, LayoutGroup } from "framer-motion";
 import { useEffect, useState } from 'react'
 import { ReactLenis } from "lenis/react";
 import { Helmet } from "react-helmet-async";
+import ParticleCanvas from './utils/ParticleCanvas'
+import { BiSolidComment } from "react-icons/bi";
+import ScrollToTop from './utils/ScrollToTop'
 
 function App() {
 
   const [showIntro, setShowIntro] = useState(true);
   const [showContent, setShowContent] = useState(false);
+  const message = encodeURIComponent("Hi Kapil,\n\nI saw your portfolio and would like to connect with you.")
 
   useEffect(() => {
 
@@ -66,6 +70,7 @@ function App() {
           content="Kapil Adhikari, MERN Developer, React Developer"
         />
       </Helmet>
+
       <LayoutGroup id="layout">
         <FluidCursor />
         <ReactLenis
@@ -74,8 +79,9 @@ function App() {
             smoothWheel: true,
             anchors: true,
           }}
-          className='h-dvh overflow-y-auto overflow-x-hidden relative custom-scroll'
+          className='h-dvh overflow-y-auto overflow-x-hidden relative'
         >
+          <ParticleCanvas />
           <AnimatePresence >
             {showIntro && (
               <motion.div
@@ -173,6 +179,21 @@ function App() {
                   <Projects />
                 </section>
               </main>
+
+              <div className='fixed bottom-6 right-8 z-50 flex flex-col gap-4 items-center'>
+                <ScrollToTop />
+
+                <button
+                  title='contact with me'
+                  aria-label='contact with me'
+                  onClick={() => {
+                    window.open(`https://wa.me/8791029562?text=${message}`, "_blank");
+                  }}
+                  className='bg-[#f0426a] p-4 rounded-full hover:scale-110 duration-300 cursor-pointer! relative z-50'
+                >
+                  <BiSolidComment size={25} className='pointer-events-none' />
+                </button>
+              </div>
 
               <Footer showContent={showContent} />
             </motion.div>

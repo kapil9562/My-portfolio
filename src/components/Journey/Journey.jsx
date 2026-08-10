@@ -46,21 +46,30 @@ const Journey = () => {
         <section
             id="journey"
             aria-label="Education and career journey"
-            className="flex flex-col md:flex-row pb-5 min-h-[calc(100dvh-84px)]">
+            className="flex flex-col md:flex-row py-15"
+        >
             <div className="flex flex-col justify-center items-center w-full">
 
                 {/* Header */}
-                <motion.div
-                    className="mb-16 will-change-transform transform-gpu"
+                <motion.span
                     variants={springUp}
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ once: true, amount: 0.4 }}
+                    viewport={{ once: true }}
+                    className="text-base tracking-wider uppercase bg-linear-to-r from-pink-500 to-orange-500 bg-clip-text text-transparent font-bricolage"
                 >
-                    <h3 className="md:text-6xl text-5xl underline w-fit flex justify-center items-center font-bold bg-linear-to-r from-pink-500 to-orange-500 bg-clip-text text-transparent pb-4 underline-offset-4 decoration-2 font-bricolage">
-                        JOURNEY
-                    </h3>
-                </motion.div>
+                    my journey
+                </motion.span>
+                <motion.h3
+                    className="md:text-6xl sm:text-4xl text-3xl w-full flex justify-center items-center font-bold bg-linear-to-r from-pink-500 to-orange-500 bg-clip-text text-transparent transform-gpu will-change-transform pb-2 decoration-2 font-bricolage relative gap-2 mt-2 mb-16"
+                    variants={springUp}
+                    initial="hidden"
+                    whileInView="show"
+                    viewport={{ once: true }}
+                >
+                    <span className="text-[#f1f1f5]">The</span> Timeline
+                    <div className="absolute top-full bg-linear-to-r from-pink-500 to-orange-500 h-1 w-15 rounded-r-full rounded-l-full" />
+                </motion.h3>
 
                 {/* Timeline Container */}
                 <div className="relative mx-auto w-full">
@@ -85,11 +94,11 @@ const Journey = () => {
 
                                 {/* The Center Dot */}
                                 {item.id !== 1 ?
-                                    <div className="absolute sm:left-1/2 left-10 transform -translate-x-1/2 flex items-center justify-center shadow-sm z-10">
+                                    <div className="absolute sm:left-1/2 left-10 transform -translate-x-1/2 flex items-center justify-center z-10">
                                         <div className={`w-5 h-5 rounded-full bg-green-500`}></div>
                                     </div>
                                     :
-                                    <div className="absolute sm:left-1/2 left-10 transform -translate-x-1/2 flex items-center justify-center shadow-sm z-10">
+                                    <div className="absolute sm:left-1/2 left-10 transform -translate-x-1/2 flex items-center justify-center z-10">
                                         <Lottie animationData={Pointer} loop={true} className='h-15 w-15' />
                                     </div>
                                 }

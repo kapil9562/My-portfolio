@@ -1,10 +1,11 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { motion } from "framer-motion";
-import { fadeInLeft, fadeInRight, Container, fadeIn } from "/src/animation";
+import { Container, fadeIn } from "/src/animation";
 import projects from '/src/data/data.js';
 import { FaRocket } from "react-icons/fa";
 import { FaRotate } from "react-icons/fa6";
 import { FaArrowUpRightFromSquare } from "react-icons/fa6";
+import { springUp } from '../../animation';
 
 function Projects() {
 
@@ -27,24 +28,34 @@ function Projects() {
 
   return (
     <>
-      <div className='transform-gpu min-h-dvh md:px-5 xl:px-20 pb-10'>
+      <div className='transform-gpu md:px-5 xl:px-20 py-15'>
 
         {/* Heading Section */}
         <div className='justify-self-center items-center flex flex-col space-y-4 px-10'>
 
-          <motion.h2
-            className='md:text-6xl text-4xl underline w-fit flex justify-center pb-4 underline-offset-4 decoration-2 items-center font-bold bg-linear-to-r from-pink-500 to-orange-500 bg-clip-text text-transparent transform-gpu will-change-transform font-bricolage'
-            variants={fadeInLeft}
+          <motion.span
+            variants={springUp}
             initial="hidden"
             whileInView="show"
-            viewport={{ once: true, amount: 0.4 }}
+            viewport={{ once: true }}
+            className="text-base tracking-wider uppercase bg-linear-to-r from-pink-500 to-orange-500 bg-clip-text text-transparent font-bricolage"
           >
-            My Projects
+            my projects
+          </motion.span>
+          <motion.h2
+            className="md:text-6xl sm:text-4xl text-3xl w-full flex justify-center items-center font-bold bg-linear-to-r from-pink-500 to-orange-500 bg-clip-text text-transparent transform-gpu will-change-transform pb-2 underline-offset-4 decoration-2 font-bricolage relative gap-2 mt-2"
+            variants={springUp}
+            initial="hidden"
+            whileInView="show"
+            viewport={{ once: true }}
+          >
+            <span className="text-[#f1f1f5]">Things I've</span> Built
+            <div className="absolute top-full bg-linear-to-r from-pink-500 to-orange-500 h-1 w-15 rounded-r-full rounded-l-full" />
           </motion.h2>
 
           <motion.p
             className='xl:px-60 text-sm sm:text-[18px] text-center text-[#b3b3b3] font-medium sm:px-10 font-instrumentSans tracking-wide'
-            variants={fadeInRight}
+            variants={fadeIn}
             initial="hidden"
             whileInView="show"
             viewport={{ once: true, amount: 0.4 }}

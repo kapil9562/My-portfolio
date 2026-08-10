@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { FaGithub, FaInstagram, FaLinkedin } from "react-icons/fa";
+import { FiDownload } from "react-icons/fi";
 import { useLocation } from "react-router-dom";
 
 const Footer = ({ showContent }) => {
@@ -57,8 +58,8 @@ const Footer = ({ showContent }) => {
   }, [showContent]);
 
   return (
-    <footer className="text-white shadow-2xl flex flex-col justify-center items-center z-88 relative border-t border-[#FFFFFF30]  bg-[url('/footer.webp')]">
-      <div className="relative z-95 backdrop-blur-2xl pb-20 w-full">
+    <footer className="text-white shadow-2xl flex flex-col justify-center items-center z-40 relative border-t border-[#FFFFFF30]  bg-[url('/footer.webp')]">
+      <div className="relative z-40 backdrop-blur-2xl pb-20 w-full">
         <div className="w-full grid grid-cols-2 sm:grid-cols-3 gap-10 sm:text-left py-10 px-5 md:px-20">
 
           {/* Contact Info */}
@@ -117,12 +118,15 @@ const Footer = ({ showContent }) => {
                 ))}
               </div>
             </div>
-            <a
-              href='./resume.pdf' download="resume.pdf"
-              className="bg-linear-to-b from-pink-500 to-orange-500 text-white inline-block px-4 py-2 rounded-lg shadow-lg shadow-white/20 w-fit cursor-pointer active:scale-95 transition-transform duration-300 will-change-transform font-instrumentSans font-medium tracking-wide"
+            <button
+              href="/resume.pdf" download
+              aria-label="Get Kapil Adhikari CV"
+              title="Get Kapil Adhikari CV"
+              className="bg-linear-to-b from-pink-500 to-orange-500 text-white px-4 py-2 rounded-lg shadow-lg shadow-white/20 w-fit cursor-pointer active:scale-95 transition-transform duration-300 will-change-transform font-instrumentSans font-medium tracking-wide flex gap-2 items-center"
             >
+              <FiDownload />
               <span>Download CV</span>
-            </a>
+            </button>
           </div>
 
         </div>

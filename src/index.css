@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+* {
+  cursor: url("/cursor.webp") 0 0, auto;
+}
+
 body {
   overflow-x: hidden;
   background: #000;
@@ -13,17 +17,22 @@ html {
   scroll-behavior: smooth;
 }
 
+::-webkit-scrollbar {
+  width: 4px
+}
+
+::-webkit-scrollbar-track {
+  background: #050508
+}
+
+::-webkit-scrollbar-thumb {
+  background: #f0426a;
+  border-radius: 2px
+}
+
 canvas {
   touch-action: none;
   display: block;
-}
-
-.custom-scroll {
-  scrollbar-gutter: stable;
-  scrollbar-width: thin;
-  /* for Firefox */
-  scrollbar-color: #ee6110 transparent;
-  /* fallback for Firefox */
 }
 
 
@@ -242,4 +251,9 @@ select:-webkit-autofill {
 @theme {
   --font-bricolage: "Bricolage_Grotesque", sans-serif;
   --font-instrumentSans: "InstrumentSans", sans-serif;
+}
+
+::selection {
+  background-color: #f0426a;
+  color: #FFF;
 }

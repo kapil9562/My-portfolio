@@ -57,7 +57,7 @@ function Header({ showIntro, showContent }) {
 
   return (
     <header className='sticky w-full z-99 top-0'>
-      <nav className='flex-row flex justify-between h-15 md:h-21 px-5 py-2 lg:px-20 xl:px-50 sm:py-2 items-center bg-black/30  backdrop-blur-md'>
+      <nav className='flex-row flex justify-between h-15 md:h-21 px-5 lg:px-20 xl:px-50 py-2 sm:py-2 items-center bg-black/30  backdrop-blur-md'>
         {!showIntro && (
           <>
             <Link to="/#home">
@@ -85,9 +85,7 @@ function Header({ showIntro, showContent }) {
                   <motion.div key={index} variants={fadeInUp}>
                     <a
                       href={path}
-                      className={
-                        `${isActiveSec === path.replace("/", "") ? 'underline underline-offset-4 text-orange-500' : 'relative inline-block after:absolute after:left-0 after:bottom-0 after:h-0.5 after:bg-orange-500 after:w-0 after:transition-all after:duration-500 hover:after:w-full hover:text-orange-500'} text-[#F5EBFA] font-instrumentSans tracking-wide capitalize`
-                      }
+                      className={`relative inline-block font-instrumentSans tracking-wide capitalize text-[#F5EBFA] after:absolute after:left-0 after:bottom-0 after:h-0.5 after:bg-orange-500 after:transition-all after:duration-500 ${isActiveSec === path.replace("/", "") ? "text-orange-500 after:w-full" : "after:w-0 hover:text-orange-500 hover:after:w-full"}`}
                     >
                       {path.replace("/#", "")}
                     </a>

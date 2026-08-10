@@ -1,12 +1,12 @@
-import React, { useState } from "react";
 import { ReactTyped } from "react-typed";
 import { motion } from "framer-motion";
 import {
-  fadeInLeft,
-  fadeInRight,
   Container
 } from "/src/animation";
 import { FaGithub, FaInstagram, FaLinkedin } from "react-icons/fa";
+import { fadeUp } from "../../animation";
+import { FiDownload } from "react-icons/fi";
+
 function Home() {
 
   const icons = [
@@ -22,11 +22,10 @@ function Home() {
   return (
     <>
       <section id="home" className="flex flex-col md:flex-row pb-5 min-h-[calc(100dvh-84px)]">
-
         {/* IMAGE */}
         <motion.div
           className="flex items-center justify-center w-full md:w-[50%] p-2 transform-gpu"
-          variants={fadeInLeft}
+          variants={fadeUp}
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, amount: 0.4 }}
@@ -60,7 +59,7 @@ function Home() {
           </h1>
           <motion.h2
             className="md:text-5xl text-4xl font-bold text-white transform-gpu font-bricolage"
-            variants={fadeInRight}
+            variants={fadeUp}
             viewport={{ once: true }}
           >
             Hey, I'm{" "}
@@ -71,7 +70,7 @@ function Home() {
 
           <motion.h2
             className="text-2xl font-bold text-white transform-gpu font-bricolage"
-            variants={fadeInRight}
+            variants={fadeUp}
             viewport={{ once: true }}
           >
             I'm{" "}
@@ -90,7 +89,7 @@ function Home() {
 
           <motion.article
             className="text-lg text-gray-400 leading-relaxed w-[90%] transform-gpu font-instrumentSans"
-            variants={fadeInRight}
+            variants={fadeUp}
             viewport={{ once: true }}
           >
             Passionate about creating modern, responsive, and user-friendly
@@ -100,14 +99,13 @@ function Home() {
 
           {/* SOCIAL ICONS */}
           <motion.div
-            variants={Container}
+            variants={fadeUp}
             viewport={{ once: true }}
             className="flex space-x-4 transform-gpu"
           >
             {icons.map((item, idx) => (
-              <motion.div
+              <div
                 key={idx}
-                variants={fadeInRight}
                 onClick={() => handleClick(item.link)}
                 className="transform-gpu"
               >
@@ -120,7 +118,7 @@ function Home() {
                 >
                   {item?.icon}
                 </div>
-              </motion.div>
+              </div>
             ))}
           </motion.div>
 
@@ -131,10 +129,10 @@ function Home() {
             title="Get Kapil Adhikari CV"
             className="transform-gpu px-4 py-2 bg-linear-to-r from-pink-500 to-orange-500 text-white rounded-lg flex items-center gap-2 cursor-pointer transition-[scale] duration-300 active:scale-95 will-change-transform
             border-2 border-[#F83C90] shadow-xl shadow-[#6D4300]/50"
-            variants={fadeInRight}
+            variants={fadeUp}
             viewport={{ once: true }}
           >
-            <i className="fas fa-download"></i>
+            <FiDownload />
 
             <span className="font-instrumentSans">
               Download CV
