@@ -27,7 +27,7 @@ function Projects() {
 
   return (
     <>
-      <div className='transform-gpu min-h-dvh'>
+      <div className='transform-gpu min-h-dvh md:px-5 xl:px-20 pb-10'>
 
         {/* Heading Section */}
         <div className='justify-self-center items-center flex flex-col space-y-4 px-10'>
@@ -57,7 +57,7 @@ function Projects() {
         {/* Projects Grid */}
         <motion.div
           className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 mt-4
-               gap-4 md:gap-8 p-5 justify-items-center md:px-20 sm:px-10 transform-gpu will-change-transform perspective-1000"
+               gap-6 md:gap-8 p-5 justify-items-center md:px-20 sm:px-10 transform-gpu will-change-transform perspective-1000"
           variants={Container}
           initial="hidden"
           whileInView="show"
@@ -70,7 +70,7 @@ function Projects() {
               variants={fadeIn}
               key={idx}
               viewport={{ once: true, amount: 0.4 }}
-              className={`w-full h-fit bg-transparent transform-style-preserve-3d cursor-pointer ${rotate[idx] ? "rotate-y-180" : "rotate-y-0"} transition-transform duration-700 relative transform-gpu will-change-transform`}
+              className={`w-full h-fit bg-transparent transform-style-preserve-3d cursor-pointer ${rotate[idx] ? "rotate-y-180" : "rotate-y-0"} transition-transform duration-700 relative transform-gpu will-change-transform group`}
               onClick={() => openProject(project.live)}
             >
 
@@ -116,55 +116,50 @@ function Projects() {
               </div>
 
               <div
-                className={`card`}
+                className={`card relative p-0!`}
               >
-
-                <div className='w-full flex flex-row justify-between items-start'>
-                  <span className='text-4xl w-fit flex justify-center items-center font-bold bg-linear-to-b from-slate-600 to-slate-100 bg-clip-text text-transparent transform-gpu will-change-transform font-instrumentSans'>{idx < 10 ? "0" + (idx + 1) : (idx + 1)}
-                  </span>
-                  <button
-                    type="button"
-                    aria-label={`Flip ${project.title} card`}
-                    title={`Flip ${project.title} card`}
-                    className='text-gray-400 hover:text-orange-400 font-medium cursor-pointer'
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      toggleRotate(idx);
-                    }}>
-                    <FaRotate className="text-gray-400 hover:text-orange-400 text-lg active:rotate-180 transition-all duration-500" />
-                  </button>
-                </div>
+                <button
+                  type="button"
+                  aria-label={`Flip ${project.title} card`}
+                  title={`Flip ${project.title} card`}
+                  className='text-gray-100 hover:text-orange-400 bg-gray-800/60 lg:group-hover:pointer-events-auto lg:pointer-events-none lg:group-hover:opacity-100 lg:opacity-0 transition-opacity duration-200 p-1 rounded-lg font-medium cursor-pointer absolute top-3 right-3 z-10'
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    toggleRotate(idx);
+                  }}>
+                  <FaRotate className="text-lg active:rotate-180 transition-transform duration-500" />
+                </button>
 
                 {/* rotating border */}
                 <div className="card__border">
                 </div>
 
-                {/* content */}
-                <div className="card_title__container space-y-4">
-                  <h3 className="lg:text-3xl md:text-2xl sm:text-xl text-2xl font-bold text-gray-100 font-bricolage">{project.title}</h3>
-                </div>
-
-                <hr className="line" />
-
                 {/* {img} */}
-                <div className='w-full'>
+                <div className='w-full overflow-hidden rounded-t-2xl'>
                   <img
                     loading="eager"
                     fetchPriority="high"
                     decoding="async"
-                    src={project.image} alt="Thumbnail" className='h-auto w-full object-cover rounded-2xl align-top' />
+                    src={project.image} alt="Thumbnail" className='h-auto w-full object-cover align-top group-hover:scale-110 transition-transform duration-2000' />
                 </div>
 
-                {/* button */}
-                <button
-                  type="button"
-                  aria-label={`Explore ${project.title}`}
-                  title={`Explore ${project.title}`}
-                  className="button border-2 border-pink-400 rounded-l-full rounded-r-full font-semibold flex flex-row justify-center items-center gap-4 font-instrumentSans"
-                >
-                  <FaArrowUpRightFromSquare />
-                  <span>Explore</span>
-                </button>
+                <div className='flex flex-col gap-4 p-4'>
+                  {/* content */}
+                  <div className="card_title__container space-y-4">
+                    <h3 className="md:text-2xl text-xl font-bold text-gray-100 font-bricolage">{project.title}</h3>
+                  </div>
+
+                  {/* button */}
+                  <button
+                    type="button"
+                    aria-label={`Explore ${project.title}`}
+                    title={`Explore ${project.title}`}
+                    className="button border-2 border-pink-400 rounded-l-full rounded-r-full font-semibold flex flex-row justify-center items-center gap-4 font-instrumentSans"
+                  >
+                    <FaArrowUpRightFromSquare />
+                    <span>Explore</span>
+                  </button>
+                </div>
               </div>
             </motion.div>
 

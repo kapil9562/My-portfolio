@@ -74,7 +74,7 @@ function Header({ showIntro, showContent }) {
               />
             </Link>
 
-            <div className='p-1 md:flex flex-row sm:gap-5 md:gap-10 text-lg font-semibold justify-center items-center hidden'>
+            <div className='p-1 md:flex flex-row sm:gap-5 md:gap-10 text-base font-medium justify-center items-center hidden'>
               <motion.div
                 variants={Container}
                 initial="hidden"
@@ -94,11 +94,12 @@ function Header({ showIntro, showContent }) {
                   </motion.div>
                 ))}
               </motion.div>
-              <motion.div className='bg-linear-to-r from-pink-500 to-orange-500 text-white p-1 px-3 rounded-2xl hover:bg-[#8B5E2A] cursor-pointer active:scale-95 transition-[scale] duration-200 border-2 border-orange-600'
+              <motion.div className='transform-gpu px-3 py-1.5 bg-linear-to-r from-pink-500 to-orange-500 text-white rounded-xl flex items-center gap-2 cursor-pointer transition-[scale] duration-300 active:scale-95 will-change-transform
+            border-2 border-[#F83C90] shadow-xl shadow-[#6D4300]/50'
                 variants={fadeInUp}
                 initial="hidden"
                 animate="show">
-                <button title='Contact me' aria-label='Talk with me' onClick={() => openLink("mailto:adhikarikapil389@gmail.com")} className='cursor-pointer font-instrumentSans tracking-wide text-base'>LET'S TALK</button>
+                <button title='Contact me' aria-label='Talk with me' onClick={() => openLink("mailto:adhikarikapil389@gmail.com")} className='cursor-pointer font-instrumentSans tracking-wide text-sm'>LET'S TALK</button>
               </motion.div>
             </div>
             <button aria-label='menu' title='menu' className='hover:bg-[#6D430030] h-12 w-12

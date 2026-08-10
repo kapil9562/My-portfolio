@@ -130,9 +130,6 @@ select:-webkit-autofill {
 
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-
-  padding: 1rem;
   background-color: hsla(240, 15%, 2%, 1);
   background-image: radial-gradient(at 88% 40%,
       hsla(240, 15%, 2%, 1) 0px,
