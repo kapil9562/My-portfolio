@@ -66,6 +66,9 @@ function Header({ showIntro, showContent }) {
                 layout
                 layoutId="logo"
                 src="/KA.webp"
+                loading="eager"
+                fetchPriority="high"
+                decoding="async"
                 alt="logo"
                 className="object-contain h-13 w-13 will-change-transform transform-gpu z-999"
               />

@@ -148,7 +148,11 @@ function Projects() {
 
                 {/* {img} */}
                 <div className='w-full'>
-                  <img src={project.image} alt="Thumbnail" className='h-auto w-full object-cover rounded-2xl align-top' />
+                  <img
+                    loading="eager"
+                    fetchPriority="high"
+                    decoding="async"
+                    src={project.image} alt="Thumbnail" className='h-auto w-full object-cover rounded-2xl align-top' />
                 </div>
 
                 {/* button */}

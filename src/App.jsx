@@ -111,6 +111,9 @@ function App() {
                   <motion.img
                     layout
                     layoutId="logo"
+                    loading="eager"
+                    fetchPriority="high"
+                    decoding="async"
                     src="/KA.webp"
                     className="w-13 h-13 object-contain will-change-transform transform-gpu"
                     initial={{ scale: 5 }}
