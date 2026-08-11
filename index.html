@@ -1,13 +1,18 @@
 <!doctype html>
+
 <html lang="en">
 
 <head>
   <meta charset="UTF-8" />
-  
+
+  <!-- Google Search Console -->
+
   <meta name="google-site-verification" content="8cy0itKRWA4W7sXh2lRQRKyPKcshveJ7WSb-DVnOd-g" />
 
-  <!-- GOOGLE ANALYTICS -->
+  <!-- Google Analytics -->
+
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-HLSFCSDXL6"></script>
+
   <script>
     window.dataLayer = window.dataLayer || [];
 
@@ -15,18 +20,16 @@
       dataLayer.push(arguments);
     }
 
-    gtag('js', new Date());
-    gtag('config', 'G-HLSFCSDXL6');
+    gtag("js", new Date());
+    gtag("config", "G-HLSFCSDXL6");
   </script>
 
-  <!-- PRIMARY META -->
+  <!-- Primary SEO -->
+
   <title>Kapil Adhikari | Full Stack Developer</title>
 
   <meta name="description"
     content="Kapil Adhikari is a Full Stack Developer specializing in React.js, Node.js, Express.js, MongoDB, and modern responsive web applications." />
-
-  <meta name="keywords"
-    content="Kapil Adhikari, Full Stack Developer, MERN Stack Developer, React Developer, Node.js Developer, Portfolio Website" />
 
   <meta name="author" content="Kapil Adhikari" />
 
@@ -36,22 +39,31 @@
 
   <meta name="theme-color" content="#0f172a" />
 
-  <!-- CANONICAL -->
-  <link rel="canonical" href="https://kapil-adhikari.onrender.com" />
+  <!-- Canonical -->
 
-  <!-- FAVICON -->
+  <link rel="canonical" href="https://kapil-adhikari.onrender.com/" />
+
+  <!-- Favicon -->
+
   <link rel="icon" type="image/webp" href="/favicon.webp" />
-
   <link rel="apple-touch-icon" href="/favicon.webp" />
 
-  <!-- PRELOAD IMPORTANT IMAGES -->
-  <link rel="preload" as="image" href="/pfp.webp" fetchpriority="high" />
+  <!-- Critical Images -->
+
   <link rel="preload" as="image" href="/KA.webp" fetchpriority="high" />
 
+  <!-- Only preload PFP if it is the LCP/above-the-fold image -->
+
+  <link rel="preload" as="image" href="/pfp.webp" fetchpriority="high" />
+
+  <!-- Critical Fonts -->
+
   <link rel="preload" href="/fonts/BricolageGrotesque-ExtraBold.woff2" as="font" type="font/woff2" crossorigin />
+
   <link rel="preload" href="/fonts/InstrumentSans-Medium.woff2" as="font" type="font/woff2" crossorigin />
 
-  <!-- OPEN GRAPH -->
+  <!-- Open Graph -->
+
   <meta property="og:type" content="website" />
 
   <meta property="og:title" content="Kapil Adhikari | Full Stack Developer" />
@@ -59,47 +71,62 @@
   <meta property="og:description"
     content="Portfolio of Kapil Adhikari showcasing modern React.js, Node.js, and MERN stack projects." />
 
-  <meta property="og:url" content="https://kapil-adhikari.onrender.com" />
+  <meta property="og:url" content="https://kapil-adhikari.onrender.com/" />
 
-  <meta property="og:image" content="https://kapil-adhikari.onrender.com/preview.webp" />
+  <meta property="og:image" content="https://kapil-adhikari.onrender.com/portfolio.webp" />
 
-  <meta property="og:site_name" content="Kapil Adhikari Portfolio" />
+  <meta property="og:site_name" content="Kapil Adhikari" />
 
-  <!-- TWITTER -->
+  <!-- Twitter / X -->
+
   <meta name="twitter:card" content="summary_large_image" />
 
   <meta name="twitter:title" content="Kapil Adhikari | Full Stack Developer" />
 
   <meta name="twitter:description" content="Portfolio website of Kapil Adhikari - Full Stack Developer." />
 
-  <meta name="twitter:image" content="https://kapil-adhikari.onrender.com/preview.png" />
+  <meta name="twitter:image" content="https://kapil-adhikari.onrender.com/portfolio.webp" />
 
-  <!-- STRUCTURED DATA -->
+  <!-- Structured Data: Website -->
+
   <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "Kapil Adhikari",
-  "url": "https://kapil-adhikari.onrender.com",
-  "image": "https://kapil-adhikari.onrender.com/pfp.webp",
-  "jobTitle": "Full Stack Developer",
-  "sameAs": [
-    "https://github.com/kapil9562",
-    "https://www.linkedin.com/in/kapil-adhikari9562",
-    "https://www.instagram.com/the_nameiskapil"
-  ],
-  "knowsAbout": [
-    "React.js",
-    "Node.js",
-    "Express.js",
-    "MongoDB",
-    "JavaScript",
-    "MERN Stack",
-    "Frontend Development",
-    "Backend Development"
-  ]
-}
-</script>
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Kapil Adhikari",
+    "alternateName": "Kapil Adhikari Portfolio",
+    "url": "https://kapil-adhikari.onrender.com/"
+  }
+  </script>
+
+  <!-- Structured Data: Person -->
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "@id": "https://kapil-adhikari.onrender.com/#kapil-adhikari",
+    "name": "Kapil Adhikari",
+    "url": "https://kapil-adhikari.onrender.com/",
+    "image": "https://kapil-adhikari.onrender.com/pfp.webp",
+    "jobTitle": "Full Stack Developer",
+    "sameAs": [
+      "https://github.com/kapil9562",
+      "https://www.linkedin.com/in/kapil-adhikari9562",
+      "https://www.instagram.com/the_nameiskapil"
+    ],
+    "knowsAbout": [
+      "React.js",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "JavaScript",
+      "MERN Stack",
+      "Frontend Development",
+      "Backend Development"
+    ]
+  }
+  </script>
 
 </head>
 
@@ -107,6 +134,7 @@
   <div id="root"></div>
 
   <script type="module" src="/src/main.jsx"></script>
+
 </body>
 
 </html>
