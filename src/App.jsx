@@ -123,6 +123,10 @@ function App() {
                     src="/KA.webp"
                     className="w-13 h-13 object-contain will-change-transform transform-gpu"
                     initial={{ scale: 5 }}
+                    transition={{
+                      duration: 1.2,
+                      ease: [0.16, 1, 0.3, 1],
+                    }}
                   />
 
                   {/* Right letters */}

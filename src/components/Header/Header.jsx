@@ -62,7 +62,6 @@ function Header({ showIntro, showContent }) {
           <>
             <Link to="/#home">
               <motion.img
-                transition={{ duration: 0.7 }}
                 layout
                 layoutId="logo"
                 src="/KA.webp"
@@ -71,6 +70,10 @@ function Header({ showIntro, showContent }) {
                 decoding="async"
                 alt="logo"
                 className="object-contain h-13 w-13 will-change-transform transform-gpu z-999"
+                transition={{
+                  duration: 1,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
               />
             </Link>
 

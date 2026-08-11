@@ -11,7 +11,7 @@ function Home() {
 
   const icons = [
     { icon: <FaGithub size={28} />, link: "https://github.com/kapil9562" },
-    { icon: <FaInstagram size={28} />, link: "https://www.instagram.com/kapil_art_official" },
+    { icon: <FaInstagram size={28} />, link: "https://www.instagram.com/the_nameiskapil" },
     { icon: <FaLinkedin size={28} />, link: "https://www.linkedin.com/in/kapil-adhikari9562" }
   ];
 
