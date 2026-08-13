@@ -59,7 +59,7 @@ const Footer = ({ showContent }) => {
 
   return (
     <footer className="text-white shadow-2xl flex flex-col justify-center items-center z-40 relative border-t border-[#FFFFFF30]  bg-[url('/footer.webp')]">
-      <div className="relative z-40 backdrop-blur-2xl pb-20 w-full">
+      <div className="relative z-40 backdrop-blur-2xl pb-10 w-full">
         <div className="w-full grid grid-cols-2 sm:grid-cols-3 gap-10 sm:text-left py-10 px-5 md:px-20">
 
           {/* Contact Info */}
@@ -122,7 +122,7 @@ const Footer = ({ showContent }) => {
               href="/resume.pdf" download
               aria-label="Get Kapil Adhikari CV"
               title="Get Kapil Adhikari CV"
-              className="bg-linear-to-b from-pink-500 to-orange-500 text-white px-4 py-2 rounded-lg shadow-lg shadow-white/20 w-fit cursor-pointer active:scale-95 transition-transform duration-300 will-change-transform font-instrumentSans font-medium tracking-wide flex gap-2 items-center"
+              className="bg-linear-to-b from-pink-500 to-orange-500 text-white px-4 py-2 rounded-lg shadow-lg shadow-white/20 w-fit cursor-pointer active:scale-95 transition-transform duration-300 will-change-transform font-instrumentSans font-medium tracking-wide flex gap-2 items-center whitespace-nowrap"
             >
               <FiDownload />
               <span>Download CV</span>

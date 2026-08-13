@@ -112,7 +112,7 @@ const ParticleCanvas = () => {
   return (
     <canvas
       ref={canvasRef}
-      className="fixed inset-0 -z-10 pointer-events-none opacity-[.45] bg-[radial-gradient(ellipse_70%_55%_at_15%_50%,rgba(240,66,106,0.2)_0%,transparent_65%),radial-gradient(ellipse_50%_40%_at_85%_30%,rgba(167,139,250,0.2)_0%,transparent_60%)]"
+      className="fixed inset-0 -z-10 pointer-events-none opacity-65 bg-[radial-gradient(ellipse_70%_55%_at_15%_50%,rgba(240,66,106,0.1)_0%,transparent_65%),radial-gradient(ellipse_50%_40%_at_85%_30%,rgba(167,139,250,0.1)_0%,transparent_60%)]"
     />
   );
 };

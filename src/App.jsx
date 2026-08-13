@@ -71,17 +71,20 @@ function App() {
         />
       </Helmet>
 
-      <LayoutGroup id="layout">
-        <FluidCursor />
-        <ReactLenis
-          options={{
-            duration: 1.5,
-            smoothWheel: true,
-            anchors: true,
-          }}
-          className='h-dvh overflow-y-auto overflow-x-hidden relative'
-        >
-          <ParticleCanvas />
+
+      <FluidCursor />
+      <ReactLenis
+        options={{
+          duration: 1.5,
+          smoothWheel: true,
+          anchors: true,
+        }}
+        className='h-dvh overflow-y-auto overflow-x-hidden relative'
+      >
+
+        <ParticleCanvas />
+
+        <LayoutGroup id="layout">
           <AnimatePresence >
             {showIntro && (
               <motion.div
@@ -121,7 +124,7 @@ function App() {
                     fetchPriority="high"
                     decoding="async"
                     src="/KA.webp"
-                    className="w-13 h-13 object-contain will-change-transform transform-gpu"
+                    className="w-13 h-13 object-contain"
                     initial={{ scale: 5 }}
                     transition={{
                       duration: 1.2,
@@ -156,54 +159,56 @@ function App() {
             )}
           </AnimatePresence>
           <Header showIntro={showIntro} showContent={showContent} />
-          {showContent && (
-            <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8 }}
-            >
-              <main>
-                <section id="home" className='scroll-mt-21'>
-                  <Home />
-                </section>
+        </LayoutGroup>
 
-                <section id="about" className='scroll-mt-21'>
-                  <About />
-                </section>
 
-                <section id="journey" className='scroll-mt-21'>
-                  <Journey />
-                </section>
+        {showContent && (
+          <motion.div
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <main>
+              <section id="home" className='scroll-mt-21'>
+                <Home />
+              </section>
 
-                <section id="skills" className='scroll-mt-21'>
-                  <Skills />
-                </section>
+              <section id="about" className='scroll-mt-21'>
+                <About />
+              </section>
 
-                <section id="projects" className='scroll-mt-21'>
-                  <Projects />
-                </section>
-              </main>
+              <section id="journey" className='scroll-mt-21'>
+                <Journey />
+              </section>
 
-              <div className='fixed bottom-6 right-8 z-50 flex flex-col gap-4 items-center'>
-                <ScrollToTop />
+              <section id="skills" className='scroll-mt-21'>
+                <Skills />
+              </section>
 
-                <button
-                  title='contact with me'
-                  aria-label='contact with me'
-                  onClick={() => {
-                    window.open(`https://wa.me/8791029562?text=${message}`, "_blank");
-                  }}
-                  className='bg-[#f0426a] p-4 rounded-full hover:scale-110 duration-300 cursor-pointer! relative z-50'
-                >
-                  <BiSolidComment size={25} className='pointer-events-none' />
-                </button>
-              </div>
+              <section id="projects" className='scroll-mt-21'>
+                <Projects />
+              </section>
+            </main>
 
-              <Footer showContent={showContent} />
-            </motion.div>
-          )}
-        </ReactLenis>
-      </LayoutGroup>
+            <div className='fixed bottom-6 right-8 z-50 flex flex-col gap-4 items-center'>
+              <ScrollToTop />
+
+              <button
+                title='contact with me'
+                aria-label='contact with me'
+                onClick={() => {
+                  window.open(`https://wa.me/8791029562?text=${message}`, "_blank");
+                }}
+                className='bg-[#f0426a] p-4 rounded-full hover:scale-110 duration-300 cursor-pointer! relative z-50'
+              >
+                <BiSolidComment size={25} className='pointer-events-none' />
+              </button>
+            </div>
+
+            <Footer showContent={showContent} />
+          </motion.div>
+        )}
+      </ReactLenis>
     </>
   )
 }
