@@ -88,7 +88,7 @@ function Home() {
           </motion.h2>
 
           <motion.article
-            className="text-lg text-gray-400 leading-relaxed w-[90%] transform-gpu font-instrumentSans"
+            className="text-lg text-gray-400 leading-relaxed w-[90%] xl:w-[75%] transform-gpu font-instrumentSans"
             variants={fadeUp}
             viewport={{ once: true }}
           >

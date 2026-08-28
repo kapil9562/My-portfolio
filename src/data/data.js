@@ -20,7 +20,7 @@ const projects = [
     id: 2,
     title: "Avenza - Admin Panel",
     description:
-      "Modern e-commerce admin dashboard with product management, order tracking, customer management, and business analytics. Built with React.js, Tailwind CSS, Node.js, Express.js, MongoDB, and Recharts for real-time data visualization and efficient store administration.",
+      "Modern e-commerce admin dashboard with product management, order tracking, customer management, and business analytics. Built with React, Node.js, MongoDB, and Recharts.",
     technologies: ["React", "Tailwind CSS", "Node.js", "Express", "MongoDB"],
     image: "/avenza-admin.webp",
     live: "https://myavenza-admin.onrender.com",
@@ -37,7 +37,7 @@ const projects = [
     id: 3,
     title: "My Portfolio",
     description:
-      "Designed and developed a responsive personal portfolio website to showcase my projects, technical skills, and development journey. Focused on creating a clean UI, smooth user experience, and modern design using React.js and Tailwind CSS.",
+      "Responsive personal portfolio website designed to showcase my projects, technical skills, and development journey. Built with React.js and Tailwind CSS with a clean UI and smooth user experience.",
     technologies: ["React", "Tailwind CSS", "Framer Motion"],
     image: "/portfolio.webp",
     live: "https://kapil-adhikari.onrender.com",
@@ -53,7 +53,7 @@ const projects = [
     id: 4,
     title: "Vehicle Info App",
     description:
-      " A responsive app that fetches and displays detailed vehicle information using registration numbers, ensuring fast access and accurate data presentation.",
+      "Responsive vehicle information app that fetches and displays detailed vehicle data using registration numbers. Built for fast access, accurate information, and a simple user-friendly experience.",
     technologies: ["React", "Tailwind CSS", "Framer Motion"],
     image: "/car.webp",
     live: "https://drive.google.com/uc?export=download&id=1SWCQyHJOCwLOu88HCWVGF_y4JKtGMKKH",

@@ -1,8 +1,5 @@
 "use strict";
 
-// var system = new particleSystem({ canvas_id: "ar-particle-area" });
-// system.start();
-
 const canvas = document.getElementById("fluid-canvas");
 
 canvas.width = canvas.clientWidth;
