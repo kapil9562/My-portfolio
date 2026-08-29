@@ -81,7 +81,7 @@ const projects = [
       "Responsive vehicle information app that fetches and displays detailed vehicle data using registration numbers. Built for fast access, accurate information, and a simple user-friendly experience.",
     technologies: ["React", "Tailwind CSS", "Framer Motion"],
     image: "/car.webp",
-    live: "https://drive.google.com/uc?export=download&id=1SWCQyHJOCwLOu88HCWVGF_y4JKtGMKKH",
+    live: "https://vehicleinfo-app.onrender.com",
     tools: [
       "ReactNative",
       "JavaScript",
