@@ -3,7 +3,7 @@ const projects = [
     id: 1,
     title: "Zenviq – Real-Time Chat App",
     description:
-      "Real-time chat application with secure authentication, one-to-one messaging, online/offline status, unread message tracking, and end-to-end encrypted messages.",
+      "Real-time chat application with secure authentication, private & group messaging, online/offline presence, unread message tracking, and server-side encrypted message storage.",
     technologies: [
       "React",
       "Tailwind CSS",
