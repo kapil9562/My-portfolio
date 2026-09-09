@@ -1,9 +1,9 @@
 const projects = [
   {
     id: 1,
-    title: "Zenviq – Real-Time Chat App",
+    title: "Zenviq – AI-Powered Real-Time Chat App",
     description:
-      "Real-time chat application with secure authentication, private & group messaging, online/offline presence, unread message tracking, and server-side encrypted message storage.",
+      "Real-time chat application with secure authentication, private & group messaging, online/offline presence, unread message tracking, server-side encrypted message storage, and an AI-powered assistant.",
     technologies: [
       "React",
       "Tailwind CSS",
