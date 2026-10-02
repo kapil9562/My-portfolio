@@ -12,11 +12,7 @@ function Projects() {
   const [rotate, setRotate] = useState({});
 
   const openProject = (link) => {
-    if (!link) return;
-    const newWindow = window.open(link, "_blank");
-    if (!newWindow) {
-      window.location.href = link;
-    }
+    window.open(link, "_blank", "noopener,noreferrer");
   };
 
   const toggleRotate = (idx) => {
@@ -68,7 +64,7 @@ function Projects() {
         {/* Projects Grid */}
         <motion.div
           className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 mt-4
-               gap-6 md:gap-8 p-5 justify-items-center md:px-20 sm:px-10 transform-gpu will-change-transform perspective-1000"
+               gap-6 md:gap-8 p-5 justify-items-center lg:px-20 sm:px-10 transform-gpu will-change-transform perspective-1000"
           variants={Container}
           initial="hidden"
           whileInView="show"
@@ -82,19 +78,20 @@ function Projects() {
                 variants={fadeIn}
                 key={idx}
                 viewport={{ once: true, amount: 0.4 }}
-                className="w-full h-fit perspective-distant cursor-pointer bg-transparent group"
+                className="w-full h-full perspective-distant cursor-pointer bg-transparent group"
+                title={project?.title}
               >
                 {/* 3D wrapper */}
                 <div
-                  className={`relative w-full h-fit transition-transform duration-700 ease-in-out transform-3d ${rotate[idx] ? "transform-[rotateY(180deg)]" : "transform-[rotateY(0deg)]"
+                  className={`relative grid h-full w-full transition-transform duration-700 ease-in-out transform-3d ${rotate[idx] ? "transform-[rotateY(180deg)]" : "transform-[rotateY(0deg)]"
                     }`}
                 >
 
                   {/* BACK */}
                   <div
-                    className={`absolute top-0 left-0 z-10 bg-black cursor-pointer h-full w-full flex flex-col justify-between rounded-2xl transition-all duration-300 backface-hidden transform-[rotateY(180deg)] ${rotate[idx] ? "opacity-100" : "opacity-0"
+                    className={`relative [grid-area:1/1] top-0 left-0 z-10 bg-black cursor-pointer h-full w-full flex flex-col justify-between rounded-2xl transition-all duration-300 backface-hidden transform-[rotateY(180deg)] ${rotate[idx] ? "opacity-100" : "opacity-0"
                       }`}
-                    onClick={() => openProject(project.live)}
+                    onClick={() => openProject(project?.live)}
                   >
                     {/* rotating border */}
                     <div className="card__border"></div>
@@ -102,7 +99,7 @@ function Projects() {
                     <div className='bg-black p-4 h-full w-full rounded-2xl flex flex-col justify-between'>
                       <div className="space-y-5">
                         <div className="w-full flex flex-row justify-between items-start">
-                          <FaRocket className="text-orange-700 text-4xl" />
+                          <FaRocket className="text-orange-700 md:text-4xl text-2xl" />
 
                           <button
                             type="button"
@@ -153,7 +150,7 @@ function Projects() {
 
                   {/* FRONT */}
                   <div
-                    className="card relative p-0! backface-hidden"
+                    className="[grid-area:1/1] card relative p-0! backface-hidden"
                     onClick={() => openProject(project.live)}
                   >
 
@@ -189,7 +186,7 @@ function Projects() {
                     {/* content */}
                     <div className="flex flex-col gap-4 p-4">
                       <div className="card_title__container space-y-4">
-                        <h3 className="md:text-2xl text-xl font-bold text-gray-100 font-bricolage">
+                        <h3 className="md:text-2xl text-xl font-bold text-gray-100 font-bricolage line-clamp-1">
                           {project.title}
                         </h3>
                       </div>

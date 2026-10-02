@@ -3,6 +3,8 @@ import { FaGithub, FaInstagram, FaLinkedin } from "react-icons/fa";
 import { FiDownload } from "react-icons/fi";
 import { useLocation } from "react-router-dom";
 
+const tabs = ["/#home", "/#about", "/#journey", "/#skills", "/#projects"];
+
 const Footer = ({ showContent }) => {
 
   const icons = [
@@ -19,17 +21,7 @@ const Footer = ({ showContent }) => {
 
   const location = useLocation();
 
-  const tabs = ["/#home", "/#about", "/#journey", "/#skills", "/#projects"];
-
-  const [isActiveSec, setActiveSec] = useState("");
-
-  useEffect(() => {
-    if (!location.hash) {
-      setActiveSec("#home");
-    } else {
-      setActiveSec(location.hash);
-    }
-  }, [location.hash]);
+  const [isActiveSec, setActiveSec] = useState(location?.hash || "#home");
 
   useEffect(() => {
 
@@ -118,15 +110,15 @@ const Footer = ({ showContent }) => {
                 ))}
               </div>
             </div>
-            <button
-              href="/resume.pdf" download
-              aria-label="Get Kapil Adhikari CV"
-              title="Get Kapil Adhikari CV"
+            <a
+              href="/Kapil_Adhikari_Resume.pdf" download
+              aria-label="Get Kapil Adhikari Resume"
+              title="Get Kapil Adhikari Resume"
               className="bg-linear-to-b from-pink-500 to-orange-500 text-white px-4 py-2 rounded-lg shadow-lg shadow-white/20 w-fit cursor-pointer active:scale-95 transition-transform duration-300 will-change-transform font-instrumentSans font-medium tracking-wide flex gap-2 items-center whitespace-nowrap"
             >
               <FiDownload />
-              <span>Download CV</span>
-            </button>
+              <span>Download Resume</span>
+            </a>
           </div>
 
         </div>

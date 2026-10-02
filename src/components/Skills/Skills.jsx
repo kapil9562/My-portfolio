@@ -37,6 +37,26 @@ const SegmentedCircle = ({ percent, label, sc, ec }) => {
   const gradientId = useId();
 
   useEffect(() => {
+    const animateCircle = (() => {
+      const duration = 1200;
+      const start = performance.now();
+
+      const animate = (time) => {
+        const progress = Math.min(
+          (time - start) / duration,
+          1
+        );
+
+        setAnimatedPercent(progress * percent);
+
+        if (progress < 1) {
+          requestAnimationFrame(animate);
+        }
+      };
+
+      requestAnimationFrame(animate);
+    });
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting && !hasAnimated.current) {
@@ -58,26 +78,6 @@ const SegmentedCircle = ({ percent, label, sc, ec }) => {
 
     return () => observer.disconnect();
   }, [percent]);
-
-  const animateCircle = () => {
-    const duration = 1200;
-    const start = performance.now();
-
-    const animate = (time) => {
-      const progress = Math.min(
-        (time - start) / duration,
-        1
-      );
-
-      setAnimatedPercent(progress * percent);
-
-      if (progress < 1) {
-        requestAnimationFrame(animate);
-      }
-    };
-
-    requestAnimationFrame(animate);
-  };
 
   const radius = 46;
   const circumference = 2 * Math.PI * radius;
@@ -177,6 +177,11 @@ export default function Skills() {
   const logosArray = Object.entries(logos);
   let index = 0;
 
+  const rowIndexes = rows.reduce((indexes, count, index) => {
+    indexes.push(index === 0 ? 0 : indexes[index - 1] + rows[index - 1]);
+    return indexes;
+  }, []);
+
   return (
     <div className="sm:px-10 sm:space-y-10 py-15">
 
@@ -190,7 +195,7 @@ export default function Skills() {
           viewport={{ once: true }}
           className="text-base tracking-wider uppercase bg-linear-to-r from-pink-500 to-orange-500 bg-clip-text text-transparent font-bricolage"
         >
-         technical skills
+          technical skills
         </motion.span>
         <motion.h4
           className="md:text-6xl sm:text-4xl text-3xl w-full flex justify-center items-center font-bold bg-linear-to-r from-pink-500 to-orange-500 bg-clip-text text-transparent transform-gpu will-change-transform pb-2 underline-offset-4 decoration-2 font-bricolage relative gap-2 mt-2"
@@ -220,8 +225,8 @@ export default function Skills() {
 
         <div className="flex flex-col items-center gap-6 w-full">
           {rows.map((count, rowIndex) => {
+            const index = rowIndexes[rowIndex];
             const rowItems = logosArray.slice(index, index + count);
-            index += count;
 
             return (
               <motion.div
@@ -234,7 +239,7 @@ export default function Skills() {
               >
                 {rowItems.map(([name, url], idx) => (
                   <motion.div
-                    className="flex flex-col justify-center items-center transform-gpu will-change-transform"
+                    className="flex flex-col justify-center items-center transform-gpu will-change-transform hover:scale-110 transition-all duration-300"
                     variants={fadeIn}
                     viewport={{ once: true, amount: 0.4 }}
                     key={idx}

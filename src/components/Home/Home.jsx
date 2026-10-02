@@ -123,21 +123,21 @@ function Home() {
           </motion.div>
 
           {/* DOWNLOAD BUTTON */}
-          <motion.button
-            href="/resume.pdf" download
-            aria-label="Get Kapil Adhikari CV"
-            title="Get Kapil Adhikari CV"
+          <motion.a
+            href="/Kapil_Adhikari_Resume.pdf" download
+            aria-label="Get Kapil Adhikari Resume"
+            title="Get Kapil Adhikari Resume"
             className="transform-gpu px-4 py-2 bg-linear-to-r from-pink-500 to-orange-500 text-white rounded-lg flex items-center gap-2 cursor-pointer transition-[scale] duration-300 active:scale-95 will-change-transform
             border-2 border-[#F83C90] shadow-xl shadow-[#6D4300]/50"
             variants={fadeUp}
             viewport={{ once: true }}
           >
-            <FiDownload />
+              <FiDownload />
 
-            <span className="font-instrumentSans">
-              Download CV
-            </span>
-          </motion.button>
+              <span className="font-instrumentSans">
+                Download Resume
+              </span>
+          </motion.a>
 
         </motion.div>
 

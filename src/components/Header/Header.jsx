@@ -1,25 +1,17 @@
-import React, { useEffect, useState } from 'react'
-import { Link, NavLink, useLocation } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { Link, useLocation } from 'react-router-dom'
 import { motion } from "framer-motion";
-import { fadeInLeft, fadeInUp, Container, fadeIn } from "/src/animation";
+import { fadeInUp, Container } from "/src/animation";
+
+const tabs = ["/#home", "/#about", "/#journey", "/#skills", "/#projects"];
 
 function Header({ showIntro, showContent }) {
 
   const location = useLocation();
 
   const [isOpen, setIsOpen] = useState(false);
-  const MotionNavLink = motion.create(NavLink);
-  const tabs = ["/#home", "/#about", "/#journey", "/#skills", "/#projects"];
 
-  const [isActiveSec, setActiveSec] = useState("");
-
-  useEffect(() => {
-    if (!location.hash) {
-      setActiveSec("#home");
-    } else {
-      setActiveSec(location.hash);
-    }
-  }, [location.hash]);
+  const [isActiveSec, setActiveSec] = useState(location?.hash || "#home");
 
   useEffect(() => {
 
