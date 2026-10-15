@@ -5,7 +5,7 @@ import { fadeInUp, Container } from "/src/animation";
 
 const tabs = ["/#home", "/#about", "/#journey", "/#skills", "/#projects"];
 
-function Header({ showIntro, showContent }) {
+function Header({ showIntro, showContent, setIsContactOpen }) {
 
   const location = useLocation();
 
@@ -38,14 +38,6 @@ function Header({ showIntro, showContent }) {
 
     return () => observer.disconnect();
   }, [showContent]);
-
-  const openLink = (link) => {
-    if (!link) return;
-    const newWindow = window.open(link, "_blank");
-    if (!newWindow) {
-      window.location.href = link;
-    }
-  };
 
   return (
     <header className='sticky w-full z-99 top-0'>
@@ -92,7 +84,7 @@ function Header({ showIntro, showContent }) {
                 variants={fadeInUp}
                 initial="hidden"
                 animate="show">
-                <button title='Contact me' aria-label='Talk with me' onClick={() => openLink("mailto:adhikarikapil389@gmail.com")} className='cursor-pointer font-instrumentSans tracking-wide text-sm'>LET'S TALK</button>
+                <button title='Contact me' aria-label='Talk with me' onClick={() => setIsContactOpen(true)} className='cursor-pointer font-instrumentSans tracking-wide text-sm'>LET'S TALK</button>
               </motion.div>
             </div>
             <button aria-label='menu' title='menu' className='hover:bg-[#6D430030] h-12 w-12
@@ -136,7 +128,7 @@ function Header({ showIntro, showContent }) {
 
         ))}
         <div className='w-full px-4  active:bg-black/60 transition-colors duration-150 rounded-xl'>
-          <button title='Contact me' aria-label='Talk with Me' onClick={() => openLink("mailto:adhikarikapil389@gmail.com")} className='w-full h-full text-start font-semibold cursor-pointer pt-2 pb-2 py-1 hover:text-orange-500'>
+          <button title='Contact me' aria-label='Talk with Me' onClick={() => setIsContactOpen(true)} className='w-full h-full text-start font-semibold cursor-pointer pt-2 pb-2 py-1 hover:text-orange-500'>
             LET'S TALK
           </button>
         </div>

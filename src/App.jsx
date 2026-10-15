@@ -14,12 +14,14 @@ import { Helmet } from "react-helmet-async";
 import ParticleCanvas from './utils/ParticleCanvas'
 import { BiSolidComment } from "react-icons/bi";
 import ScrollToTop from './utils/ScrollToTop'
+import { ContactModal } from './modals/ContectModal'
 
 function App() {
 
   const [showIntro, setShowIntro] = useState(true);
   const [showContent, setShowContent] = useState(false);
-  const message = encodeURIComponent("Hi Kapil,\n\nI saw your portfolio and would like to connect with you.")
+  const message = encodeURIComponent("Hi Kapil,\n\nI saw your portfolio and would like to connect with you.");
+  const [isContactOpen, setIsContactOpen] = useState(false);
 
   useEffect(() => {
 
@@ -158,7 +160,7 @@ function App() {
               </motion.div>
             )}
           </AnimatePresence>
-          <Header showIntro={showIntro} showContent={showContent} />
+          <Header showIntro={showIntro} showContent={showContent} setIsContactOpen={setIsContactOpen} />
         </LayoutGroup>
 
 
@@ -174,7 +176,7 @@ function App() {
               </section>
 
               <section id="about" className='scroll-mt-21'>
-                <About />
+                <About setIsContactOpen={setIsContactOpen} />
               </section>
 
               <section id="journey" className='scroll-mt-21'>
@@ -209,6 +211,11 @@ function App() {
           </motion.div>
         )}
       </ReactLenis>
+      
+      <ContactModal
+        isOpen={isContactOpen}
+        onClose={() => setIsContactOpen(false)}
+      />
     </>
   )
 }

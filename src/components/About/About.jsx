@@ -3,12 +3,7 @@ import { motion } from "framer-motion";
 import { Container } from "/src/animation";
 import { fadeIn, fadeUp } from "../../animation";
 
-function About() {
-
-  const handleClick = (url) => {
-    if (!url) return;
-    window.open(url, "_blank", "noopener,noreferrer");
-  };
+function About({setIsContactOpen}) {
 
   return (
     <>
@@ -75,7 +70,7 @@ function About() {
             className="px-4 py-2 font-semibold bg-linear-to-r from-pink-500 to-orange-500 text-white rounded-lg flex items-center gap-2 active:scale-95 cursor-pointer active:bg-transparent transition-[scale] duration-300 border-2 border-[#F83C90] transform-gpu will-change-transform font-instrumentSans"
             variants={fadeUp}
             viewport={{ once: true }}
-            onClick={() => handleClick("mailto:adhikarikapil389@gmail.com")}
+            onClick={() => setIsContactOpen(true)}
           >
             LET'S TALK
           </motion.button>
